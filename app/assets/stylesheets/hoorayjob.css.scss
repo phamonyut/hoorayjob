@@ -2,6 +2,13 @@
 @import "bootstrap-responsive";
 @import 'font-awesome';
 
+@font-face {
+	font-family: 'Lobster';
+	font-style: normal;
+	font-weight: 400;
+	src: url(font-path('Lobster.ttf'));
+}
+
 @media (min-width: 980px) {
 	body {
 		padding-top: 40px;
@@ -10,4 +17,8 @@
 
 .alert {
 	margin-top: 20px;
+}
+
+.brand {
+	font-family: 'Lobster', serif;
 }
