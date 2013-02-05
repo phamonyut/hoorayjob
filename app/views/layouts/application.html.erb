@@ -5,10 +5,30 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= yield(:head) %>
 </head>
 <body>
 
-<%= yield %>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="/" class="brand">HoorayJob</a>
+			</div>
+		</div>
+	</div>
 
-</body>
+	<%= yield(:noncontainer) %>
+	<div class="container">
+		<% flash.each do |name, msg| %>
+			<div id="alert-area">
+				<div class="alert-message alert fade in">
+					<button class="close" data-dismiss="alert" type="button"> &times;</button>
+					<%= msg %>
+				</div>
+			</div>
+		<% end %>
+
+		<%= yield %>
+	</div>
+	</body>
 </html>
