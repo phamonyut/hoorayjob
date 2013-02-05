@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hoorayjob</title>
+  <title>Hoorayjob - the sexy way to discover & subscribe job </title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -21,7 +21,7 @@
 	<div class="container">
 		<% flash.each do |name, msg| %>
 			<div id="alert-area">
-				<div class="alert-message alert fade in">
+				<div class="alert-message alert fade in alert-<%= name == :notice ? 'success' : 'error'%>" data-alert="alert">
 					<button class="close" data-dismiss="alert" type="button"> &times;</button>
 					<%= msg %>
 				</div>
