@@ -23,12 +23,16 @@ gem 'jquery-rails'
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'capybara'
-	# gem 'guard-rspec'
+	gem 'guard-rspec'
 end
 
 group :test do
 	gem 'cucumber-rails', require: false
 	gem 'database_cleaner'
+	gem 'rb-fchange', '0.0.5'
+	gem 'rb-notifu', '0.0.4'
+	gem 'win32console', '1.3.0'
+	gem 'spork', '0.9.0'
 end
 
 gem 'thin'
