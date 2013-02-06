@@ -4,9 +4,29 @@
 .centerBox {
 	display:-webkit-box;
 	-webkit-box-pack:center;
-	
 }
 
 .loginMarginTop {
 	margin-top: 200px;
+}
+
+thead, tfoot {
+	background-color : lightgray;
+	text-align: center;
+}
+
+.formFormat {
+	width : 70%;
+	border-style: solid;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.formFormat table {
+	text-indent: 10px;
+	text-align: left;
+}
+
+.formFormat h1 {
+	text-align: left;
 }
