@@ -1,5 +1,5 @@
 function checkUserType(){
-	var userTypeRadio = document.getElementsByName("userType");
+	var userTypeRadio = document.getElementsByName("user[user_type]");
 	if( userTypeRadio )
 	{
 		var selectedUserType = null;
@@ -12,7 +12,7 @@ function checkUserType(){
 			}
 		}
 
-		var showIndividualRow = ( selectedUserType && ( selectedUserType.value === "I" ) ) 
+		var showIndividualRow = ( selectedUserType && ( selectedUserType.value === "i" ) ) 
 								? 'table-row' : 'none';
 
 		surnameRow.style.display = showIndividualRow;
