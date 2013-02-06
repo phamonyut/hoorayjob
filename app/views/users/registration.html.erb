@@ -15,11 +15,11 @@
 			<tr>
 				<td>User Type</td>
 				<td>
-					<input type="radio" name="userType" value="I">Individual
-					<input type="radio" name="userType" value="C">Corporation
+					<input type="radio" name="userType" value="I" onchange="checkUserType()" checked>Individual
+					<input type="radio" name="userType" value="C" onchange="checkUserType()">Corporation
 				</td>
 			</tr>
-			<tr id="nameRow">
+			<tr>
 				<td>Name</td>
 				<td><input type="text" name="nameTxt"></td>
 			</tr>
