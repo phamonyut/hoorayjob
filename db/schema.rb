@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130205163043) do
+ActiveRecord::Schema.define(:version => 20130206085500) do
 
   create_table "employee_posts", :force => true do |t|
     t.integer  "user_id"
@@ -60,8 +60,6 @@ ActiveRecord::Schema.define(:version => 20130205163043) do
     t.string   "phone",           :null => false
     t.string   "email"
     t.text     "address",         :null => false
-    t.string   "district"
-    t.string   "province",        :null => false
     t.string   "personal_info"
     t.binary   "profile_picture"
     t.datetime "created_at",      :null => false

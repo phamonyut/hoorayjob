@@ -1,19 +1,12 @@
-<div id="loginDiv" class="centerBox loginMarginTop">
-	<div class="hero-unit">
-		<form>
-			<table>
-				<tr>
-					<td>Username</td>
-					<td><input type="text" id="userName"></td>
-					<td>Password</td>
-					<td><input type="text" id="password"></td>
-					<td><input type="submit" id="login" value="Login"></td>
-				</tr>
-				<tr>
-					<td colspan="5"><a href="registration">Registration</a></td>
-				</tr>
-			</table>
-		</form>		
+<div class="row">
+	<div class="span12">
+		<div class="well">
+			<form action="" class="form-inline">
+				<input type="text" class="input" placeholder="username">
+				<input type="password" class="input" placeholder="password">
+				<button class="btn">Sign in</button>
+			</form>	
+			<%= link_to 'Registration', registration_path %>
+		</div>
 	</div>
 </div>
-
