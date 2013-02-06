@@ -83,12 +83,12 @@
 				<tr>
 					<td><%= f.label :address %></td>
 					<td>
-						<%= f.text_area :address %>
+						<%= f.text_area :address, :rows=>"3" %>
 					</td>
 				</tr>
 				<tr>
-					<td>Other Information</td>
-					<td><textarea rows="4" cols="200"></textarea></td>
+					<td><%= f.label :personal_info %></td>
+					<td><%= f.text_area :personal_info, :rows=>"4" %></td>
 				</tr>
 				<tr>
 					<td>Picture</td>
