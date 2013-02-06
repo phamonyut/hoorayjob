@@ -1,79 +1,107 @@
-<div class="formFormat">
-	<h1>Registration</h1>
-	<table width="100%">
-		<thead>
-			<tr>
-				<th colspan="2"><h3>General Information</h3></th>
-			</tr>
-		</thead>
-		<tfoot>
-			<tr>
-				<td colspan="2"><input type="button" name="submit" value="Submit"></td>
-			</tr>		
-		</tfoot>
-		<tbody>
-			<tr>
-				<td>User Type</td>
-				<td>
-					<input type="radio" name="userType" value="I" onchange="checkUserType()" checked>Individual
-					<input type="radio" name="userType" value="C" onchange="checkUserType()">Corporation
-				</td>
-			</tr>
-			<tr>
-				<td>Name</td>
-				<td><input type="text" name="nameTxt"></td>
-			</tr>
-			<tr id="surnameRow">
-				<td>Surname</td>
-				<td><input type="text" name="surnameTxt"></td>
-			</tr>
-			<tr id="genderRow">
-				<td>Gender</td>
-				<td>
-					<input type="radio" name="gender" value="M">Male
-					<input type="radio" name="gender" value="F">Female
-				</td>
-			</tr>
-			<tr id="dobRow">
-				<td>Date of Birth</td>
-				<td><input type="date" name="dobDate"></td>
-			</tr>
-			<tr id="idRow">
-				<td>Identification Number</td>
-				<td><input type="text" name="idNumTxt"></td>
-			</tr>
-			<tr>
-				<td>Telephone No.</td>
-				<td><input type="text" name="telNoTxt"></td>
-			</tr>
-			<tr>
-				<td>Email</td>
-				<td><input type="text" name="emailTxt"></td>
-			</tr>
-			<tr>
-				<td>Username</td>
-				<td><input type="text" name="userNameTxt"></td>
-			</tr>
-			<tr>
-				<td>Password</td>
-				<td><input type="password" name="passwordTxt"></td>
-			</tr>
-			<tr>
-				<td>Confirm Password</td>
-				<td><input type="password" name="confirmPassTxt"></td>
-			</tr>
-			<tr>
-				<td>Address</td>
-				<td><textarea rows="4" cols="200"></textarea></td>
-			</tr>
-			<tr>
-				<td>Other Information</td>
-				<td><textarea rows="4" cols="200"></textarea></td>
-			</tr>
-			<tr>
-				<td>Picture</td>
-				<td><input type="file" name="picFile"></td>
-			</tr>
-		</tbody>
-	</table>
-</div>
+<%= form_for(@user, :url=>url_for(:controller=>'users', :action=>'create'), html: {class: 'form-horizontal'}) do |f| %>
+	<% if @user.errors.any? %>
+		<div class="alert alert-error fade in">
+			<button class="close" data-dismiss="alert" type="button"> &times; </button>
+			<%= pluralize(@user.errors.count, "error") %>
+			prohibited this user from being saved:
+			<ul>
+				<% @user.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="formFormat">
+		<h1>Registration</h1>
+		<table width="100%">
+			<thead>
+				<tr>
+					<th colspan="2"><h3>General Information</h3></th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<td colspan="2">
+						<%= f.submit %>
+					</td>
+				</tr>		
+			</tfoot>
+			<tbody>
+				<tr>
+					<td>User Type</td>
+					<td>
+						<%= f.radio_button(:user_type, "i")  onchange="checkUserType()" checked %> Individual
+						<%= f.radio_button(:user_type, "c") onchange="checkUserType()" %> Corporation
+					</td>
+				</tr>
+				<tr>
+					<td><%= f.label :first_name %></td>
+					<td>
+						<%= f.text_field :first_name %>
+					</td>
+				</tr>
+				<tr id="surnameRow">
+					<td><%= f.label :last_name %></td>
+					<td><%= f.text_field :last_name %></td>
+				</tr>
+				<tr id="genderRow">
+					<td>Gender</td>
+					<td>
+						<%= f.radio_button(:sex, "m") %> Male
+						<%= f.radio_button(:sex, "f") %> Female
+					</td>
+				</tr>
+				<tr id="dobRow">
+					<td>Date of Birth</td>
+					<td><input type="date" name="birthday"></td>
+				</tr>
+				<tr id="idRow">
+					<td>Identification Number</td>
+					<td><%= f.text_field :citizen_id %></td>
+				</tr>
+				<tr>
+					<td>Telephone No.</td>
+					<td><%= f.text_field :phone %></td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td><%= f.text_field :email %></td>
+				</tr>
+				<tr>
+					<td>Username</td>
+					<td><%= f.text_field :username %></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><%= f.password_field :password %></td>
+				</tr>
+				<tr>
+					<td>Confirm Password</td>
+					<td><%= f.password_field :password_confirmation %></td>
+				</tr>
+				<tr>
+					<td>Address</td>
+					<td>
+						<%= f.text_area :address %>
+					</td>
+				</tr>
+				<tr>
+					<td><%= f.label :province %></td>
+					<td>
+						<%= f.text_field :province %>
+					</td>
+				</tr>
+				<tr>
+					<td>Other Information</td>
+					<td><textarea rows="4" cols="200"></textarea></td>
+				</tr>
+				<tr>
+					<td>Picture</td>
+					<td><input type="file" name="picFile"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+<% end %>
+
