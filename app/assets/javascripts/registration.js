@@ -12,7 +12,7 @@ function checkUserType(){
 			}
 		}
 
-		var showIndividualRow = ( selectedUserType && ( selectedUserType.value === "i" ) ) 
+		var showIndividualRow = ( selectedUserType && ( selectedUserType.value === "I" ) ) 
 								? 'table-row' : 'none';
 
 		surnameRow.style.display = showIndividualRow;
