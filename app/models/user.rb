@@ -20,5 +20,8 @@ class User < ActiveRecord::Base
   validates :phone, presence: true
   validates :address, presence: true
 
+  validates :user_type, :inclusion => { :in => %w(I C) }
+  validates :sex, :inclusion => { :in => %w(M F) }
+
   before_save { |user| user.email = email.downcase }
 end
