@@ -5,6 +5,7 @@ gem 'rails', '3.2.11'
 gem 'sqlite3'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
+gem 'quiet_assets', :group => :development
 
 
 # Gems used only for assets and not required
@@ -29,6 +30,8 @@ group :test do
 	gem 'cucumber-rails', require: false
 	gem 'database_cleaner'
 end
+
+gem 'thin'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
