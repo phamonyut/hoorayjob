@@ -16,10 +16,10 @@ thead, tfoot {
 }
 
 .formFormat {
-	width : 70%;
+	min-width: 600px;
+	margin: 20px 100px;
 	border-style: solid;
 	border-radius: 10px;
-	text-align: center;
 }
 
 .formFormat table {
