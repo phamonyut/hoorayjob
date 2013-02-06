@@ -1,6 +1,7 @@
 Hoorayjob::Application.routes.draw do
 
   root :to => "home#index"
+  get "registration" => "users#registration"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
