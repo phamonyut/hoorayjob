@@ -19,6 +19,6 @@ describe "Home" do
 		visit root_path
 		page.should have_content('Sign up')
 		click_link "signUp"
-		page.should have_content('Registration')
+		page.should have_content('Registration') 
 	end
 end
