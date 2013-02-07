@@ -36,17 +36,17 @@
 					</td>
 				</tr>
 				<tr>
-					<td><%= f.label :first_name %></td>
+					<td>Name*</td>
 					<td>
 						<%= f.text_field :first_name %>
 					</td>
 				</tr>
 				<tr id="surnameRow">
-					<td><%= f.label :last_name %></td>
+					<td><%= f.label :last_name, "Surname*" %></td>
 					<td><%= f.text_field :last_name %></td>
 				</tr>
 				<tr id="genderRow">
-					<td><%= f.label :sex %></td>
+					<td><%= f.label :sex, "Gender*" %></td>
 					<td>
 						<%= f.radio_button(:sex, "M") %> Male
 						<%= f.radio_button(:sex, "F") %> Female
@@ -57,11 +57,11 @@
 					<td><input type="date" name="birthday"></td>
 				</tr>
 				<tr id="idRow">
-					<td><%= f.label :citizen_id %></td>
+					<td><%=f.label :citizen_id, "Identification No" %></td>
 					<td><%= f.text_field :citizen_id %></td>
 				</tr>
 				<tr>
-					<td><%= f.label :phone %></td>
+					<td><%= f.label :phone, "Phone*" %></td>
 					<td><%= f.text_field :phone %></td>
 				</tr>
 				<tr>
@@ -69,15 +69,15 @@
 					<td><%= f.text_field :email %></td>
 				</tr>
 				<tr>
-					<td><%= f.label :username %></td>
+					<td><%= f.label :username, "Username*" %></td>
 					<td><%= f.text_field :username %></td>
 				</tr>
 				<tr>
-					<td><%= f.label :password %></td>
+					<td><%= f.label :password, "Password*" %></td>
 					<td><%= f.password_field :password %></td>
 				</tr>
 				<tr>
-					<td><%= f.label :password_confirmation %></td>
+					<td><%= f.label :password_confirmation, "Password Confirmation*" %></td>
 					<td><%= f.password_field :password_confirmation %></td>
 				</tr>
 				<tr>
@@ -87,7 +87,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td><%= f.label :personal_info %></td>
+					<td><%= f.label :personal_info, "Additional Information" %></td>
 					<td><%= f.text_area :personal_info, :rows=>"4" %></td>
 				</tr>
 				<tr>
