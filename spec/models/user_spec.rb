@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  before { @user = User.new(  username: "username", password: "foobar", password_confirmation: "foobar",user_type: "employer",citizen_id: "1234567890123",first_name: "Firstname", last_name: "Lastname",sex: "male",birthday: "2013-02-06",phone: "080-123-4567",email: "fullbar@email.com",address: "1234 RSU Tower, Wattana Bangkok",personal_info: "Personal Information" ) }
+  before { @user = User.new(  username: "username", password: "foobar", password_confirmation: "foobar",user_type: "I",citizen_id: "1234567890123",first_name: "Firstname", last_name: "Lastname",sex: "M",birthday: "2013-02-06",phone: "080-123-4567",email: "fullbar@email.com",address: "1234 RSU Tower, Wattana Bangkok",personal_info: "Personal Information" ) }
 
   subject { @user }
 
@@ -10,6 +10,31 @@ describe User do
   describe "when username is not present" do
   	before { @user.username = "" }
   	it { should_not be_valid }
+  end
+
+  describe "when password is not present" do
+    before { @user.password = "" }
+    it { should_not be_valid }
+  end
+
+  describe "when user type is not present" do
+    before { @user.user_type = "" }
+    it { should_not be_valid }
+  end
+
+  describe "when first name is not present" do
+    before { @user.first_name = "" }
+    it { should_not be_valid }
+  end
+
+  describe "when phone is not present" do
+    before { @user.phone = "" }
+    it { should_not be_valid }
+  end
+
+  describe "when address is not present" do
+    before { @user.address = "" }
+    it { should_not be_valid }
   end
 
   describe "when email is not present" do
@@ -97,5 +122,29 @@ describe User do
     end
 
 	end
+
+  # User Type
+  describe "User Type" do
+
+    describe "when user type is incorrect" do
+      before do
+        @user.user_type = "Individual"
+      end
+      it { should_not be_valid }
+    end
+
+  end
+
+  # Sex
+  describe "Sex" do
+
+    describe "when sex is incorrect" do
+      before do
+        @user.sex = "Male"
+      end
+      it { should_not be_valid }
+    end
+
+  end
 
 end
