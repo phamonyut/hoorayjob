@@ -1,10 +1,11 @@
 Hoorayjob::Application.routes.draw do
 
   root :to => "home#index"
-  get "registration" => "users#registration"
-  match "/registration" => "users#create"
+  get "signup" => "users#signup"
+  match "/signup" => "users#create"
   match "/hello" => "home#hello"
-  match "/login" => "users#login"
+  match "/signin" => "users#signin"
+  match "/signout" => "users#signout"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

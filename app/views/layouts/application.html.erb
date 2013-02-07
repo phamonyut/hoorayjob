@@ -13,6 +13,39 @@
 		<div class="navbar-inner">
 			<div class="container">
 				<a href="/" class="brand">HoorayJob</a>
+				<form class="navbar-search pull-left">
+					<input type="text" class="input-small search-query">
+				</form>
+				<% unless user_signed_in? %>
+					<%= form_tag("/signin", :method=>"post", :class=>'navbar-form pull-right') do %>
+						<input type="text" name="username" class="input input-small" placeholder="username">
+						<input type="password" name="password" class="input input-small" placeholder="password">
+						<button class="btn btn-small">Sign in</button> 
+						<div>
+							<small>
+								Not a member yet?  <%= link_to 'Sign up', signup_path %>
+							</small>
+						</div>
+					<% end %>
+				<% else %>
+					<ul class="nav pull-right">
+						<li class="dropdown">
+							<a href="#" class="pointer dropdown-toggle" data-toggle="dropdown" role="button" data-target="#">
+								<i class="icon-user"></i>
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="">Edit profile</a>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<%= link_to 'Sign out', signout_path %>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				<% end %>
 			</div>
 		</div>
 	</div>

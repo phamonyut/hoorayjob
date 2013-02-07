@@ -1,12 +1,8 @@
 <div class="row">
 	<div class="span12">
-		<div class="well">
-			<%= form_tag("/login", :method=>"post", :class=>'form-inline') do %>
-				<input type="text" name="username" class="input" placeholder="username">
-				<input type="password" name="password" class="input" placeholder="password">
-				<button class="btn">Sign in</button>
-			<% end %>
-			Not a member yet?  <%= link_to 'Registration', registration_path %>
-		</div>
+		<h1>Welcome to <span class="brand">HoorayJob</span>.</h1>		
+		<h2>Discover Job that match with you in 5 minutes</h2>
+		<button class="btn btn-warning">try it free!</button>
 	</div>
 </div>
+
