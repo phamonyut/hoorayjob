@@ -1,8 +1,26 @@
 class UsersController < ApplicationController
 	before_filter :user_signed_in?, :only => [:signout]
+	layout :resolve_layout
+
+	def resolve_layout
+    case action_name
+    when 'signup2'
+    	'application2'
+    else
+      'application'
+	  end
+  end
 
 	# GET /signup
 	def signup
+		@user = User.new
+		respond_to do |format|
+			format.html 
+		end
+	end
+
+	# GET /signup
+	def signup2
 		@user = User.new
 		respond_to do |format|
 			format.html 

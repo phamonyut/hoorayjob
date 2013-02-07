@@ -1,0 +1,53 @@
+<% content_for(:head) do %>
+	<style type="text/css">
+		@media (min-width: 980px) {
+			body {
+				padding-top: 0px;
+			}
+		}
+		.brand {
+			color: orangered;
+		}
+		.header {
+			background-color: #eee;
+			padding: 20px;
+		}
+		form.form-big {
+			padding-top: 30px;
+		}
+		form.form-big label {
+			font-size: 16px;
+			font-weight: bold;
+			padding-top: 5px;
+		}
+		form.form-big input {
+			height: 50px;
+			font-size: 40px;
+		}
+		form.form-big input {
+			margin-bottom: 15px;
+		}
+	</style>
+<% end %>
+
+<% content_for(:noncontainer) do %>
+	<div class="header">
+		<div class="container">
+			<h2>Sign up</h2>		
+		</div>
+	</div>
+<% end %>
+
+<form action="" class="form-big">
+	<fieldset>
+		<label>Username</label>	
+		<input type="text" name="username" placeholder="" class="input-xxlarge">
+		<label>Password</label>	
+		<input type="password" name="password" placeholder="" class="input-xxlarge">
+		<label>Confirm Password</label>	
+		<input type="password" name="password" placeholder="" class="input-xxlarge">
+		<div>
+			<button type="submit" class="btn btn-large btn-primary">Create account</button>
+		</div>
+	</fieldset>
+</form>
