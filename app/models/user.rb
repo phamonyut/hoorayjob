@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :employee_posts
 
   validates	:username, presence: true, uniqueness: { case_sensitive: false }
-  validates	:password, presence: true, :confirmation => true
+  validates	:password, presence: true
   validates :password_confirmation, presence: true
   validates :user_type, presence: true
  	
