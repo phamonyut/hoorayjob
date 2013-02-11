@@ -10,7 +10,7 @@ describe "User" do
 
 	describe "Sign up page" do
 		it "should have content sign up" do
-			visit signup_path
+			visit signup_path(locale:"en")
 			page.should have_content('Sign up')
 		end
 	end
