@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130206085500) do
+ActiveRecord::Schema.define(:version => 20130211085718) do
 
   create_table "employee_posts", :force => true do |t|
     t.integer  "user_id"
@@ -48,14 +48,24 @@ ActiveRecord::Schema.define(:version => 20130206085500) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "sexes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "user_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "username",        :null => false
     t.string   "password_digest", :null => false
-    t.string   "user_type",       :null => false
     t.string   "citizen_id"
     t.string   "first_name",      :null => false
     t.string   "last_name"
-    t.string   "sex"
     t.date     "birthday"
     t.string   "phone",           :null => false
     t.string   "email"
@@ -64,6 +74,8 @@ ActiveRecord::Schema.define(:version => 20130206085500) do
     t.binary   "profile_picture"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.integer  "user_type_id"
+    t.integer  "sex_id"
   end
 
   add_index "users", ["citizen_id"], :name => "index_users_on_citizen_id", :unique => true

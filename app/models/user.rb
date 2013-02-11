@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
-  attr_accessible :address, :birthday, :citizen_id, :email, :first_name, :last_name, :personal_info, :phone, :profile_picture, :sex, :user_type, :username, :password, :password_confirmation
+  attr_accessible :address, :birthday, :citizen_id, :email, :first_name, :last_name, :personal_info, :phone, :profile_picture, :sex, :user_type, :username, :password, :password_confirmation, :user_type_id, :sex_id
   has_secure_password
+
+  belongs_to :user_type
+  belongs_to :sex
 
   has_many :employer_posts
   has_many :employee_posts
@@ -20,8 +23,9 @@ class User < ActiveRecord::Base
   validates :phone, presence: true
   validates :address, presence: true
 
-  validates :user_type, :inclusion => { :in => %w(I C) }
-  validates :sex, :inclusion => { :in => %w(M F) }
+  # validates :user_type, :inclusion => { :in => %w(I C) }
+  # validates :sex, :inclusion => { :in => %w(M F) }
 
   before_save { |user| user.email = email.downcase }
+
 end

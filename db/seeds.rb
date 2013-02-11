@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+UserType.destroy_all
+Sex.destroy_all
+individual = UserType.create(name: 'individual')
+corporation = UserType.create(name: 'corporation')
+male = Sex.create(name: 'male')
+female = Sex.create(name: 'female')

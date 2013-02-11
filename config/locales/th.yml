@@ -4,12 +4,29 @@ th:
   title_marketing_word: วิธีใหม่ในการค้นหางานที่น่าสนใจ
   tryit: ลองเลย ฟรี!
   search: ค้นเลย
-  search: ค้นเลย
   username: ชื่อผู้ใช้
   password: รหัสผ่าน
   signin: เข้าระบบ
   signup: ลงทะเบียน
   not_member: ยังไม่เป็นสมาชิก ?
+
+  simple_form:
+    labels:
+      user:
+        first_name: ชื่อ
+        last_name: นามสกุล
+        username: ชื่อเข้าระบบ
+        password: รหัสผ่าน
+        password_confirmation: ยืนยันรหัสผ่าน
+        email: อีเมล์
+        user_type: ประเภทผู้ใช้
+        sex: เพศ
+        phone: เบอร์โทรศัพท์
+        citizen_id: หมายเลขบัตรประชาชน
+        birthday: เดือนเกิด
+        address: ที่อยู่
+        personal_info: ข้อมูลส่วนตัว
+
   date:
     abbr_day_names:
     - อา
