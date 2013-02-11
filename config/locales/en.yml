@@ -9,6 +9,10 @@ en:
   signin: Sign in
   signup: Sign up
   not_member: Not a member yet ?
+  hooray: Hooray
+  back_to_home_page: Back to home page
+  edit_profile: Edit Profile
+  signout: Sign out
 
   simple_form:
     labels:

@@ -9,6 +9,10 @@ th:
   signin: เข้าระบบ
   signup: ลงทะเบียน
   not_member: ยังไม่เป็นสมาชิก ?
+  hooray: ฮูเล่ย์
+  back_to_home_page: กลับหน้าหลัก
+  edit_profile: แก้ไขข้อมูลส่วนตัว
+  signout: ออกจากระบบ
 
   simple_form:
     labels:
