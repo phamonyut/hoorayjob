@@ -49,6 +49,7 @@ describe User do
       before do 
         user_with_same_username = @user.dup
         user_with_same_username.email = "email@email.com"
+        user_with_same_username.citizen_id = "3210987654321"
         user_with_same_username.save      
       end
       it { should_not be_valid }
@@ -58,6 +59,7 @@ describe User do
       before do 
         user_with_same_username = @user.dup
         user_with_same_username.email = "email@email.com"
+        user_with_same_username.citizen_id = "3210987654321"
         user_with_same_username.username = @user.username.upcase
         user_with_same_username.save      
       end
@@ -105,6 +107,8 @@ describe User do
     describe "when email is already taken" do
       before do 
         user_with_same_email = @user.dup
+        user_with_same_email.username = "username2"
+        user_with_same_email.citizen_id = "3210987654321"
         user_with_same_email.email = @user.email.upcase
         user_with_same_email.save
       end
