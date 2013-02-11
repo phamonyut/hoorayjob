@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hoorayjob - the sexy way to discover & subscribe job </title>
+  <title>Hoorayjob - <%=t :title_marketing_word %> </title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -14,16 +14,16 @@
 			<div class="container">
 				<a href="/" class="brand">HoorayJob</a>
 				<form class="navbar-search pull-left">
-					<input type="text" class="input-small search-query" placeholder="search">
+					<input type="text" class="input-small search-query" placeholder="<%=t :search %>">
 				</form>
 				<% unless user_signed_in? %>
 					<%= form_tag("/signin", :method=>"post", :class=>'navbar-form pull-right') do %>
-						<input type="text" name="username" class="input input-small" placeholder="username">
-						<input type="password" name="password" class="input input-small" placeholder="password">
-						<button class="btn btn-small">Sign in</button> 
+						<input type="text" name="username" class="input input-small" placeholder="<%=t :username %>">
+						<input type="password" name="password" class="input input-small" placeholder="<%=t :password %>">
+						<button class="btn btn-small"><%=t :signin %></button> 
 						<div>
 							<small>
-								Not a member yet?  <%= link_to 'Sign up', signup_path %>
+								<%=t :not_member %> <%= link_to t(:signup), signup_path %>
 							</small>
 						</div>
 					<% end %>
