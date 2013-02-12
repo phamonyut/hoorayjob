@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 		respond_to do |format| 
 			if @user.save
 				session[:user_id] = @user.id
-				format.html {redirect_to hello_path, notice: "User was successfully created."}
+				format.html {redirect_to hello_path, notice: t(:user_created_success)}
 			else
 				format.html {render action: "signup"}
 				format.json {render json: @user.errors, status: :unprocessable_entity }
@@ -47,9 +47,9 @@ class UsersController < ApplicationController
 		respond_to do |format|
 			if user
 				session[:user_id] = user.id
-				format.html { redirect_to hello_path, notice: "Sign in successfully." }
+				format.html { redirect_to hello_path, notice: t(:signin_success) }
 			else
-				format.html  { redirect_to root_path, flash: {error: "Username or Password did not match. Please try again."} }
+				format.html  { redirect_to root_path, flash: {error: t(:signin_fail)} }
 			end
 		end
 	end
@@ -59,7 +59,7 @@ class UsersController < ApplicationController
 		puts "call signout"
 		session.delete(:user_id)
 		respond_to do |format|
-			format.html { redirect_to root_path, notice: "Sign out successfully." }
+			format.html { redirect_to root_path, notice: t(:signout_success) }
 		end
 	end
 

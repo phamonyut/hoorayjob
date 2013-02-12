@@ -8,11 +8,17 @@ en:
   password: Password
   signin: Sign in
   signup: Sign up
+  signout: Sign out
   not_member: Not a member yet ?
   hooray: Hooray
   back_to_home_page: Back to home page
   edit_profile: Edit Profile
-  signout: Sign out
+
+  user_created_success: User was successfully created.
+  signin_success: Sign in successfully.
+  signin_fail: Username or Password did not match. Please try again.
+  signout_success: Sign out successfully.
+
 
   simple_form:
     labels:
