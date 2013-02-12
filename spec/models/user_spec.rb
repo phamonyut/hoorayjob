@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  before { @user = User.new(  username: "username", password: "foobar", password_confirmation: "foobar",user_type: "I",citizen_id: "1234567890123",first_name: "Firstname", last_name: "Lastname",sex: "M",birthday: "2013-02-06",phone: "080-123-4567",email: "fullbar@email.com",address: "1234 RSU Tower, Wattana Bangkok",personal_info: "Personal Information" ) }
+  before { @user = User.new(  username: "username", password: "foobar", password_confirmation: "foobar",user_type: UserType.new( name: "I"),citizen_id: "1234567890123",first_name: "Firstname", last_name: "Lastname",sex: Sex.new( name: "M"),birthday: "2013-02-06",phone: "080-123-4567",email: "fullbar@email.com",address: "1234 RSU Tower, Wattana Bangkok",personal_info: "Personal Information" ) }
 
   subject { @user }
 
@@ -136,10 +136,11 @@ describe User do
   describe "User Type" do
 
     describe "when user type is incorrect" do
-      before do
-        @user.user_type = "Individual"
-      end
-      it { should_not be_valid }
+      pending "This constraint is no longer enforced"
+      #before do
+      #  @user.user_type = "Individual"
+      #end
+      #it { should_not be_valid }
     end
 
   end
@@ -148,10 +149,11 @@ describe User do
   describe "Sex" do
 
     describe "when sex is incorrect" do
-      before do
-        @user.sex = "Male"
-      end
-      it { should_not be_valid }
+      pending "This constraint is no longer enforced"
+      #before do
+      #  @user.sex = "Male"
+      #end
+      #it { should_not be_valid }
     end
 
   end
