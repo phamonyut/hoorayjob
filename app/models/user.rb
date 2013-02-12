@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
   validates :user_type, presence: true
  	
-  VALID_DIGIT_REGEX = /\A\d+\Z/
-  validates	:citizen_id, presence: true, format: { with: VALID_DIGIT_REGEX }, uniqueness: true
+  VALID_13DIGIT_REGEX = /\A\d{13}\Z/
+  validates	:citizen_id, format: { with: VALID_13DIGIT_REGEX }, uniqueness: true, allow_blank: true
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }, allow_blank: true

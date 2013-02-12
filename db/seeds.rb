@@ -8,7 +8,14 @@
 
 UserType.destroy_all
 Sex.destroy_all
-individual = UserType.create(name: 'individual')
+Job.destroy_all
+
+individual  = UserType.create(name: 'individual')
 corporation = UserType.create(name: 'corporation')
-male = Sex.create(name: 'male')
-female = Sex.create(name: 'female')
+male        = Sex.create(name: 'male')
+female      = Sex.create(name: 'female')
+
+Job.create(job_name: 'housekeeper')
+Job.create(job_name: 'baby-sitter')
+Job.create(job_name: 'nurse')
+Job.create(job_name: 'driver')

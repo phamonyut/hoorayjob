@@ -98,6 +98,21 @@ describe User do
       end
       it { should_not be_valid }
     end
+
+    describe "when too long id is entered" do
+      before do
+        @user.citizen_id = "12345678901234"
+      end
+      it { should_not be_valid }
+    end
+
+    describe "when too short id is entered" do
+      before do
+        @user.citizen_id = "123456789012"
+      end
+      it { should_not be_valid }
+    end
+
   end
 
   # Email test
