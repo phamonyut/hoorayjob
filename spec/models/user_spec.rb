@@ -136,7 +136,7 @@ describe User do
   describe "User Type" do
 
     describe "when user type is incorrect" do
-      pending "This constraint is no longer enforced"
+      pending "This constraint is no longer enforced."
       #before do
       #  @user.user_type = "Individual"
       #end
@@ -149,7 +149,7 @@ describe User do
   describe "Sex" do
 
     describe "when sex is incorrect" do
-      pending "This constraint is no longer enforced"
+      pending "This constraint is no longer enforced."
       #before do
       #  @user.sex = "Male"
       #end
