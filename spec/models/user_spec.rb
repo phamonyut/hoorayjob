@@ -23,7 +23,7 @@ describe User do
   end
 
   describe "when user type is not present" do
-    before { @user.user_type = "" }
+    before { @user.user_type = nil }
     it { should_not be_valid }
   end
 
@@ -55,6 +55,9 @@ describe User do
         user_with_same_username = @user.dup
         user_with_same_username.email = "email@email.com"
         user_with_same_username.citizen_id = "3210987654321"
+        user_with_same_username.user_type = UserType.new( name: "I")
+        user_with_same_username.sex = Sex.new( name: "M")
+
         user_with_same_username.save      
       end
       it { should_not be_valid }
@@ -65,6 +68,8 @@ describe User do
         user_with_same_username = @user.dup
         user_with_same_username.email = "email@email.com"
         user_with_same_username.citizen_id = "3210987654321"
+        user_with_same_username.user_type = UserType.new( name: "I")
+        user_with_same_username.sex = Sex.new( name: "M")
         user_with_same_username.username = @user.username.upcase
         user_with_same_username.save      
       end
@@ -80,6 +85,8 @@ describe User do
         user_with_same_citizen_id = @user.dup
         user_with_same_citizen_id.username = "username2"
         user_with_same_citizen_id.email = "email@email.com"
+        user_with_same_citizen_id.user_type = UserType.new( name: "I")
+        user_with_same_citizen_id.sex = Sex.new( name: "M")
         user_with_same_citizen_id.save
       end
       it { should_not be_valid }
@@ -97,6 +104,9 @@ describe User do
 	describe "Email" do
 		
     describe "when email is empty" do
+      before do
+        @user.email = " "
+      end
       it { should be_valid }
     end
 
@@ -114,6 +124,8 @@ describe User do
         user_with_same_email = @user.dup
         user_with_same_email.username = "username2"
         user_with_same_email.citizen_id = "3210987654321"
+        user_with_same_email.user_type = UserType.new( name: "I")
+        user_with_same_email.sex = Sex.new( name: "M")
         user_with_same_email.email = @user.email.upcase
         user_with_same_email.save
       end

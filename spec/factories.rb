@@ -3,11 +3,11 @@ FactoryGirl.define do
 		username "username"
 		password "foobar"
 		password_confirmation "foobar"
-		user_type "I"
+		user_type UserType.new( name: "I" )
 		citizen_id "1234567890123"
 		first_name "Firstname"
 		last_name "Lastname"
-		sex "M"
+		sex Sex.new( name: "M" )
 		birthday "2013-02-06"
 		phone "080-123-4567"
 		email "fullbar@email.com"
