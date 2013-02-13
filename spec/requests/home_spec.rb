@@ -11,7 +11,6 @@ describe "Home" do
 	end
 
 	describe "should be able to login successfully" do
-		#pending "This needs to pass, but after we implement the saving locale to session"
 		let(:user) { FactoryGirl.create(:user) }
 		before do
 			fill_in 'username', with: user.username
@@ -25,7 +24,6 @@ describe "Home" do
 	describe "should have a valid Sign up link" do
 		it { should have_content('Sign up') }
 		describe "and the link should redirect to the Registration page" do
-			#pending "This needs to pass, but after we implement the saving locale to session"
 			before { click_link "Sign up" }
 			it { should have_content('Sign up') }
 		end
