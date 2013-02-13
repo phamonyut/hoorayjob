@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130212094306) do
+ActiveRecord::Schema.define(:version => 20130213072832) do
 
   create_table "employee_posts", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "job_id"
+    t.integer  "job_id",             :null => false
     t.string   "status"
     t.integer  "min_salary"
     t.integer  "max_salary"
@@ -24,22 +24,24 @@ ActiveRecord::Schema.define(:version => 20130212094306) do
     t.string   "province"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.text     "desc"
   end
 
   create_table "employer_posts", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "job_id"
+    t.integer  "job_id",             :null => false
     t.string   "status"
     t.integer  "min_salary"
     t.integer  "max_salary"
     t.integer  "year_of_experience"
-    t.string   "sex"
     t.integer  "min_age"
     t.integer  "max_age"
     t.string   "district"
     t.string   "province"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.integer  "sex_id"
+    t.text     "desc"
   end
 
   create_table "jobs", :force => true do |t|
