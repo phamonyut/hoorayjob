@@ -19,6 +19,9 @@ en:
   signin_fail: Username or Password did not match. Please try again.
   signout_success: Sign out successfully.
 
+  posting: Posting
+  employee_posted_success: Successfully Posted.
+  employer_posted_success: Successfully Posted.
 
   simple_form:
     labels:
@@ -36,6 +39,23 @@ en:
         birthday: Birthday
         address: Address
         personal_info: Personal info
+      employee_post:
+        job: Job
+        min_salary: Minimum Salary
+        max_salary: Maximum Salary
+        year_of_experience: Years of Experience
+        district: District
+        province: Province 
+      employer_post:
+        job: Job
+        min_salary: Minimum Salary
+        max_salary: Maximum Salary
+        year_of_experience: Years of Experience
+        sex: Gender
+        min_age: Minimum Age
+        max_age: Maximum Age
+        district: District
+        province: Province 
 
   date:
     abbr_day_names:

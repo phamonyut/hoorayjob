@@ -1,0 +1,35 @@
+<h1><%=t :posting %></h1>
+
+<%= simple_form_for(@employee_post, html: {class: 'form-horizontal'}, :url=>url_for(:controller=>'employee_posts', :action=>'create')) do |f| %>
+
+	<%= f.association :job, :label_method => 'job_name' %>
+	<%= f.input :min_salary %>
+	<%= f.input :max_salary %>
+	<%= f.input :year_of_experience %>
+	<%= f.input :district %>
+	<%= f.input :province %>
+
+	<!-- upload picture -->
+
+	<div class="form-actions">
+		<%= f.button :submit, class: 'btn btn-primary' %>
+	</div>
+<% end %>
+<%= simple_form_for(@employer_post, html: {class: 'form-horizontal'}, :url=>url_for(:controller=>'employer_posts', :action=>'create')) do |f| %>
+
+	<%= f.association :job, :label_method => 'job_name' %>
+	<%= f.input :min_salary %>
+	<%= f.input :max_salary %>
+	<%= f.input :year_of_experience %>
+	<%= f.association :sex, as: :radio_buttons, item_wrapper_class: 'inline' %>
+	<%= f.input :min_age %>
+	<%= f.input :max_age %>
+	<%= f.input :district %>
+	<%= f.input :province %>
+
+	<!-- upload picture -->
+
+	<div class="form-actions">
+		<%= f.button :submit, class: 'btn btn-primary' %>
+	</div>
+<% end %>
