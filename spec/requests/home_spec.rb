@@ -6,8 +6,7 @@ describe "Home" do
 	subject { page }
 
 	describe "should have the right title" do
-		pending "This test needs to pass!!! (I wonder why it fails)"
-		#it { should have_selector('title', :text => "Hoorayjob") }
+		it { should have_selector('title', text: "Hoorayjob") }
 	end
 
 	describe "should be able to login successfully" do
