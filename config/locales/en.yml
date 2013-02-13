@@ -19,6 +19,14 @@ en:
   signin_fail: Username or Password did not match. Please try again.
   signout_success: Sign out successfully.
 
+  male: Male
+  female: Female
+  individual: Individual
+  corporation: Corporation
+  housekeeper: Housekeeper
+  baby-sitter: Baby-Sitter
+  nurse: Nurse
+  driver: Driver
 
   simple_form:
     labels:

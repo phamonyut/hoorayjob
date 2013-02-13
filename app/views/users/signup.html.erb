@@ -8,8 +8,8 @@
 	<%= f.input :password %>
 	<%= f.input :password_confirmation %>
 	<%= f.input :email %>
-	<%= f.association :user_type, as: :radio_buttons %>
-	<%= f.association :sex, as: :radio_buttons %>
+	<%= f.association :user_type, as: :radio_buttons, label_method: lambda { |el| t "#{el.name}"} %>
+	<%= f.association :sex, as: :radio_buttons, label_method: lambda { |el| t "#{el.name}"} %>
 	<%= f.input :phone %>
 	<%= f.input :citizen_id %>
 	<%= f.input :birthday, as: :date, start_year: Date.today.year - 90,
