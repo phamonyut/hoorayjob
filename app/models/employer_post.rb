@@ -6,4 +6,5 @@ class EmployerPost < ActiveRecord::Base
   belongs_to :sex
 
   validates	:job, presence: true
+  validates :job_id, presence: true
 end

@@ -5,4 +5,5 @@ class EmployeePost < ActiveRecord::Base
   belongs_to :job
 
   validates	:job, presence: true
+  validates :job_id, presence: true
 end
