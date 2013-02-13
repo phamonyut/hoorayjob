@@ -1,4 +1,10 @@
 th:
+  
+  en: EN
+  th: ไทย
+  en_lang: english
+  th_lang: ภาษาไทย
+
   welcome: ยินดีต้อนรับ
   marketing_word: หางานที่ตรงใจใน 5 นาที
   title_marketing_word: วิธีใหม่ในการค้นหางานที่น่าสนใจ
