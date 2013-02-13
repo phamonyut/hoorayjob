@@ -1,6 +1,6 @@
 <h1><%=t :posting %></h1>
 
-<%= simple_form_for(@employee_post, html: {class: 'form-horizontal'}, :url=>url_for(:controller=>'employee_posts', :action=>'create')) do |f| %>
+<%= simple_form_for(@employee_post, html: {class: 'form-horizontal'}, :validate => true, :url=>url_for(:controller=>'employee_posts', :action=>'create')) do |f| %>
 
 	<%= f.association :job, label_method: lambda { |el| t "#{el.job_name}"} %>
 	<%= f.input :min_salary %>
@@ -15,7 +15,7 @@
 		<%= f.button :submit, class: 'btn btn-primary' %>
 	</div>
 <% end %>
-<%= simple_form_for(@employer_post, html: {class: 'form-horizontal'}, :url=>url_for(:controller=>'employer_posts', :action=>'create')) do |f| %>
+<%= simple_form_for(@employer_post, html: {class: 'form-horizontal'}, :validate => true,  :url=>url_for(:controller=>'employer_posts', :action=>'create')) do |f| %>
 
 	<%= f.association :job, label_method: lambda { |el| t "#{el.job_name}"} %>
 	<%= f.input :min_salary %>
