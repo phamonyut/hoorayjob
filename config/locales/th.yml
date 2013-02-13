@@ -1,4 +1,10 @@
 th:
+  
+  en: EN
+  th: ไทย
+  en_lang: english
+  th_lang: ภาษาไทย
+
   welcome: ยินดีต้อนรับ
   marketing_word: หางานที่ตรงใจใน 5 นาที
   title_marketing_word: วิธีใหม่ในการค้นหางานที่น่าสนใจ
@@ -18,6 +24,15 @@ th:
   signin_success: เข้าระบบเรียบร้อย
   signin_fail: ชื่อผู้ใช้งาน หรอืรหัสผ่านไม่ถูกต้อง ลองใหม่อีกครั้ง
   signout_success: ออกจากระบบเรียบร้อย
+
+  male: ชาย
+  female: หญิง
+  individual: บุคคล
+  corporation: องค์กร
+  housekeeper: แม่บ้าน
+  baby-sitter: พี่เลี้ยงเด็ก
+  nurse: ดูแลผู้สูงอายุ
+  driver: พนักงานขับรถ
 
   posting: ประกาศ
   employee_posted_success: ประกาศหางานสำเร็จ

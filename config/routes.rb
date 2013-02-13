@@ -8,8 +8,9 @@ Hoorayjob::Application.routes.draw do
   match "/signout" => "users#signout"
   match "/signup2" => "users#signup2"
   match "/jobpost" => "home#post"
-  match "/employeepost" => "employee_posts#create"
-  match "/employerpost" => "employer_posts#create"
+
+  resources :employee_posts
+  resources :employer_posts
 
 
   # The priority is based upon order of creation:

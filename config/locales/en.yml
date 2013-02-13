@@ -1,4 +1,10 @@
 en:
+  
+  en: EN
+  th: ไทย
+  en_lang: english
+  th_lang: ภาษาไทย
+
   welcome: Welcome
   marketing_word: Discover Job that match with you in 5 minutes
   title_marketing_word: the sexy way to discover & subscribe job
@@ -18,6 +24,15 @@ en:
   signin_success: Sign in successfully.
   signin_fail: Username or Password did not match. Please try again.
   signout_success: Sign out successfully.
+
+  male: Male
+  female: Female
+  individual: Individual
+  corporation: Corporation
+  housekeeper: Housekeeper
+  baby-sitter: Baby-Sitter
+  nurse: Nurse
+  driver: Driver
 
   posting: Posting
   employee_posted_success: Successfully Posted.

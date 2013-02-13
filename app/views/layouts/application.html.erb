@@ -16,6 +16,32 @@
 				<form class="navbar-search pull-left">
 					<input type="text" class="input-small search-query" placeholder="<%=t :search %>">
 				</form>
+				<ul class="nav pull-right">
+					<li class="dropdown">
+						<a href="#" class="pointer dropdown-toggle" data-toggle="dropdown" role="button" data-target="#">
+							<%=t :"#{locale}" %>
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="<%= url_for(locale: 'en') %>">
+									<% if locale == :en  %>
+										<i class="icon-ok"></i>
+									<% end %>
+									<%=t :en_lang	%>
+								</a>
+							</li>
+							<li>
+								<a href="<%= url_for(locale: 'th') %>">
+									<% if locale == :th  %>
+										<i class="icon-ok"></i>
+									<% end %>
+									<%=t :th_lang	%>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
 				<% unless user_signed_in? %>
 					<%= form_tag("/signin", :method=>"post", :class=>'navbar-form pull-right') do %>
 						<input type="text" name="username" class="input input-small" placeholder="<%=t :username %>">
@@ -32,6 +58,7 @@
 						<li class="dropdown">
 							<a href="#" class="pointer dropdown-toggle" data-toggle="dropdown" role="button" data-target="#">
 								<i class="icon-user"></i>
+								<small><%= current_user.username %></small>
 								<b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">
