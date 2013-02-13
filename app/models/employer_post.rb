@@ -4,4 +4,6 @@ class EmployerPost < ActiveRecord::Base
   belongs_to :user
   belongs_to :job
   belongs_to :sex
+
+  validates	:job, presence: true
 end

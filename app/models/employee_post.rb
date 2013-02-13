@@ -3,4 +3,6 @@ class EmployeePost < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :job
+
+  validates	:job, presence: true
 end
