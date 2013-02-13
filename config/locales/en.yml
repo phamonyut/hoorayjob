@@ -13,6 +13,7 @@ en:
   hooray: Hooray
   back_to_home_page: Back to home page
   edit_profile: Edit Profile
+  all_posts: All Posts
 
   user_created_success: User was successfully created.
   signin_success: Sign in successfully.

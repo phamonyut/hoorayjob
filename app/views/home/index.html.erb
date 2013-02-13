@@ -5,3 +5,14 @@
 		<button class="btn btn-warning"> <%=t :tryit %> </button>
 	</div>
 </div>
+
+<div class="row">
+	<div class="span12">
+		<h2><%=t :all_posts %></h2>
+		<ul>
+			<% @posts.each do |post| %>
+				<li><%= post.formatted_post %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>

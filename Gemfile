@@ -22,14 +22,14 @@ gem 'jquery-rails'
 
 group :development, :test do
 	gem 'rspec-rails'
-	gem 'capybara'
+	gem 'capybara', '1.1.2'
 	gem 'guard-rspec'
+	gem 'factory_girl_rails', '1.4.0'
 end
 
 group :test do
 	gem 'cucumber-rails', require: false
 	gem 'database_cleaner'
-	gem 'factory_girl_rails', '1.4.0'
 	gem 'rb-fchange', '0.0.5'
 	gem 'rb-notifu', '0.0.4'
 	gem 'win32console', '1.3.0'

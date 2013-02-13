@@ -29,4 +29,19 @@ describe "Home" do
 			#it { should have_content('Registration') }
 		end
 	end
+
+	describe "index" do
+		pending "This needs to pass"
+		#before do
+		#	user = FactoryGirl.create(:user)
+		#	FactoryGirl.create(:employee_post, user: user)
+		#	FactoryGirl.create(:employer_post, user: user)
+		#end
+		#it "should list each post" do
+		#	posts = EmployeePost.all + EmployerPost.all
+		#	posts.each do |post|
+		#		page.should have_content(post.formatted_post)
+		#	end
+		#end
+	end
 end

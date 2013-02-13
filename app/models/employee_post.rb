@@ -3,4 +3,32 @@ class EmployeePost < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :job
+
+  def formatted_post
+  	"#{formatted_job} #{formatted_sex} #{formatted_age} #{formatted_salary} #{formatted_experience} #{formatted_address}"
+  end
+
+  def formatted_job
+  	"Apply for #{self.job.job_name}"
+  end
+
+  def formatted_sex
+  	"Sex: #{self.user.sex.name}"
+  end
+
+  def formatted_age
+  	"Age: x years"
+  end
+
+  def formatted_salary
+  	"Salary: #{self.min_salary} - #{self.max_salary} Baht"
+  end
+
+  def formatted_experience
+  	"Experience: #{self.year_of_experience} years"
+  end
+
+  def formatted_address
+  	"#{self.district} #{self.province}"
+  end
 end
