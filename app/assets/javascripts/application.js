@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require jquery-ui.min
 //= require bootstrap
+//= require bootstrap-datepicker
 //= require rails.validations
 //= require_tree .

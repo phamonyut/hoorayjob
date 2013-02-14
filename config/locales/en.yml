@@ -44,6 +44,9 @@ en:
   posted: Posted
   ago: ago
 
+  apply_for: Apply for
+  want_to: Want to
+
   simple_form:
     labels:
       user:

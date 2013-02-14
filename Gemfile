@@ -4,6 +4,7 @@ gem 'rails', '3.2.11'
 
 gem 'sqlite3'
 gem 'bootstrap-sass'
+gem 'bootstrap-datepicker-rails'
 gem 'bcrypt-ruby'
 gem 'quiet_assets', :group => :development
 

@@ -44,6 +44,9 @@ th:
   posted: ประกาศเมื่อ
   ago: ที่แล้ว
 
+  apply_for: ประกาศหางาน
+  want_to: ต้องการงาน
+
   simple_form:
     labels:
       user:
