@@ -19,7 +19,7 @@
 		<h2><a href="#" onclick="javascript:handleShowOnlyEmployeePostsClick()"><%=t :employee_posts %></a></h2>
 		<ul>
 			<% @posts.each do |post| %>
-				<li class="<%= post.postCategory %>"><%= post.formatted_post %></li>
+				<li class="<%= post.postCategory %>"><%= post.formatted_post %> <%=t :posted %> <%= time_ago_in_words(post.created_at) %> <%=t :ago %></li>
 			<% end %>
 		</ul>
 	</div>

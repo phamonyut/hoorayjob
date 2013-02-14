@@ -41,6 +41,9 @@ en:
   employee_posted_success: Successfully Posted.
   employer_posted_success: Successfully Posted.
 
+  posted: Posted
+  ago: ago
+
   simple_form:
     labels:
       user:

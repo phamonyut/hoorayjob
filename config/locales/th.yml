@@ -41,6 +41,9 @@ th:
   employee_posted_success: ประกาศหางานสำเร็จ
   employer_posted_success: ประกาศหาคนเสร็จเรียบร้อยแล้ว
 
+  posted: ประกาศเมื่อ
+  ago: ที่แล้ว
+
   simple_form:
     labels:
       user:
