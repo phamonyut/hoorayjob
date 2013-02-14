@@ -39,6 +39,9 @@ th:
   employee_posted_success: ประกาศหางานสำเร็จ
   employer_posted_success: ประกาศหาคนเสร็จเรียบร้อยแล้ว
 
+  apply_for: ประกาศหางาน
+  want_to: ต้องการงาน
+
   simple_form:
     labels:
       user:

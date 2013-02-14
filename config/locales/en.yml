@@ -39,6 +39,9 @@ en:
   employee_posted_success: Successfully Posted.
   employer_posted_success: Successfully Posted.
 
+  apply_for: Apply for
+  want_to: Want to
+
   simple_form:
     labels:
       user:
