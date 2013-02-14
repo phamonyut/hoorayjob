@@ -27,6 +27,7 @@ th:
   signin_success: เข้าระบบเรียบร้อย
   signin_fail: ชื่อผู้ใช้งาน หรอืรหัสผ่านไม่ถูกต้อง ลองใหม่อีกครั้ง
   signout_success: ออกจากระบบเรียบร้อย
+  please_signin: กรุณาเข้าสู่ระบบก่อน
 
   male: ชาย
   female: หญิง

@@ -30,7 +30,7 @@ class HomeController < ApplicationController
 
 	private
 		def signed_in_user
-			redirect_to root_path, notice: "Please sign in." unless user_signed_in?
+			redirect_to root_path, flash: {error: t(:please_signin)} unless user_signed_in?
 		end
 
 end

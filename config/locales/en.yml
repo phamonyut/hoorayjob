@@ -27,6 +27,7 @@ en:
   signin_success: Sign in successfully.
   signin_fail: Username or Password did not match. Please try again.
   signout_success: Sign out successfully.
+  please_signin: Please sign in.
 
   male: Male
   female: Female
