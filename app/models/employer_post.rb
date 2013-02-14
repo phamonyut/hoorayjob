@@ -17,7 +17,7 @@ class EmployerPost < ActiveRecord::Base
   end
 
   def formatted_sex
-  	"Sex: #{self.sex}"
+  	"Sex: #{self.sex.name}"
   end
 
   def formatted_age
@@ -34,5 +34,9 @@ class EmployerPost < ActiveRecord::Base
 
   def formatted_address
   	"#{self.district} #{self.province}"
+  end
+
+  def postCategory
+    "#{self.class.name}"
   end
 end
