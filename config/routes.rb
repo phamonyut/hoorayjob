@@ -8,6 +8,7 @@ Hoorayjob::Application.routes.draw do
   match "/signout" => "users#signout"
   match "/signup2" => "users#signup2"
   match "/jobpost" => "home#post"
+  get "/post2" => "home#post2"
 
   resources :employee_posts
   resources :employer_posts

@@ -40,6 +40,7 @@ end
 gem 'thin'
 gem 'simple_form'
 gem 'client_side_validations'
+gem 'haml'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

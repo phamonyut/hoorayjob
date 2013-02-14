@@ -20,6 +20,14 @@ class HomeController < ApplicationController
 		end
 	end
 
+	def post2
+		@employee_post = EmployeePost.new
+		@employer_post = EmployerPost.new
+		respond_to do |format|
+			format.html 
+		end
+	end
+
 	private
 		def signed_in_user
 			redirect_to root_path, notice: "Please sign in." unless user_signed_in?
