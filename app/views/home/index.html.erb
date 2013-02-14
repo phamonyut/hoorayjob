@@ -14,10 +14,12 @@
 
 <div class="row">
 	<div class="span12">
-		<h2><%=t :all_posts %></h2>
+		<h2><a href="#" onclick="javascript:handleShowAllPostsClick()"><%=t :all_posts %></a></h2>
+		<h2><a href="#" onclick="javascript:handleShowOnlyEmployerPostsClick()"><%=t :employer_posts %></a></h2>
+		<h2><a href="#" onclick="javascript:handleShowOnlyEmployeePostsClick()"><%=t :employee_posts %></a></h2>
 		<ul>
 			<% @posts.each do |post| %>
-				<li><%= post.formatted_post %></li>
+				<li class="<%= post.postCategory %>"><%= post.formatted_post %></li>
 			<% end %>
 		</ul>
 	</div>

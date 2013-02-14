@@ -20,6 +20,8 @@ th:
   back_to_home_page: กลับหน้าหลัก
   edit_profile: แก้ไขข้อมูลส่วนตัว
   all_posts: ประกาศทั้งหมด
+  employer_posts: ประกาศหาคน
+  employee_posts: ประกาศหางาน
 
   user_created_success: สร้างผู้ใช้ใหม่เรียบร้อยแล้ว
   signin_success: เข้าระบบเรียบร้อย
