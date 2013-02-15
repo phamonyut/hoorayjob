@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'thaisans_neuesemi_bold';
+    src: url('fonts/thaisansneue-semibold.eot');
+    src: url('fonts/thaisansneue-semibold.eot?#iefix') format('embedded-opentype'),
+         url('fonts/thaisansneue-semibold.woff') format('woff'),
+         url('fonts/thaisansneue-semibold.ttf') format('truetype'),
+         url('fonts/thaisansneue-semibold.svg#thaisans_neuesemi_bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

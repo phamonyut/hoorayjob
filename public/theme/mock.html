@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html>
+	<meta charset='utf-8'> 
+	<link rel="stylesheet" href="font-stylesheet.css" type="text/css" charset="utf-8">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<style type="text/css">
+		body {
+			margin:	0px;
+			padding: 0px;
+			font-family: "thaisans_neuesemi_bold";
+		}
+		#temp {
+			background: url('hoorayJob_home_v3.jpg');
+			width: 1384px;
+			height: 1231px;
+			margin: 0 auto;
+			// z-index: -10;
+			opacity: .3;
+			position: absolute;
+		}
+		.container {
+	    background-color: #DCECF7;
+	    border-bottom: 1px solid #cedde4;
+	    width: 100%;
+	    height: 490px;
+		}
+
+		.content {
+	    width: 1020px;
+	    height: 1231px;
+	    margin: 0 auto;
+	    margin-top: -10px;
+	    box-shadow: 0px 0px 10px #cedde4;
+	    background-color: #FFF;
+		}
+
+		header {
+			background-color: #E3F2FC;
+			height: 500px;
+			border-bottom: 1px solid #CEDDE4;
+		}
+
+		.main_logo {
+			background: url("logo.png");
+			width: 425px;
+			height: 105px;
+			position: relative;
+			top: 20px;
+			left: 35px;
+			cursor: pointer;
+		}
+		
+		#left_aside {
+			width: 555px;
+			height: 100%;
+			float: left;
+		}
+
+		#right_aside {
+			height: 100%;
+			width: 445px;
+			float: right;
+		}
+
+		#login {
+			margin-top: 20px;
+		}
+
+		h1 {
+			font-size: 48px;
+			color: #F06;
+			margin: 0;
+		}
+
+		h3 {
+			font-size: 29px;
+			color: #F06;
+			margin: 0;
+		}
+		
+		#login input{
+			width: 145px;
+		}
+
+		#login .username {
+			width: 155px;
+			float: left;
+		}
+
+		#login .password {
+			float: left;
+		}
+
+		#login button {
+			margin-left: 4px;
+			margin-top: 25px;
+		}
+
+		input {
+			border-radius: 2px;
+			border: 1px solid #7D7D7D;
+			height: 22px;
+			padding-left: 2px;
+			font-size: 16px;
+			outline-color: #2D9BFF;
+			color: #003166;
+		}
+
+		input::-webkit-input-placeholder { 
+    	color: #c8c8c8;
+		}
+
+		input:-moz-placeholder {
+			color: #c8c8c8;
+		}
+		
+		input::-moz-placeholder { 
+			color: #c8c8c8;
+		}
+
+		button {
+			cursor: pointer;
+			padding: 0px 10px;
+			font-size: 28px;
+			margin: 0;
+			background-color: #ED89AC;
+			border: 0px;
+			border-bottom: 2px solid #9F3D65;
+			border-radius: 4px;
+			color: #FAFAFA;
+			font-family: "thaisans_neuesemi_bold";
+		}
+
+		button:hover {
+			background-color: #FFC4D9;
+		}
+
+		button.btn_highlight {
+			font-size: 37px;
+			padding: 0px 15px;
+			background-color: #FF0066;
+			border-radius: 6px;
+		}
+		
+		button.btn_highlight:hover {
+			background-color: #FF8CBA;
+		}
+
+		button.btn_search {
+			font-size: 38px;
+			float: left;
+			margin-top: -12px;
+			padding-right: 15px;
+			margin-left: 20px;
+		}
+
+		button.btn_search::after {
+			background: url("down-arrow.png");
+			content: ' ';
+			width: 27px;
+			height: 27px;
+			left: 6px;
+			display: inline-block;
+			position: relative;
+			top: 3px;
+		}
+
+		#registration {
+			clear: both;
+			margin-top: 35px;
+		}
+
+		#registration input{
+			width: 390px;
+			font-size: 30px;
+			height: 38px;
+			padding-left: 12px;
+			margin: 6px 0px;
+		}
+
+		#registration button {
+			margin-top: 14px;
+		}
+
+		.post_filter {
+			background-color: #FEE1EB;
+			height: 120px;
+			padding-left: 34px;
+			box-sizing: border-box;
+		}
+
+		.post_filter .options{
+			margin-top: 17px;
+		}
+
+		.small{
+			font-size: 27px;
+		}
+
+		h2 {
+			margin: 0;
+			font-size: 36px;
+			color: #F06;
+		}
+
+		input[type="checkbox"] + label:hover {
+			background: url("checkbox.png");
+/*			background-position: 0px 40px;
+*/
+			background-position: -45px 0px;
+			background-repeat: no-repeat;
+		}
+
+		input[type="checkbox"] + label {
+/*			background: url("checkbox.png");
+			padding: 11px 22px;
+			right: 36px;
+			background-position: 0px 40px;
+			cursor: pointer;*/
+
+			background: url("checkbox.png");
+			padding: 18px 22px 6px;
+			background-position: 0px 0px;
+			cursor: pointer;
+			background-repeat: no-repeat;
+		}
+
+		input[type="checkbox"]:checked + label {
+			background-position: -92px 0px;
+		}
+
+		input[type="checkbox"] + label + label {
+			font-size: 27px;
+		}
+
+		input[type="checkbox"] {
+			display: none;	
+		}
+
+		.options div {
+			margin-right: 17px;
+			float: left;
+		}
+
+		footer {
+			height: 85px;
+			//background-color: #144566;
+			background: url("footer-bg.png");
+			background-repeat: no-repeat;
+		}
+
+		.footer_logo {
+			background: url("footer-logo.png");
+			float: right;
+			width: 205px;
+			height: 50px;
+			margin-right: 40px;
+			margin-top: 20px;
+		}
+
+		.contact_info {
+			font-size: 39px;
+			float: left;
+			line-height: 1;
+			margin-left: 37px;
+			color: #FAFAFA;
+		}
+
+		#post_category {
+			font-size: 36px;
+			padding-left: 31px;
+			padding-top: 35px;
+			color: #FF1170;
+			padding-right: 35px;
+		}
+
+		#category_left {
+			float: left;
+		}
+
+		#category_left .active {
+			//padding-right: 35px;
+		}
+
+		#post_category_selection {
+			background: url("post-category-selection.png");
+			width: 265px;
+			height: 55px;
+			position: absolute;
+			display: none;
+		}
+
+		#post_category_selection.all {
+			display: block;
+			left: -25px;
+			top: -5px;
+		}
+
+		#post_category_selection.only_job {
+			display: block;
+			left: 335px;
+			top: -5px;
+		}
+
+		#post_category_selection.only_employee {
+			display: block;
+			right: -18px;
+			top: -5px;
+		}
+
+		/*#category_center .active{
+			margin-left: -45px;
+			padding-right: 70px;
+		}
+		
+		#category_right .active {
+			margin-left: -70px;
+			padding-right: 70px;			
+		}*/
+
+		#category_center {
+		}
+
+		#category_right {
+			float: right;
+		}
+
+		.category_bar {
+			background-color: #EDCAD6;
+			height: 4px;
+		}
+
+		#post_category_group {
+			border-bottom: 4px solid #EDCAD6;
+			position: relative;
+		}
+
+		#post_category_group a {
+			color: #ED89AC;
+		}
+
+		#post_category_group a:active {
+			color: #FF1170;
+			text-decoration: none;
+		}
+
+		#post_category_group a:hover {
+			color: #FF1170 !important;
+			text-decoration: none;
+		}
+
+		#post_category_group a:visited {
+			color: #ED89AC;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		a:visited {
+			text-decoration: none;
+		}
+
+		#post_category_selection_bar {
+			border: 2px solid #FF1170;
+			float: left;
+			width: 290px;
+			display: none;
+		}
+
+		#post_category_selection_bar.all {
+			display: block;
+		}
+
+		#post_category_selection_bar.only_job {
+			display: block;
+			margin-left: 310px;
+			width: 320px;
+
+		}
+
+		#post_category_selection_bar.only_employee {
+			display: block;
+			margin-left: 310px;
+			float: right;
+			width: 315px;
+		}
+
+
+
+
+/*		.active div {
+			border-bottom: 4px solid #FF1170;
+			margin-right: -65px;
+		}*/
+
+/*		#category_left:hover div {
+			border-bottom: 4px solid #FF1170;
+			margin-right: -65px;
+		}
+
+		#category_center:hover div {
+			border-bottom: 4px solid #FF1170;
+			width: 33%;
+			float: left;
+			margin-left: 275px;
+			padding-right: 65px;
+		}
+
+		#category_right:hover div {
+			border-bottom: 4px solid #FF1170;
+			margin-left: -65px;
+		}*/
+
+		.active { 
+			color: #FF1170 !important;
+		}
+
+		#post_contents {
+			padding-right: 35px;
+			padding-left: 31px;
+			font-size: 16px;
+			padding-top: 25px;
+			color: #303030;
+			text-align: justify;
+			position: relative;
+		}
+
+		.post_post:hover {
+			background-color: #FFFAFC
+		}
+
+		.post_post {
+			font-family: "Arial, sans-serif";
+			border-bottom: 1px dashed #F1F1F1;
+			padding-top: 5px;
+			padding-bottom: 5px;
+		}
+
+		.post_icon {
+			background: url("work-employee-icon.png");
+			width: 30px;
+			height: 30px;
+			float: left;
+			margin-right: 5px;
+			display: inline-block;
+			margin-top: 5px;
+		}
+
+		.employee_icon {
+			background-position-y: 29px;
+		}
+
+		.post_suffix_icon {
+			background: url("post-suffix-icon.png");
+			width: 30px;
+			height: 30px;
+			display: inline-block;
+			vertical-align: text-bottom;
+		}
+
+		.post_suffix_icon.contact_icon {
+			background-position-y: -29px;
+		}
+
+		.post_suffix_icon.tel_icon {
+			background-position-y: -57px;
+			width: 15px;
+			background-position-x: 22px;
+		}
+
+		.post_wage {
+			font-size: 16px;
+			letter-spacing: 0px;
+			font-weight: bold;
+			color: #F06;
+		}
+
+		.post_title {
+			line-height: 1.5;
+		}
+
+		.post_tel {
+			font-size: 16px;
+			font-weight: bold;
+			color: #9E9E9E;
+		}
+
+		.post_contact {
+			color: #9E9E9E;
+			font-weight: bold;
+			font-size: 15px;
+		}
+
+		a.post_title{
+			color: #303030;
+		}
+
+		a.post_title:visited {
+			color: #303030;
+		}
+
+		.post_text {
+			padding-left: 35px;
+		}
+
+	</style>
+	<body>
+		<!-- <div id="temp"></div> -->
+		<div class="container">
+			<div class="content">
+				<header>
+					<div id="left_aside">
+						<div class="main_logo"></div>
+					</div>
+					<div id="right_aside">
+						<div id="login">
+							<div class="username">
+								<h3>ชื่อเข้าระบบ</h3>
+								<input type="text" name="username">
+							</div>
+							<div class="password">
+								<h3>รหัสผ่าน</h3>
+								<input type="password" name="password">
+							</div>
+							<button class="btn-medium btn-lv2">เข้าสู่ระบบ</button>
+						</div>
+						<div id="registration">
+							<h1>สมัครสมาชิก</h1>
+							<input type="text" name="fullname" placeholder="ชื่อ นามสกุล">
+							<input type="text" name="username" placeholder="ชื่อเพื่อเข้าระบบ (ภาษาอังกฤษ)">
+							<input type="password" name="password" placeholder="รหัสผ่าน">
+							<input type="password" name="password" placeholder="ยืนยันรหัสผ่านอีกครั้ง">
+							<button class="btn_highlight">ยืนยันการสมัคร</button>
+						</div>
+					</div>
+				</header>
+				<div class="post_filter">
+					<h2>เลือกประเภทงาน</h2>
+					<div class="options">
+						<div>
+							<input id="post_all" type="checkbox">
+							<label for="post_all"></label>
+							<label for="post_all">ทั้งหมด</label>
+							<!-- <span class="small">ทั้งหมด</span> -->
+						</div>
+						<div>
+							<input id="post_maid" type="checkbox">
+							<label for="post_maid"></label>
+							<label for="post_maid">แม่บ้าน/พ่อบ้าน</label>
+						</div>
+						<div>
+							<input id="post_helper" type="checkbox">
+							<label for="post_helper"></label>
+							<label for="post_helper">พี่เลี้ยงเด็ก-คนชรา</label>
+						</div>
+						<div>
+							<input id="post_shop" type="checkbox">
+							<label for="post_shop"></label>
+							<label for="post_shop">พนักงานประจำร้าน</label>
+						</div>
+						<div>
+							<input id="post_else" type="checkbox">
+							<label for="post_else"></label>
+							<label for="post_else">อื่นๆ</label>
+						</div>
+						<button class="btn_search">ค้นหา</button>
+					</div>
+				</div>
+				<div id="post_container" style="height: 525px;">
+					<div id="post_category">
+						<div id="post_category_group">
+							<div id="post_category_selection" class="all"></div>
+							<a id="category_left" class="active" href="#">แสดงประกาศทั้งหมด</a>
+							<a id="category_right" href="#">เฉพาะคนที่กำลังหางาน</a>
+							<center>
+								<a id="category_center" href="#">เฉพาะงานจากนายจ้าง</a>
+							</center>
+							<div id="post_category_selection_bar" class="all"></div>
+						</div>
+					</div>
+					<div id="post_contents">
+
+
+						<div class="post_post">
+							<div class="post_icon"></div>
+							<div class="post_text">
+									<a href="#" class="post_title">หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์ ต้องการเฉพาะผู้หญิงเท่านั้น</a>
+									<div>
+										<i class="post_suffix_icon wage_icon"></i>
+										<span class="post_wage">12,000 บาท ต่อเดือน</span>
+										<i class="post_suffix_icon tel_icon"></i>
+										<span class="post_tel">080-123-4567</span>
+										<i class="post_suffix_icon contact_icon"></i>
+										<a href="#" class="post_contact">คุณ เก่ง ชัยชาญ</a>
+									</div>
+							</div>
+						</div>
+
+						<div class="post_post">
+							<div class="post_icon employee_icon"></div>
+							<div class="post_text">
+									<a href="#" class="post_title">หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์ ต้องการเฉพาะผู้หญิงเท่านั้น</a>
+									<i class="post_suffix_icon wage_icon"></i>
+									<span class="post_wage">12,000 บาท ต่อเดือน</span>
+									<i class="post_suffix_icon tel_icon"></i>
+									<span class="post_tel">080-123-4567</span>
+									<i class="post_suffix_icon contact_icon"></i>
+									<a href="#" class="post_contact">คุณ เก่ง ชัยชาญ</a>
+							</div>
+						</div>
+
+						<div class="post_post">
+							<i class="post_icon"></i>
+							<div class="post_text">
+									<a href="#" class="post_title">หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์ ต้องการเฉพาะผู้หญิงเท่านั้น</a>
+									<i class="post_suffix_icon wage_icon"></i>
+									<span class="post_wage">12,000 บาท ต่อเดือน</span>
+									<i class="post_suffix_icon tel_icon"></i>
+									<span class="post_tel">080-123-4567</span>
+									<i class="post_suffix_icon contact_icon"></i>
+									<a href="#" class="post_contact">คุณ เก่ง ชัยชาญ</a>
+							</div>
+						</div>
+
+												<div class="post_post">
+							<div class="post_icon employee_icon"></div>
+							<div class="post_text">
+									<a href="#" class="post_title">หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์ ต้องการเฉพาะผู้หญิงเท่านั้น</a>
+									<i class="post_suffix_icon wage_icon"></i>
+									<span class="post_wage">12,000 บาท ต่อเดือน</span>
+									<i class="post_suffix_icon tel_icon"></i>
+									<span class="post_tel">080-123-4567</span>
+									<i class="post_suffix_icon contact_icon"></i>
+									<a href="#" class="post_contact">คุณ เก่ง ชัยชาญ</a>
+							</div>
+						</div>
+
+						<div class="post_post">
+							<i class="post_icon"></i>
+							<div class="post_text">
+									<a href="#" class="post_title">หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์ ต้องการเฉพาะผู้หญิงเท่านั้น</a>
+									<i class="post_suffix_icon wage_icon"></i>
+									<span class="post_wage">12,000 บาท ต่อเดือน</span>
+									<i class="post_suffix_icon tel_icon"></i>
+									<span class="post_tel">080-123-4567</span>
+									<i class="post_suffix_icon contact_icon"></i>
+									<a href="#" class="post_contact">คุณ เก่ง ชัยชาญ</a>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+				<footer>
+					<div class="contact_info">
+						<span>ติดต่อเรา HOORAYjob.com</span>
+						<br />
+						<span>อีเมล์: hooray@email.com โทร: 080-123-4567</span>
+					</div>
+					<div class="footer_logo"></div>
+				</footer>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$( 
+				function(){ 
+					$("#category_left").hover(
+						function(){
+							$("#post_category_selection_bar").removeClass()
+							$("#post_category_selection_bar").addClass("all")
+						},restorFilterSelectionBar);
+					$("#category_center").hover(
+						function(){
+							$("#post_category_selection_bar").removeClass()
+							$("#post_category_selection_bar").addClass("only_job")
+						},restorFilterSelectionBar);
+					$("#category_right").hover(
+						function(){
+							$("#post_category_selection_bar").removeClass()
+							$("#post_category_selection_bar").addClass("only_employee")
+						},restorFilterSelectionBar);
+
+					$("#category_left").click(
+						function(){
+							$("#category_right").removeClass()
+							$("#category_center").removeClass()
+							$("#category_left").removeClass()
+							$("#category_left").addClass("active")
+							setFilterSelection("all")
+							return false
+						});
+					$("#category_center").click(
+						function(){
+							$("#category_right").removeClass()
+							$("#category_center").removeClass()
+							$("#category_left").removeClass()
+							$("#category_center").addClass("active")
+							setFilterSelection("only_job")
+							return false
+						});
+					$("#category_right").click(
+						function(){
+							$("#category_right").removeClass()
+							$("#category_center").removeClass()
+							$("#category_left").removeClass()
+							$("#category_right").addClass("active")
+							setFilterSelection("only_employee")
+							return false
+						});
+				 });
+
+				function setFilterSelection( filter )
+				{
+					$("#post_category_selection").removeClass()
+					$("#post_category_selection_bar").removeClass()
+					$("#post_category_selection").addClass(filter)
+					$("#post_category_selection_bar").addClass(filter)
+				}
+
+				function restorFilterSelectionBar()
+				{
+					$("#post_category_selection_bar").removeClass()
+					$("#post_category_selection_bar").addClass( $("#post_category_selection").attr("class") )
+				}
+
+		</script>
+	</body>
+</html>
