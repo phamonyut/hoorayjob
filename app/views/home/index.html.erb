@@ -1,5 +1,17 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+	  $('div.demo-show:eq(0)> div').hide();  
+	  $('div.demo-show:eq(0)> h4').click(function() {
+	    $(this).next().slideToggle('fast');
+	  });
+	});
+
+	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+</script>
+
 <div class="row">
-	<div class="span12">
+	<div class="span10">
 		<h2><a href="#" onclick="javascript:handleShowAllPostsClick()"><%=t :all_posts %></a></h2>
 		<h2><a href="#" onclick="javascript:handleShowOnlyEmployerPostsClick()"><%=t :employer_posts %></a></h2>
 		<h2><a href="#" onclick="javascript:handleShowOnlyEmployeePostsClick()"><%=t :employee_posts %></a></h2>
@@ -8,5 +20,16 @@
 				<li class="<%= post.postCategory %>"><%= post.formatted_post %> <%=t :posted %> <%= time_ago_in_words(post.created_at) %> <%=t :ago %></li>
 			<% end %>
 		</ul>
+	</div>
+
+	<div class="span2">
+		<div class="demo-show">
+		  <h4>Facebook</h4>
+		  <div><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fhoorayjob&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;font&amp;colorscheme=light&amp;action=like&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe></div>
+		  <h4>Twitter</h4>
+		  <div><a class="twitter-timeline" href="https://twitter.com/hoorayjob" data-widget-id="301649681849651200">ทวีตโดย @hoorayjob</a></div>
+		  <h4>Subscribe</h4>
+		  <div>Subscribe to all the intereseting job straight to your RSS reader.</div>
+		</div>
 	</div>
 </div>
