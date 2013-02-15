@@ -16,7 +16,7 @@ class EmployeePost < ActiveRecord::Base
   end
 
   def formatted_sex
-  	"Sex: #{self.user.sex.name}"
+  	"Sex: #{self.user.try(:sex).try(:name)}"
   end
 
   def formatted_age
