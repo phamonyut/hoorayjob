@@ -4,6 +4,7 @@ gem 'rails', '3.2.11'
 
 gem 'sqlite3'
 gem 'bootstrap-sass'
+gem 'bootstrap-datepicker-rails'
 gem 'bcrypt-ruby'
 gem 'quiet_assets', :group => :development
 
@@ -24,12 +25,13 @@ group :development, :test do
 	gem 'rspec-rails'
 	gem 'capybara', '1.1.2'
 	gem 'guard-rspec'
+	gem 'factory_girl_rails', '1.4.0'
 end
 
 group :test do
+	gem 'capybara-screenshot'
 	gem 'cucumber-rails', require: false
 	gem 'database_cleaner'
-	gem 'factory_girl_rails', '1.4.0'
 	gem 'rb-fchange', '0.0.5'
 	gem 'rb-notifu', '0.0.4'
 	gem 'win32console', '1.3.0'
@@ -39,6 +41,7 @@ end
 gem 'thin'
 gem 'simple_form'
 gem 'client_side_validations'
+gem 'haml'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

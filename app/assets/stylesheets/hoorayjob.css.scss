@@ -8,6 +8,24 @@
 	font-weight: 400;
 	src: url(font-path('Lobster.ttf'));
 }
+@font-face {
+	font-family: 'iannnnnBKK';
+	font-style: normal;
+	font-weight: 400;
+	src: url(font-path('iannnnnBKK.woff'));
+}
+@font-face {
+	font-family: 'Quark-Bold';
+	font-style: normal;
+	font-weight: 400;
+	src: url(font-path('Quark-Bold.otf'));
+}
+@font-face {
+	font-family: 'Quark-Light';
+	font-style: normal;
+	font-weight: 400;
+	src: url(font-path('Quark-Light.otf'));
+}
 
 @media (min-width: 980px) {
 	body {

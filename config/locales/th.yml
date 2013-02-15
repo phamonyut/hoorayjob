@@ -19,11 +19,15 @@ th:
   hooray: ฮูเล่ย์
   back_to_home_page: กลับหน้าหลัก
   edit_profile: แก้ไขข้อมูลส่วนตัว
-  
+  all_posts: ประกาศทั้งหมด
+  employer_posts: ประกาศหาคน
+  employee_posts: ประกาศหางาน
+
   user_created_success: สร้างผู้ใช้ใหม่เรียบร้อยแล้ว
   signin_success: เข้าระบบเรียบร้อย
   signin_fail: ชื่อผู้ใช้งาน หรอืรหัสผ่านไม่ถูกต้อง ลองใหม่อีกครั้ง
   signout_success: ออกจากระบบเรียบร้อย
+  please_signin: กรุณาเข้าสู่ระบบก่อน
 
   male: ชาย
   female: หญิง
@@ -33,6 +37,16 @@ th:
   baby-sitter: พี่เลี้ยงเด็ก
   nurse: ดูแลผู้สูงอายุ
   driver: พนักงานขับรถ
+
+  posting: ประกาศ
+  employee_posted_success: ประกาศหางานสำเร็จ
+  employer_posted_success: ประกาศหาคนเสร็จเรียบร้อยแล้ว
+
+  posted: ประกาศเมื่อ
+  ago: ที่แล้ว
+
+  apply_for: ประกาศหางาน
+  want_to: ต้องการงาน
 
   simple_form:
     labels:
@@ -50,6 +64,23 @@ th:
         birthday: เดือนเกิด
         address: ที่อยู่
         personal_info: ข้อมูลส่วนตัว
+      employee_post:
+        job: ประเภทงาน
+        min_salary: เงินเดือนขั้นต่ำ
+        max_salary: เงินเดือนสูงสุด
+        year_of_experience: ประสบการณ์ทำงาน
+        district: อำเภอ
+        province: จังหวัด
+      employer_post:
+        job: ประเภทงาน
+        min_salary: เงินเดือนขั้นต่ำ
+        max_salary: เงินเดือนสูงสุด
+        year_of_experience: ประสบการณ์ทำงาน
+        sex: เพศ
+        min_age: อายุขั้นต่ำ
+        max_age: อายุมากที่สุด
+        district: อำเภอ
+        province: จังหวัด 
 
   date:
     abbr_day_names:

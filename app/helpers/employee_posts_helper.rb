@@ -1,0 +1,2 @@
+module EmployeePostsHelper
+end

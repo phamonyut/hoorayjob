@@ -1,23 +1,12 @@
 <div class="row">
-	<div class="span11">
-		<h1><%=t :welcome %> <span class="brand">HoorayJob</span></h1>	
-		<h2><%=t :marketing_word %></h2>
-		<button class="btn btn-warning"> <%=t :tryit %> </button>
-	</div>
-
-	<div class="span1">
-		<div class="pull-right">
-			<ul class="tablist">
-				<li id="current"><a href="#">facebook</a></li>
-				<li><a href="#">twitter</a></li>
-			</ul>
-			<div id="facebook-section" class="">
-				<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fhoorayjob&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;font&amp;colorscheme=light&amp;action=like&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
-			</div>
-			<div id="twitter-section" class="">
-				<a class="twitter-timeline" href="https://twitter.com/hoorayjob" data-widget-id="301649681849651200">ทวีตโดย @hoorayjob</a>
-				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-			</div>
-		</div>
+	<div class="span12">
+		<h2><a href="#" onclick="javascript:handleShowAllPostsClick()"><%=t :all_posts %></a></h2>
+		<h2><a href="#" onclick="javascript:handleShowOnlyEmployerPostsClick()"><%=t :employer_posts %></a></h2>
+		<h2><a href="#" onclick="javascript:handleShowOnlyEmployeePostsClick()"><%=t :employee_posts %></a></h2>
+		<ul>
+			<% @posts.each do |post| %>
+				<li class="<%= post.postCategory %>"><%= post.formatted_post %> <%=t :posted %> <%= time_ago_in_words(post.created_at) %> <%=t :ago %></li>
+			<% end %>
+		</ul>
 	</div>
 </div>

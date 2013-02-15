@@ -7,6 +7,12 @@ Hoorayjob::Application.routes.draw do
   match "/signin" => "users#signin"
   match "/signout" => "users#signout"
   match "/signup2" => "users#signup2"
+  match "/jobpost" => "home#post"
+  get "/post2" => "home#post2"
+
+  resources :employee_posts
+  resources :employer_posts
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
