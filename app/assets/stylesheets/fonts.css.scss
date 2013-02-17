@@ -1,0 +1,35 @@
+@font-face {
+	font-family: 'Lobster';
+	font-style: normal;
+	font-weight: 400;
+	src: url(font-path('Lobster.ttf'));
+}
+@font-face {
+	font-family: 'iannnnnBKK';
+	font-style: normal;
+	font-weight: 400;
+	src: url(font-path('iannnnnBKK.woff'));
+}
+@font-face {
+	font-family: 'Quark-Bold';
+	font-style: normal;
+	font-weight: 400;
+	src: url(font-path('Quark-Bold.otf'));
+}
+@font-face {
+	font-family: 'Quark-Light';
+	font-style: normal;
+	font-weight: 400;
+	src: url(font-path('Quark-Light.otf'));
+}
+
+@font-face {
+    font-family: 'thaisans_neuesemi_bold';
+    src: url(font-path('thaisansneue-semibold.eot'));
+    src: url(font-path('thaisansneue-semibold.eot?#iefix')) format('embedded-opentype'),
+         url(font-path('thaisansneue-semibold.woff')) format('woff'),
+         url(font-path('thaisansneue-semibold.ttf')) format('truetype'),
+         url(font-path('thaisansneue-semibold.svg#thaisans_neuesemi_bold')) format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
