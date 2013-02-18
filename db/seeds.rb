@@ -23,6 +23,9 @@ Job.create(job_name: 'baby-sitter')
 Job.create(job_name: 'nurse')
 Job.create(job_name: 'driver')
 
+admin = User.create(first_name: 'admin', last_name: 'krub', username: 'admin', password: 'password', password_confirmation: 'password', email: 'admin@hoorayjob.com', citizen_id: '1234567890123', sex: male, address: '404', user_type: individual, phone: '123456789')
+
+
 p1  = Province.new(name: 'กระบี่');
 p2  = Province.new(name: 'กรุงเทพมหานคร');
 p3  = Province.new(name: 'กาญจนบุรี');
