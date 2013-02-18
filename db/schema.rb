@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130214082639) do
+ActiveRecord::Schema.define(:version => 20130218105331) do
+
+  create_table "districts", :force => true do |t|
+    t.string   "name",        :null => false
+    t.integer  "province_id", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "employee_posts", :force => true do |t|
     t.integer  "user_id"
@@ -20,14 +27,14 @@ ActiveRecord::Schema.define(:version => 20130214082639) do
     t.integer  "min_salary"
     t.integer  "max_salary"
     t.integer  "year_of_experience"
-    t.string   "district"
-    t.string   "province"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.text     "desc"
     t.string   "title"
-    t.string   "tel"
+    t.string   "phone"
     t.string   "email"
+    t.integer  "district_id"
+    t.integer  "province_id"
   end
 
   create_table "employer_posts", :force => true do |t|
@@ -39,15 +46,15 @@ ActiveRecord::Schema.define(:version => 20130214082639) do
     t.integer  "year_of_experience"
     t.integer  "min_age"
     t.integer  "max_age"
-    t.string   "district"
-    t.string   "province"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.integer  "sex_id"
     t.text     "desc"
     t.string   "title"
-    t.string   "tel"
+    t.string   "phone"
     t.string   "email"
+    t.integer  "district_id"
+    t.integer  "province_id"
   end
 
   create_table "jobs", :force => true do |t|
@@ -55,6 +62,14 @@ ActiveRecord::Schema.define(:version => 20130214082639) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "provinces", :force => true do |t|
+    t.string   "name",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "provinces", ["name"], :name => "index_provinces_on_name", :unique => true
 
   create_table "sexes", :force => true do |t|
     t.string   "name"
