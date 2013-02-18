@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130214082639) do
+ActiveRecord::Schema.define(:version => 20130218080438) do
+
+  create_table "districts", :force => true do |t|
+    t.string   "name",        :null => false
+    t.integer  "province_id", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "employee_posts", :force => true do |t|
     t.integer  "user_id"
@@ -55,6 +62,14 @@ ActiveRecord::Schema.define(:version => 20130214082639) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "provinces", :force => true do |t|
+    t.string   "name",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "provinces", ["name"], :name => "index_provinces_on_name", :unique => true
 
   create_table "sexes", :force => true do |t|
     t.string   "name"
