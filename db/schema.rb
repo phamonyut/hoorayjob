@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130218104526) do
+ActiveRecord::Schema.define(:version => 20130218105331) do
 
   create_table "districts", :force => true do |t|
     t.string   "name",        :null => false
@@ -27,14 +27,14 @@ ActiveRecord::Schema.define(:version => 20130218104526) do
     t.integer  "min_salary"
     t.integer  "max_salary"
     t.integer  "year_of_experience"
-    t.string   "district"
-    t.string   "province"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.text     "desc"
     t.string   "title"
     t.string   "phone"
     t.string   "email"
+    t.integer  "district_id"
+    t.integer  "province_id"
   end
 
   create_table "employer_posts", :force => true do |t|
@@ -46,8 +46,6 @@ ActiveRecord::Schema.define(:version => 20130218104526) do
     t.integer  "year_of_experience"
     t.integer  "min_age"
     t.integer  "max_age"
-    t.string   "district"
-    t.string   "province"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.integer  "sex_id"
@@ -55,6 +53,8 @@ ActiveRecord::Schema.define(:version => 20130218104526) do
     t.string   "title"
     t.string   "phone"
     t.string   "email"
+    t.integer  "district_id"
+    t.integer  "province_id"
   end
 
   create_table "jobs", :force => true do |t|

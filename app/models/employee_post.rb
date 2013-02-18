@@ -3,6 +3,8 @@ class EmployeePost < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :job
+  belongs_to :district
+  belongs_to :province
 
   validates	:job, presence: true
   validates :job_id, presence: true
