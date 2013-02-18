@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130218080438) do
+ActiveRecord::Schema.define(:version => 20130218104526) do
 
   create_table "districts", :force => true do |t|
     t.string   "name",        :null => false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20130218080438) do
     t.datetime "updated_at",         :null => false
     t.text     "desc"
     t.string   "title"
-    t.string   "tel"
+    t.string   "phone"
     t.string   "email"
   end
 
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20130218080438) do
     t.integer  "sex_id"
     t.text     "desc"
     t.string   "title"
-    t.string   "tel"
+    t.string   "phone"
     t.string   "email"
   end
 
