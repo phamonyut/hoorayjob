@@ -1,6 +1,19 @@
 class HomeController < ApplicationController
 
 	before_filter :signed_in_user, only: [:hello, :post]
+	layout :design_layout
+
+	def design_layout
+	 case action_name
+    when 'theme'
+    	'application_theme'
+    else
+      'application'
+	  end
+	end
+
+	def theme
+	end
 
 	def index
 		@employee_posts = EmployeePost.all
