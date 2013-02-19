@@ -1,8 +1,10 @@
 class EmployeePost < ActiveRecord::Base
-  attr_accessible :district, :job_id, :max_salary, :min_salary, :province, :status, :user_id, :year_of_experience, :desc, :title, :tel, :email
+  attr_accessible :user, :job, :district, :job_id, :max_salary, :min_salary, :province, :status, :user_id, :year_of_experience, :desc, :title, :phone, :email
   
   belongs_to :user
   belongs_to :job
+  belongs_to :district
+  belongs_to :province
 
   validates	:job, presence: true
   validates :job_id, presence: true
@@ -32,7 +34,7 @@ class EmployeePost < ActiveRecord::Base
   end
 
   def formatted_address
-  	"#{self.district} #{self.province}"
+  	"#{self.district.name} #{self.province.name}"
   end
 
   def postCategory

@@ -160,8 +160,6 @@ input {
 	}
 }
 
-
-
 button {
 	cursor: pointer;
 	padding: 0px 10px;
@@ -285,7 +283,7 @@ input[type="checkbox"] {
 	float: left;
 }
 
-#post-category-selection {
+#category-selection {
 	background: url("post-category-selection.png");
 	width: 265px;
 	height: 55px;
@@ -327,7 +325,7 @@ input[type="checkbox"] {
 	}
 }
 
-#post-category-selection-bar {
+#category-selection-bar {
 	border: 2px solid $pink-active-category-selection;
 	float: left;
 	width: 290px;

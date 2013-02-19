@@ -72,13 +72,13 @@
 				<div id="post-container" style="height: 525px;">
 					<div id="post-category">
 						<div id="post-category-group">
-							<div id="post-category-selection" class="all"></div>
+							<div id="category-selection" class="all"></div>
 							<a id="category-left" class="active" href="#">แสดงประกาศทั้งหมด</a>
 							<a id="category-right" href="#">เฉพาะคนที่กำลังหางาน</a>
 							<center>
 								<a id="category-center" href="#">เฉพาะงานจากนายจ้าง</a>
 							</center>
-							<div id="post-category-selection-bar" class="all"></div>
+							<div id="category-selection-bar" class="all"></div>
 						</div>
 					</div>
 					<div id="post-contents">
@@ -143,10 +143,6 @@
 							</div>
 						</div>
 
-
-						
-
-
 					</div>
 				</div>
 				<footer>
@@ -159,71 +155,6 @@
 				</footer>
 			</div>
 		</div>
-		<script type="text/javascript">
-			$( 
-				function(){ 
-					console.log("test")
-					$("#category-left").hover(
-						function(){
-							console.log("123")
-							$("#post-category-selection-bar").removeClass()
-							$("#post-category-selection-bar").addClass("all")
-						},restorFilterSelectionBar);
-					$("#category-center").hover(
-						function(){
-							$("#post-category-selection-bar").removeClass()
-							$("#post-category-selection-bar").addClass("only-job")
-						},restorFilterSelectionBar);
-					$("#category-right").hover(
-						function(){
-							$("#post-category-selection-bar").removeClass()
-							$("#post-category-selection-bar").addClass("only-employee")
-						},restorFilterSelectionBar);
-
-					$("#category-left").click(
-						function(){
-							$("#category-right").removeClass("active")
-							$("#category-center").removeClass("active")
-							$("#category-left").removeClass("active")
-							$("#category-left").addClass("active")
-							setFilterSelection("all")
-							return false
-						});
-					$("#category-center").click(
-						function(){
-							$("#category-right").removeClass()
-							$("#category-center").removeClass()
-							$("#category-left").removeClass()
-							$("#category-center").addClass("active")
-							setFilterSelection("only-job")
-							return false
-						});
-					$("#category-right").click(
-						function(){
-							$("#category-right").removeClass()
-							$("#category-center").removeClass()
-							$("#category-left").removeClass()
-							$("#category-right").addClass("active")
-							setFilterSelection("only-employee")
-							return false
-						});
-				 });
-
-				function setFilterSelection( filter )
-				{
-					$("#post-category-selection").removeClass()
-					$("#post-category-selection-bar").removeClass()
-					$("#post-category-selection").addClass(filter)
-					$("#post-category-selection-bar").addClass(filter)
-				}
-
-				function restorFilterSelectionBar()
-				{
-					$("#post-category-selection-bar").removeClass()
-					$("#post-category-selection-bar").addClass( $("#post-category-selection").attr("class") )
-				}
-
-		</script>
 
 		
 <!-- 		<%= yield %> -->

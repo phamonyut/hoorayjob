@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   belongs_to :user_type
   belongs_to :sex
 
-  has_many :employer_posts
-  has_many :employee_posts
+  has_many :employer_posts, :dependent => :delete_all
+  has_many :employee_posts, :dependent => :delete_all
 
   validates	:username, presence: true, uniqueness: { case_sensitive: false }
   validates	:password, presence: true
