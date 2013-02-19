@@ -1,13 +1,5 @@
 # encoding: utf-8
 FactoryGirl.define do
-	#factory :user_type do
-	#	name "individual"
-	#end
-
-	#factory :sex do
-	#	name "male"
-	#end
-
 	factory :user do
 		username "username"
 		password "foobar"
@@ -23,10 +15,6 @@ FactoryGirl.define do
 		address "1234 RSU Tower, Wattana Bangkok"
 		personal_info "Personal Information"
 	end
-
-	#factory :job do
-	#	job_name "housekeeper"
-	#end
 
 	factory :employee_post do
 		user
