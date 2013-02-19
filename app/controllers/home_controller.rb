@@ -13,6 +13,10 @@ class HomeController < ApplicationController
 	end
 
 	def theme
+		@user = User.new
+		respond_to do |format|
+			format.html 
+		end
 	end
 
 	def index
@@ -40,6 +44,14 @@ class HomeController < ApplicationController
 	end
 
 	def post2
+		@employee_post = EmployeePost.new
+		@employer_post = EmployerPost.new
+		respond_to do |format|
+			format.html 
+		end
+	end
+
+	def post3
 		@employee_post = EmployeePost.new
 		@employer_post = EmployerPost.new
 		respond_to do |format|
