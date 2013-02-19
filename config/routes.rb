@@ -10,6 +10,8 @@ Hoorayjob::Application.routes.draw do
   match "/jobpost" => "home#post"
   get "/post2" => "home#post2"
 
+  match "/theme" => "home#theme"
+
   resources :employee_posts
   resources :employer_posts
 

@@ -7,6 +7,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.destroy_all
 UserType.destroy_all
 Sex.destroy_all
 Job.destroy_all
@@ -18,13 +19,10 @@ corporation = UserType.create(name: 'corporation')
 male        = Sex.create(name: 'male')
 female      = Sex.create(name: 'female')
 
-Job.create(job_name: 'housekeeper')
-Job.create(job_name: 'baby-sitter')
-Job.create(job_name: 'nurse')
-Job.create(job_name: 'driver')
-
-admin = User.create(first_name: 'admin', last_name: 'krub', username: 'admin', password: 'password', password_confirmation: 'password', email: 'admin@hoorayjob.com', citizen_id: '1234567890123', sex: male, address: '404', user_type: individual, phone: '123456789')
-
+housekeeper = Job.create(job_name: 'housekeeper')
+babySitter  = Job.create(job_name: 'baby-sitter')
+nurse       = Job.create(job_name: 'nurse')
+driver      = Job.create(job_name: 'driver')
 
 p1  = Province.new(name: 'กระบี่');
 p2  = Province.new(name: 'กรุงเทพมหานคร');
@@ -103,7 +101,6 @@ p74 = Province.new(name: 'อุตรดิตถ์');
 p75 = Province.new(name: 'อุทัยธานี');
 p76 = Province.new(name: 'อุบลราชธานี');
 p77 = Province.new(name: 'บึงกาฬ');
-
 
 p1.districts << District.new(name: 'เมืองกระบี่');
 p1.districts << District.new(name: 'เกาะลันตา');
@@ -1109,3 +1106,6 @@ p74.save;
 p75.save;
 p76.save;
 p77.save;
+
+user = User.create(first_name: 'user', last_name: 'none', username: 'user', password: 'password', password_confirmation: 'password', email: 'user@hoorayjob.com', citizen_id: '1234567890123', sex: male, address: '404', user_type: individual, phone: '123456789')
+housekeeperPost = EmployeePost.create(user: user, job: housekeeper, status: 'open', phone: '123456789', email: 'user@hoorayjob.com', title: 'I want to do hourse keeper job', desc: 'please contact me.', province: p2, district: p2.districts.first)
