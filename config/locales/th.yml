@@ -73,7 +73,7 @@ th:
         year_of_experience: ประสบการณ์ทำงาน
         district: อำเภอ
         province: จังหวัด
-        tel: เบอร์โทรศัพท์
+        phone: เบอร์โทรศัพท์
         email: อีเมล์
       employer_post:
         title: หัวข้อ
@@ -87,7 +87,7 @@ th:
         max_age: อายุมากที่สุด
         district: อำเภอ
         province: จังหวัด
-        tel: เบอร์โทรศัพท์
+        phone: เบอร์โทรศัพท์
         email: อีเมล์
 
   date:
