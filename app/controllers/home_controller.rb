@@ -13,6 +13,7 @@ class HomeController < ApplicationController
 	end
 
 	def theme
+		@user = User.new
 	end
 
 	def index

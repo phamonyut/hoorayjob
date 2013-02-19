@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130218105331) do
+ActiveRecord::Schema.define(:version => 20130219095305) do
 
   create_table "districts", :force => true do |t|
     t.string   "name",        :null => false
@@ -90,9 +90,9 @@ ActiveRecord::Schema.define(:version => 20130218105331) do
     t.string   "first_name",      :null => false
     t.string   "last_name"
     t.date     "birthday"
-    t.string   "phone",           :null => false
+    t.string   "phone"
     t.string   "email"
-    t.text     "address",         :null => false
+    t.text     "address"
     t.string   "personal_info"
     t.binary   "profile_picture"
     t.datetime "created_at",      :null => false

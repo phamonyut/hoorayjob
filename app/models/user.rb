@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   validates	:username, presence: true, uniqueness: { case_sensitive: false }
   validates	:password, presence: true
   validates :password_confirmation, presence: true
-  validates :user_type, presence: true
+  # validates :user_type, presence: true
  	
   VALID_13DIGIT_REGEX = /\A\d{13}\Z/
   validates	:citizen_id, format: { with: VALID_13DIGIT_REGEX }, uniqueness: true, allow_blank: true
@@ -20,12 +20,12 @@ class User < ActiveRecord::Base
   validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }, allow_blank: true
 
   validates :first_name, presence: true
-  validates :phone, presence: true
-  validates :address, presence: true
+  #validates :phone, presence: true
+  #validates :address, presence: true
 
   # validates :user_type, :inclusion => { :in => %w(I C) }
   # validates :sex, :inclusion => { :in => %w(M F) }
 
-  before_save { |user| user.email = email.downcase }
+  before_save{ |user| user.email = email.downcase if !email.nil? }
 
 end

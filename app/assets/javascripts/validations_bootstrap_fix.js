@@ -13,8 +13,8 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
     var errorElement, wrapper;
 
     settings.wrapper_tag = ".control-group";
-    settings.error_tag = "span";
-    settings.error_class = "help-inline";
+    settings.error_tag = "div";
+    settings.error_class = "help-block";
     settings.wrapper_error_class = "error";
     settings.wrapper_success = "success";
 
@@ -37,8 +37,8 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
     var errorElement, wrapper;
 
     settings.wrapper_tag = ".control-group";
-    settings.error_tag = "span";
-    settings.error_class = "help-inline";
+    settings.error_tag = "div";
+    settings.error_class = "help-block";
     settings.wrapper_error_class = "error";
     settings.wrapper_success = "success";
 
@@ -49,3 +49,19 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
     return errorElement.remove();
   }
 };
+
+ClientSideValidations.callbacks.element.before = function(element, eventData)
+{
+  if(element.context.id == "user_username")
+  {
+    $('.loadingIcon').removeClass("hide");
+  } 
+}
+
+window.ClientSideValidations.callbacks.element.after = function(element, eventData)
+{
+  if(element.context.id == "user_username")
+  {
+    $('.loadingIcon').addClass("hide");
+  }
+}
