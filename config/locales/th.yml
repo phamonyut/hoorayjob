@@ -10,7 +10,7 @@ th:
   title_marketing_word: วิธีใหม่ในการค้นหางานที่น่าสนใจ
   tryit: ลองเลย ฟรี!
   search: ค้นเลย
-  username: ชื่อผู้ใช้
+  username: ชื่อเข้าระบบ
   password: รหัสผ่าน
   signin: เข้าระบบ
   signup: ลงทะเบียน
@@ -65,13 +65,19 @@ th:
         address: ที่อยู่
         personal_info: ข้อมูลส่วนตัว
       employee_post:
+        title: หัวข้อ
+        desc: รายละเอียด
         job: ประเภทงาน
         min_salary: เงินเดือนขั้นต่ำ
         max_salary: เงินเดือนสูงสุด
         year_of_experience: ประสบการณ์ทำงาน
         district: อำเภอ
         province: จังหวัด
+        tel: เบอร์โทรศัพท์
+        email: อีเมล์
       employer_post:
+        title: หัวข้อ
+        desc: รายละเอียด
         job: ประเภทงาน
         min_salary: เงินเดือนขั้นต่ำ
         max_salary: เงินเดือนสูงสุด
@@ -80,7 +86,9 @@ th:
         min_age: อายุขั้นต่ำ
         max_age: อายุมากที่สุด
         district: อำเภอ
-        province: จังหวัด 
+        province: จังหวัด
+        tel: เบอร์โทรศัพท์
+        email: อีเมล์
 
   date:
     abbr_day_names:

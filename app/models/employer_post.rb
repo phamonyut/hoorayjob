@@ -35,7 +35,7 @@ class EmployerPost < ActiveRecord::Base
   end
 
   def formatted_address
-  	"#{self.district} #{self.province}"
+  	"#{self.district.name} #{self.province.name}"
   end
 
   def postCategory
