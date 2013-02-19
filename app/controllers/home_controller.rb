@@ -14,7 +14,13 @@ class HomeController < ApplicationController
 
 	def post
 		@employee_post = EmployeePost.new
+		@employee_post.tel = current_user.phone
+		@employee_post.email = current_user.email
+
 		@employer_post = EmployerPost.new
+		@employer_post.tel = current_user.phone
+		@employer_post.email = current_user.email
+		
 		respond_to do |format|
 			format.html 
 		end

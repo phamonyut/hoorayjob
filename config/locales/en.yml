@@ -65,13 +65,19 @@ en:
         address: Address
         personal_info: Personal info
       employee_post:
+        title: Title
+        desc: Description
         job: Job
         min_salary: Minimum Salary
         max_salary: Maximum Salary
         year_of_experience: Years of Experience
         district: District
-        province: Province 
+        province: Province
+        tel: Phone
+        email: Email
       employer_post:
+        title: Title
+        desc: Description
         job: Job
         min_salary: Minimum Salary
         max_salary: Maximum Salary
@@ -80,7 +86,9 @@ en:
         min_age: Minimum Age
         max_age: Maximum Age
         district: District
-        province: Province 
+        province: Province
+        tel: Phone
+        email: Email
 
   date:
     abbr_day_names:
