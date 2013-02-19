@@ -62,11 +62,12 @@ describe "Home" do
 			visit jobpost_path
 		end
 
-		it { should have_selector('input', value: user.phone ) }
-		it { should have_selector('input', value: user.email ) }
+		describe "should have prefilled user phone" do
+			it { should have_selector('input', value: user.phone ) }
+		end
 
-		it { should have_selector('input', value: user.phone ) }
-		it { should have_selector('input', value: user.email ) }
+		describe "should have prefilled user email" do
+			it { should have_selector('input', value: user.email ) }
+		end
 	end
 end
-
