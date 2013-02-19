@@ -19,15 +19,19 @@
 					#right-aside
 						#login
 							- if user_signed_in?
-								%h1 #{current_user.username}
+								%h3 #{t :welcome} #{current_user.first_name} #{current_user.last_name}
+								%button ข้อมูลส่วนตัว
+								%a.button{:href => "#{signout_path}"} #{t :signout}
+								/ = link_to t(:signout), signout_path, 
 							- else
-								.username
-									%h3ชื่อเข้าระบบ
-									%input{type: 'text', name: 'username'}
-								.password
-									%h3รหัสผ่าน
-									%input{type: "password", name: "password"}
-								%button เข้าสู่ระบบ
+								= form_tag("/signin", :method=>"post") do 
+									.username
+										%h3 #{t :username}
+										%input{type: 'text', name: 'username'}
+									.password
+										%h3 #{t :password}
+										%input{type: "password", name: "password"}
+									%button #{t :signin}
 
 						- unless user_signed_in?
 							#registration
