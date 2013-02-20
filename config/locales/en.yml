@@ -73,7 +73,7 @@ en:
         year_of_experience: Years of Experience
         district: District
         province: Province
-        tel: Phone
+        phone: Phone
         email: Email
       employer_post:
         title: Title
@@ -87,7 +87,7 @@ en:
         max_age: Maximum Age
         district: District
         province: Province
-        tel: Phone
+        phone: Phone
         email: Email
 
   date:

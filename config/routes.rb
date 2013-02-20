@@ -9,6 +9,7 @@ Hoorayjob::Application.routes.draw do
   match "/signup2" => "users#signup2"
   match "/jobpost" => "home#post"
   get "/post2" => "home#post2"
+  get "/post3" => "home#post3"
 
   match "/theme" => "home#theme"
 

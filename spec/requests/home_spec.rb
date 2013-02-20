@@ -24,7 +24,7 @@ describe "Home" do
 			it { should have_link('Sign up', href: signup_path) }
 	end
 
-	describe "#index" do
+	describe "index" do
 		let(:user) { FactoryGirl.create(:user) }
 		let!(:employee_post) { FactoryGirl.create(:employee_post, user: user) }
 		let!(:employer_post) { FactoryGirl.create(:employer_post, user: user) }
@@ -50,7 +50,24 @@ describe "Home" do
 			#	page.should have_css('li.EmployeePost.hide')
 			#end
 		end
+	end
 
+	describe "post" do
+		let(:user) { FactoryGirl.create(:user) }
+
+		before do
+			fill_in 'username', with: user.username
+			fill_in 'password', with: user.password
+			click_button "Sign in"
+			visit jobpost_path
+		end
+
+		describe "should have prefilled user phone" do
+			it { should have_selector('input', value: user.phone ) }
+		end
+
+		describe "should have prefilled user email" do
+			it { should have_selector('input', value: user.email ) }
+		end
 	end
 end
-
