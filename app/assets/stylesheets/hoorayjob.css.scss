@@ -426,12 +426,25 @@ footer {
 
 // To display the error under the textbox without having to move the content below
 .controls {
-position: relative;
+	position: relative;
 }
 
 .help-block {
-margin: 0;
-padding: 0;
-position: absolute;
-bottom: -8px;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	bottom: -8px;
+}
+
+// To display the Loading icon in the username textbox
+.signup-form {
+	position: relative;
+}
+
+.loading-icon, .yes-icon, .no-icon{
+	height: 30px;
+	width: 30px;
+	position: absolute;
+	top: 78px;
+	right: 50px;
 }
