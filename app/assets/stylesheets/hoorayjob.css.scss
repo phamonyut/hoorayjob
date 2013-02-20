@@ -33,6 +33,10 @@ a:hover {
 	text-decoration: blink;
 }
 
+.align-center {
+	text-align: center;
+}
+
 //
 //	Design	
 //
@@ -78,10 +82,14 @@ a {
 
 header {
 	background-color: #E3F2FC;
-	/*height: 500px;*/
 	border-bottom: 1px solid $dark-blue;
-	position: relative;
-	width: 1020px;
+	width: 100%;
+	display: table;
+	padding-bottom: 35px;
+}
+
+.row {
+	display: table;
 }
 
 .main-logo {
@@ -97,16 +105,13 @@ header {
 #left-aside {
 	width: 555px;
 	height: 100%;
-	/*float: left;*/
-	display: inline-block;
+	float: left;
 }
 
 #right-aside {
 	height: 100%;
 	width: 445px;
-	/*float: right;*/
-	display: inline-block;
-	vertical-align: top;
+	float: right;
 }
 
 h1 {
@@ -211,13 +216,12 @@ button, a.button {
 #registration {
 	clear: both;
 	margin-top: 35px;
-	margin-bottom: 35px;
 	input {
 		width: 390px;
 		font-size: 30px;
 		height: 38px;
 		padding-left: 12px;
-		margin: 6px 0px;
+		margin: 10px 0px;
 	}
 	button {
 		margin-top: 14px;
@@ -420,4 +424,18 @@ footer {
 	margin-top: 20px;
 }
 
+.hide {
+  display: none;
+}
 
+// To display the error under the textbox without having to move the content below
+.controls {
+position: relative;
+}
+
+.help-block {
+margin: 0;
+padding: 0;
+position: absolute;
+bottom: -8px;
+}

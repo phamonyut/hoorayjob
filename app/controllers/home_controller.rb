@@ -15,9 +15,6 @@ class HomeController < ApplicationController
 
 	def theme
 		@user = User.new
-		respond_to do |format|
-			format.html 
-		end
 	end
 
 	def index

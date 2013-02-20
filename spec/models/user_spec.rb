@@ -24,7 +24,7 @@ describe User do
 
   describe "when user type is not present" do
     before { @user.user_type = nil }
-    it { should_not be_valid }
+    it { should be_valid }
   end
 
   describe "when first name is not present" do
@@ -34,12 +34,12 @@ describe User do
 
   describe "when phone is not present" do
     before { @user.phone = "" }
-    it { should_not be_valid }
+    it { should be_valid }
   end
 
   describe "when address is not present" do
     before { @user.address = "" }
-    it { should_not be_valid }
+    it { should be_valid }
   end
 
   describe "when email is not present" do

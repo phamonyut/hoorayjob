@@ -56,11 +56,19 @@
 						</div>
 						<div id="registration">
 							<h1>สมัครสมาชิก</h1>
-							<input type="text" name="fullname" placeholder="ชื่อ นามสกุล">
-							<input type="text" name="username" placeholder="ชื่อเพื่อเข้าระบบ (ภาษาอังกฤษ)">
-							<input type="password" name="password" placeholder="รหัสผ่าน">
-							<input type="password" name="password" placeholder="ยืนยันรหัสผ่านอีกครั้ง">
-							<button class="btn-highlight">ยืนยันการสมัคร</button>
+
+							<%= simple_form_for(@user, html: {class: 'form-horizontal'}, :validate => true, :url=>url_for(:controller=>'users', :action=>'create')) do |f| %>
+
+								<%= f.input :first_name, label: false, placeholder: "ชื่อ นามสกุล" %>
+								<%= f.input_field :username, label: false, placeholder: "ชื่อเพื่อเข้าระบบ (ภาษาอังกฤษ)" %>
+								<%= image_tag("LoadingIcons/Loading.gif", alt: "Loading", class: "loadingIcon hide", height: "15", width:"15") %>
+								<%= f.input :password, label: false, placeholder: "รหัสผ่าน" %>
+								<%= f.input :password_confirmation, label: false, placeholder: "ยืนยันรหัสผ่านอีกครั้ง" %>
+
+								<div class="form-actions">
+									<button class="btn-highlight" name="commit" type="submit">ยืนยันการสมัคร</button>
+								</div>
+							<% end %>
 						</div>
 					</div>
 				</header>
