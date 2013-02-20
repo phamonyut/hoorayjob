@@ -2,7 +2,9 @@
 //@import "bootstrap-responsive";
 @import 'font-awesome';
 
-/*@media (min-width: 980px) {
+/*
+bootstrap override 
+@media (min-width: 980px) {
 	body {
 		padding-top: 60px;
 	}
@@ -29,14 +31,6 @@
 }
 */
 
-a:hover {
-	text-decoration: blink;
-}
-
-.align-center {
-	text-align: center;
-}
-
 //
 //	Design	
 //
@@ -61,6 +55,9 @@ a {
 	text-decoration: none;
 	&:visited {
 		text-decoration: none;
+	}
+	&:hover {
+		text-decoration: blink;
 	}
 }
 
@@ -112,13 +109,14 @@ header:after {
 }
 
 .main-logo {
-	background: url("logo.png");
 	width: 425px;
 	height: 105px;
-	position: relative;
+	margin: 20px 0 0 35px;
+	/*position: relative;
 	top: 20px;
 	left: 35px;
-	cursor: pointer;
+	background: url("logo.png");
+	cursor: pointer;*/
 }
 
 #left-aside {
@@ -203,6 +201,10 @@ button, a.button {
 	font-family: $default-thai-font;
 	&:hover{
 		background-color: #FFC4D9;
+		border-bottom: 1px solid #9F3D65;
+		position: relative;
+		top: 1px;
+		margin-bottom: 1px;
 	}
 	&.btn-search {
 		font-size: 38px;
@@ -470,4 +472,8 @@ footer {
 	position: absolute;
 	top: 78px;
 	right: 50px;
+}
+
+.align-center {
+	text-align: center;
 }
