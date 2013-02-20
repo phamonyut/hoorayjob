@@ -1,3 +1,4 @@
+# encoding: utf-8
 class HomeController < ApplicationController
 
 	before_filter :signed_in_user, only: [:hello, :post]
@@ -27,12 +28,19 @@ class HomeController < ApplicationController
 	end
 
 	def post
+		province = Province.find_by_name("กรุงเทพมหานคร")
+		@districts = province.districts
+
 		@employee_post = EmployeePost.new
-		@employee_post.tel = current_user.phone
+		@employee_post.district = province.districts.first
+		@employee_post.province = province
+		@employee_post.phone = current_user.phone
 		@employee_post.email = current_user.email
 
 		@employer_post = EmployerPost.new
-		@employer_post.tel = current_user.phone
+		@employer_post.district = province.districts.first
+		@employer_post.province = province
+		@employer_post.phone = current_user.phone
 		@employer_post.email = current_user.email
 		
 		respond_to do |format|
