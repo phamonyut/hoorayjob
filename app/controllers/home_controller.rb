@@ -48,6 +48,14 @@ class HomeController < ApplicationController
 		end
 	end
 
+	def post3
+		@employee_post = EmployeePost.new
+		@employer_post = EmployerPost.new
+		respond_to do |format|
+			format.html 
+		end
+	end
+
 	private
 		def signed_in_user
 			redirect_to root_path, flash: {error: t(:please_signin)} unless user_signed_in?

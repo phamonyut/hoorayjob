@@ -1,8 +1,8 @@
 //@import "bootstrap";
-@import "bootstrap-responsive";
+//@import "bootstrap-responsive";
 @import 'font-awesome';
 
-@media (min-width: 980px) {
+/*@media (min-width: 980px) {
 	body {
 		padding-top: 60px;
 	}
@@ -27,6 +27,7 @@
 	font-size: 12px;
 	height: 17px;
 }
+*/
 
 a:hover {
 	text-decoration: blink;
@@ -77,8 +78,10 @@ a {
 
 header {
 	background-color: #E3F2FC;
-	height: 500px;
+	/*height: 500px;*/
 	border-bottom: 1px solid $dark-blue;
+	position: relative;
+	width: 1020px;
 }
 
 .main-logo {
@@ -94,13 +97,16 @@ header {
 #left-aside {
 	width: 555px;
 	height: 100%;
-	float: left;
+	/*float: left;*/
+	display: inline-block;
 }
 
 #right-aside {
 	height: 100%;
 	width: 445px;
-	float: right;
+	/*float: right;*/
+	display: inline-block;
+	vertical-align: top;
 }
 
 h1 {
@@ -205,6 +211,7 @@ button {
 #registration {
 	clear: both;
 	margin-top: 35px;
+	margin-bottom: 35px;
 	input {
 		width: 390px;
 		font-size: 30px;

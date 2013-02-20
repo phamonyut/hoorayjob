@@ -1,0 +1,51 @@
+!!!
+%html
+	%head
+		%title Hoorayjob - #{t :title_marketing_word}
+		= stylesheet_link_tag    "application", :media => "all" 
+		= javascript_include_tag "application" 
+		= csrf_meta_tags 
+		= yield(:head) 
+
+	%body
+		= yield(:noncontainer)
+
+		.container
+			.content
+				%header
+					#left-aside
+						.main-logo
+					
+					#right-aside
+						#login
+							- if user_signed_in?
+								%h1 #{current_user.username}
+							- else
+								.username
+									%h3ชื่อเข้าระบบ
+									%input{type: 'text', name: 'username'}
+								.password
+									%h3รหัสผ่าน
+									%input{type: "password", name: "password"}
+								%button เข้าสู่ระบบ
+
+						- unless user_signed_in?
+							#registration
+								%h1 สมัครสมาชิก
+								%input{type: "text", name: "fullname", placeholder: "ชื่อ นามสกุล"}
+								%input{type: "text", name: "username", placeholder: "ชื่อเพื่อเข้าระบบ (ภาษาอังกฤษ)"}
+								%input{type: "password", name: "password", placeholder: "รหัสผ่าน"}
+								%input{type: "password", name: "password", placeholder: "ยืนยันรหัสผ่านอีกครั้ง"}
+								%button.btn-highlight ยืนยันการสมัคร
+						
+				= yield
+
+				%footer
+					.contact-info
+						%span
+						%span ติดต่อเรา HOORAYjob.com
+						%br						
+						%span อีเมล์: hooray@email.com โทร: 080-123-4567
+					.footer-logo
+				
+		
