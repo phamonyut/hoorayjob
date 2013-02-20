@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 				session[:user_id] = @user.id
 				format.html {redirect_to hello_path, notice: t(:user_created_success)}
 			else
-				format.html {render action: "signup"}
+				format.html {render root_path}
 				format.json {render json: @user.errors, status: :unprocessable_entity }
 			end
 		end
