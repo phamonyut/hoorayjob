@@ -18,6 +18,7 @@ class HomeController < ApplicationController
 	end
 
 	def index
+		@user = User.new
 		@employee_posts = EmployeePost.all
 		@employer_posts = EmployerPost.all
 		@posts = @employee_posts + @employer_posts
