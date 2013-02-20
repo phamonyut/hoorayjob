@@ -84,12 +84,31 @@ header {
 	background-color: #E3F2FC;
 	border-bottom: 1px solid $dark-blue;
 	width: 100%;
-	display: table;
+	/*display: table;*/
 	padding-bottom: 35px;
 }
 
-.row {
+header:after, header:before {
 	display: table;
+	line-height: 0;
+	content: "";
+}
+
+header:after {
+	clear: both;
+}
+
+.row:after, .row:before {
+	display: table;
+	line-height: 0;
+	content: "";
+}
+.row:after {
+	clear: both; 
+}
+
+.allCol {
+	width: 100%;
 }
 
 .main-logo {
