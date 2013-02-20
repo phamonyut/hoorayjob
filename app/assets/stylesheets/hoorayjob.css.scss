@@ -221,7 +221,7 @@ button, a.button {
 		font-size: 30px;
 		height: 38px;
 		padding-left: 12px;
-		margin: 6px 0px;
+		margin: 10px 0px;
 	}
 	button {
 		margin-top: 14px;
@@ -424,4 +424,18 @@ footer {
 	margin-top: 20px;
 }
 
+.hide {
+  display: none;
+}
 
+// To display the error under the textbox without having to move the content below
+.controls {
+position: relative;
+}
+
+.help-block {
+margin: 0;
+padding: 0;
+position: absolute;
+bottom: -8px;
+}
