@@ -9,6 +9,10 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= yield(:head) %>
+	<script type="text/javascript">
+	  I18n.defaultLocale = "<%= I18n.default_locale %>";
+	  I18n.locale = "<%= I18n.locale %>";
+	</script>
 </head>
 <body>
 	<div class="container">
@@ -32,12 +36,12 @@
 						<div id="registration">
 							<h1>สมัครสมาชิก</h1>
 
-							<%= simple_form_for(@user, html: {class: 'form-horizontal signup-form'}, :validate => true, :url=>url_for(:controller=>'users', :action=>'create')) do |f| %>
+							<%= simple_form_for(@user, html: {class: 'signup-form'}, :validate => true, :url=>url_for(:controller=>'users', :action=>'create')) do |f| %>
 
 								<%= f.input :first_name, label: false, placeholder: "ชื่อ นามสกุล" %>
 								<div class="controls">
 									<input id="user_username" name="user[username]" placeholder="ชื่อเพื่อเข้าระบบ (ภาษาอังกฤษ)" size="50" type="text">
-									<div id="user_username_message" class="help-block"></div>
+									<div id="user_username_message" class="help-block hide"></div>
 								</div>
 								<!--%= f.input :username, :validate => false, label: false, placeholder: "ชื่อเพื่อเข้าระบบ (ภาษาอังกฤษ)" %-->
 								<%= image_tag("LoadingIcons/Loading.gif", alt: "Loading", id: "loading-icon", class: "hide") %>
