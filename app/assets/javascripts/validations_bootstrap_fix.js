@@ -52,8 +52,22 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
 
 $(function ()
 {
-  $('#user_username').focusout(function()
+  $('#user_username').focusout(usernameFocusoutHandler)
+                     .bind('input', usernameChangeHandler);
+});
+
+function usernameFocusoutHandler()
+{
+  var username = $('#user_username')[0].value;
+
+  // validate if and only if the content has been changed
+  if((typeof usernameFocusoutHandler.latestUsername == 'undefined') ||
+     (usernameFocusoutHandler.latestUsername != username))
   {
+    // Remember the new latest name
+    usernameFocusoutHandler.latestUsername = username;
+
+    // Show the loading icon and progress text
     $('#yes-icon').addClass("hide");
     $('#no-icon').addClass("hide");
     $('#loading-icon').removeClass("hide");
@@ -61,31 +75,51 @@ $(function ()
 
     $.ajax({
       url: "isUsernameValid",
-      data: 'username=' + $('#user_username')[0].value,
+      data: 'username=' + username,
       statusCode: {
         // Valid
-        200: function() {
-          $('#yes-icon').removeClass("hide");
-          $('#user_username_message').addClass("valid").text(I18n.t("username_valid"));
+        200: function(data) {
+          // Ensure that the value in the textbox is the same as the one we sent to validate
+          if( $('#user_username')[0].value == username)
+          {
+            $('#yes-icon').removeClass("hide");
+            $('#user_username_message').addClass("valid").text(I18n.t("username_valid"));
+          }
         },
         // Invalid
         203: function(data) {
-          $('#no-icon').removeClass("hide");
-          $('#user_username_message').text(I18n.t(data));
+          if( $('#user_username')[0].value == username)
+          {
+            $('#no-icon').removeClass("hide");
+            $('#user_username_message').text(I18n.t(data.error_message));
+          }
         },
         // Blank
         204: function(data) {
-          $('#user_username_message').text(I18n.t("errors.messages.blank"));
+          // Ensure that the value in the textbox is still blank
+          if( $('#user_username')[0].value == "")
+          {
+            $('#user_username_message').text(I18n.t("errors.messages.blank"));
+          }
         }
       }
     }).always(validateUsernameCallback);
-  })
-});
+  }
+}
 
 function validateUsernameCallback()
 {
   $('#loading-icon').addClass("hide");
 }
+
+function usernameChangeHandler()
+{
+  $('#yes-icon').addClass("hide");
+  $('#no-icon').addClass("hide");
+  $('#loading-icon').addClass("hide");
+  $('#user_username_message').addClass("hide")
+}
+
 // window.ClientSideValidations.callbacks.element.before = function(element, eventData)
 // {
 //   if(element.context.id == "user_username")

@@ -49,10 +49,11 @@ class UsersController < ApplicationController
 
 	def isUsernameValid
 		respond_to do |format|
-			if params[:username].blank?
+			@username = params[:username]
+			if @username.blank?
 				format.html { render nothing: true, status: :no_content }
-			elsif	User.find_by_username(params[:username])
-				format.html { render text: "errors.messages.taken", status: :non_authoritative_information }
+			elsif	User.find_by_username(@username)
+				format.json { render json: { error_message: "errors.messages.taken" }, status: :non_authoritative_information }
 			else
 				format.html { render nothing: true }
 			end
