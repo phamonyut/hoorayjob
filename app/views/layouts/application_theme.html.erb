@@ -3,12 +3,14 @@
 <head>
   <title>Hoorayjob - <%=t :title_marketing_word %> </title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <!--[if IE]>
+  <link href="/stylesheets/ie-hoorayjob.css" media="screen" rel="stylesheet" type="text/css" />
+  <![endif]-->
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= yield(:head) %>
 </head>
 <body>
-
 	<div class="container">
 			<div class="content">
 				<header>
@@ -69,7 +71,7 @@
 						<button class="btn-search">ค้นหา</button>
 					</div>
 				</div>
-				<div id="post-container" style="height: 525px;">
+				<div id="post-container"><!--  style="height: 525px;"> -->
 					<div id="post-category">
 						<div id="post-category-group">
 							<div id="category-selection" class="all"></div>
@@ -92,7 +94,7 @@
 								</div>
 								<div class="post-money-area">
 									<div class="wage">1,000,000</div>
-									<div class="wage-detail">บาทต่อเดือน</div>
+									<div class="detail">บาทต่อเดือน</div>
 								</div>
 							</div>
 							<div class="post-text">
@@ -101,6 +103,46 @@
 									
 							<div class="post-date">2 วันที่แล้ว</div></div>
 						</div>
+
+						<div class="post-post employee">
+							<div class="post-contact">
+								<i class="post-icon employee-man"></i>
+								<div class="post-contact-info">
+									<span class="post-contact-name">คุณ เก่ง ชัยชาญ</span>
+									<span class="post-contact-tel"><i class="phone"></i>080-123-4567</span>
+								</div>
+								<div class="post-money-area">
+									<div class="wage"></div>
+									<div class="detail">พนักงานขับรถ</div>
+								</div>
+							</div>
+							<div class="post-text">
+									<div class="speech-bubble"></div>
+									<a href="#" class="post-title">หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์ ต้องการเฉพาะผู้หญิงเท่านั้น หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์</a>
+									
+							<div class="post-date">2 วันที่แล้ว</div></div>
+						</div>
+
+						<div class="post-post employee">
+							<div class="post-contact">
+								<i class="post-icon employee-woman"></i>
+								<div class="post-contact-info">
+									<span class="post-contact-name">คุณ เก่ง ชัยชาญ</span>
+									<span class="post-contact-tel"><i class="phone"></i>080-123-4567</span>
+								</div>
+								<div class="post-money-area">
+									<div class="wage"></div>
+									<div class="detail">แม่บ้าน</div>
+								</div>
+							</div>
+							<div class="post-text">
+									<div class="speech-bubble"></div>
+									<a href="#" class="post-title">หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์ ต้องการเฉพาะผู้หญิงเท่านั้น หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์</a>
+									
+							<div class="post-date">2 วันที่แล้ว</div></div>
+						</div>
+
+
 
 						<div class="post-post">
 							<div class="post-contact">
@@ -111,7 +153,7 @@
 								</div>
 								<div class="post-money-area">
 									<div class="wage">1,000,000</div>
-									<div class="wage-detail">บาทต่อเดือน</div>
+									<div class="detail">บาทต่อเดือน</div>
 								</div>
 							</div>
 							<div class="post-text">
@@ -121,7 +163,7 @@
 							<div class="post-date">2 วันที่แล้ว</div></div>
 						</div>
 
-												
+
 
 					</div>
 
