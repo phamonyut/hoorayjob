@@ -11,8 +11,9 @@
 
 	%body
 		= yield(:noncontainer)
-
-		.container
+		- if user_signed_in?
+			- container_class = "signed-in"
+		.container{class: "#{container_class}"}
 			.content
 				%header
 					.row
