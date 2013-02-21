@@ -72,7 +72,7 @@ a {
 }
 
 .container.signed-in {
-	height: 180px;
+	height: 205px;
 }
 
 .content {
@@ -109,10 +109,6 @@ header:after {
 }
 .row:after {
 	clear: both; 
-}
-
-.allCol {
-	width: 100%;
 }
 
 .main-logo {
@@ -158,6 +154,12 @@ h3 {
 	margin: 0;
 }
 
+h4 {
+	font-size: 20px;
+	color: #F06;
+	margin: 0;
+}
+
 #login {
 	margin-top: 20px;
 
@@ -175,6 +177,12 @@ h3 {
 	button {
 		margin-left: 4px;
 		margin-top: 25px;
+	}
+
+	.user-signed-in {
+		position: relative;
+		right: 30px;
+		text-align: right;
 	}
 }
 
@@ -240,6 +248,39 @@ button, a.button {
 		border-radius: 6px;
 		&:hover{
 			background-color: #FF8CBA;
+		}
+	}
+	&.btn-user-profile {
+		font-size: 24px;
+		margin-top: 0 !important;
+	}
+	&.btn-sign-out {
+		font-size: 24px;	
+		background-color: #EFD0DA;
+		margin-top: 0 !important;
+	}
+	&.btn-post {
+		font-size: 45px;
+		padding: 0px 20px;
+		background-color: $pink-highlight;
+		border: 2px solid #B9014B;
+		border-radius: 15px;
+		padding-bottom: 5px;
+		position:	relative;
+		&:hover  {
+			top: 0;
+			margin-bottom: 0;
+			box-shadow: 0px 5px 15px #70A6C0;
+		}
+
+		&:after {
+			background: url("pencil.png");
+			width: 125px;
+			height: 110px;
+			display: inline-block;
+			content: ' ';
+			position: absolute;
+			right: -80px;
 		}
 	}
 }
@@ -583,6 +624,12 @@ footer {
 	font-size: 14px;
 	color: #CA0606;
 	font-weight: bold;
+	&.valid {
+		color: #009600;
+		&:before{
+			display: none;
+		}
+	}
 
 	&:before {
 		display: inline-block;

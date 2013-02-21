@@ -23,10 +23,10 @@
 						#right-aside
 							#login
 								- if user_signed_in?
-									.align-center
-										%h3 #{t :welcome} #{current_user.first_name} #{current_user.last_name}
-										%a.button{href: "#"} ข้อมูลส่วนตัว
-										%a.button{href: "#{signout_path}"} #{t :signout}
+									.user-signed-in
+										%h4 #{t :welcome} #{current_user.first_name} #{current_user.last_name}
+										%a.button.btn-user-profile{href: "#"} ข้อมูลส่วนตัว
+										%a.button.btn-sign-out{href: "#{signout_path}"} #{t :signout}
 								- else
 									= form_tag("/signin", :method=>"post") do 
 										.username
