@@ -85,7 +85,7 @@ header {
 	border-bottom: 1px solid $dark-blue;
 	width: 100%;
 	/*display: table;*/
-	padding-bottom: 35px;
+	padding-bottom: 20px;
 }
 
 header:after, header:before {
@@ -120,6 +120,8 @@ header:after {
 	left: 35px;
 	background: url("logo.png");
 	cursor: pointer;*/
+	background: url("logo.png");
+	display: inline-block;
 }
 
 #left-aside {
@@ -239,7 +241,7 @@ button, a.button {
 
 #registration {
 	clear: both;
-	margin-top: 35px;
+	margin-top: 20px;
 	input {
 		width: 390px;
 		font-size: 30px;
