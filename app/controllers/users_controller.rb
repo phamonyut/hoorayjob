@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 			if params[:username].blank?
 				format.html { render nothing: true, status: :no_content }
 			elsif	User.find_by_username(params[:username])
-				format.html { render text: "Username is already used", status: :non_authoritative_information }
+				format.html { render text: "errors.messages.taken", status: :non_authoritative_information }
 			else
 				format.html { render nothing: true }
 			end

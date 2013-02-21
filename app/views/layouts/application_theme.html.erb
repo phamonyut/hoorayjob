@@ -6,6 +6,10 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= yield(:head) %>
+	<script type="text/javascript">
+	  I18n.defaultLocale = "<%= I18n.default_locale %>";
+	  I18n.locale = "<%= I18n.locale %>";
+	</script>
 </head>
 <body>
 
@@ -35,7 +39,7 @@
 								<%= f.input :first_name, label: false, placeholder: "ชื่อ นามสกุล" %>
 								<div class="controls">
 									<input id="user_username" name="user[username]" placeholder="ชื่อเพื่อเข้าระบบ (ภาษาอังกฤษ)" size="50" type="text">
-									<div id="user_username_message" class="help-block"></div>
+									<div id="user_username_message" class="help-block hide"></div>
 								</div>
 								<!--%= f.input :username, :validate => false, label: false, placeholder: "ชื่อเพื่อเข้าระบบ (ภาษาอังกฤษ)" %-->
 								<%= image_tag("LoadingIcons/Loading.gif", alt: "Loading", id: "loading-icon", class: "hide") %>

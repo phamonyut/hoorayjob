@@ -57,7 +57,7 @@ $(function ()
     $('#yes-icon').addClass("hide");
     $('#no-icon').addClass("hide");
     $('#loading-icon').removeClass("hide");
-    $('#user_username_message').text("Checking username...");
+    $('#user_username_message').removeClass("hide valid").text(I18n.t("checking_username"));
 
     $.ajax({
       url: "isUsernameValid",
@@ -66,16 +66,16 @@ $(function ()
         // Valid
         200: function() {
           $('#yes-icon').removeClass("hide");
-          $('#user_username_message').text("Username valid");
+          $('#user_username_message').addClass("valid").text(I18n.t("username_valid"));
         },
         // Invalid
         203: function(data) {
           $('#no-icon').removeClass("hide");
-          $('#user_username_message').text(data);
+          $('#user_username_message').text(I18n.t(data));
         },
         // Blank
         204: function(data) {
-          $('#user_username_message').text("Can't be blank");
+          $('#user_username_message').text(I18n.t("errors.messages.blank"));
         }
       }
     }).always(validateUsernameCallback);
