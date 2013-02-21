@@ -50,11 +50,13 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
   }
 };
 
-ClientSideValidations.callbacks.element.before = function(element, eventData)
+window.ClientSideValidations.callbacks.element.before = function(element, eventData)
 {
   if(element.context.id == "user_username")
   {
-    $('.loadingIcon').removeClass("hide");
+    $('.yes-icon').addClass("hide");
+    $('.no-icon').addClass("hide");
+    $('.loading-icon').removeClass("hide");
   } 
 }
 
@@ -62,6 +64,26 @@ window.ClientSideValidations.callbacks.element.after = function(element, eventDa
 {
   if(element.context.id == "user_username")
   {
-    $('.loadingIcon').addClass("hide");
+    $('.loading-icon').addClass("hide");
   }
+}
+
+window.ClientSideValidations.callbacks.element.fail = function(element, message, callback)
+{
+  if(element.context.id == "user_username" && element.context.value != "")
+  {
+    $('.yes-icon').addClass("hide");
+    $('.no-icon').removeClass("hide");
+  }
+  callback();
+}
+
+window.ClientSideValidations.callbacks.element.pass = function(element, callback)
+{
+  if(element.context.id == "user_username")
+  {
+    $('.no-icon').addClass("hide");
+    $('.yes-icon').removeClass("hide");
+  } 
+  callback();
 }

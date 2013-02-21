@@ -22,7 +22,7 @@ describe "Home" do
 	end
 
 	describe "should have a valid Sign up link" do
-		pending "Where is the signUP link whichs link to the sign up page? I believe it is a button which links to nowhere now. This needs to pass"
+		pending "We no longer have the sign up page"
 		#it { should have_link('Sign up', href: signup_path) }
 	end
 

@@ -12,7 +12,7 @@ th:
   search: ค้นเลย
   username: ชื่อเข้าระบบ
   password: รหัสผ่าน
-  signin: เข้าระบบ
+  signin: เข้าสู่ระบบ
   signup: ลงทะเบียน
   signout: ออกจากระบบ
   not_member: ยังไม่เป็นสมาชิก ?

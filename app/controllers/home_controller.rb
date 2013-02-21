@@ -1,7 +1,7 @@
 # encoding: utf-8
 class HomeController < ApplicationController
 
-	before_filter :signed_in_user, only: [:hello, :post]
+	before_filter :signed_in_user, only: [:hello, :post, :post2, :post3]
 	layout :design_layout
 
 	def design_layout
@@ -18,6 +18,9 @@ class HomeController < ApplicationController
 	end
 
 	def index
+		unless user_signed_in?
+			@user = User.new
+		end
 		@employee_posts = EmployeePost.all
 		@employer_posts = EmployerPost.all
 		@posts = @employee_posts + @employer_posts
@@ -51,17 +54,11 @@ class HomeController < ApplicationController
 	def post2
 		@employee_post = EmployeePost.new
 		@employer_post = EmployerPost.new
-		respond_to do |format|
-			format.html 
-		end
 	end
 
 	def post3
 		@employee_post = EmployeePost.new
 		@employer_post = EmployerPost.new
-		respond_to do |format|
-			format.html 
-		end
 	end
 
 	private

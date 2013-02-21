@@ -11,22 +11,6 @@ class UsersController < ApplicationController
 	  end
   end
 
-	# GET /signup
-	def signup
-		@user = User.new
-		respond_to do |format|
-			format.html 
-		end
-	end
-
-	# GET /signup
-	def signup2
-		@user = User.new
-		respond_to do |format|
-			format.html 
-		end
-	end
-
 	# POST /signup
 	def create
 		@user = User.new(params[:user])
@@ -35,7 +19,7 @@ class UsersController < ApplicationController
 				session[:user_id] = @user.id
 				format.html {redirect_to hello_path, notice: t(:user_created_success)}
 			else
-				format.html {render action: "signup"}
+				format.html {render root_path}
 				format.json {render json: @user.errors, status: :unprocessable_entity }
 			end
 		end
@@ -47,7 +31,7 @@ class UsersController < ApplicationController
 		respond_to do |format|
 			if user
 				session[:user_id] = user.id
-				format.html { redirect_to hello_path, notice: t(:signin_success) }
+				format.html { redirect_to root_path, notice: t(:signin_success) }
 			else
 				format.html  { redirect_to root_path, flash: {error: t(:signin_fail)} }
 			end

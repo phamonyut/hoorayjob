@@ -2,7 +2,9 @@
 //@import "bootstrap-responsive";
 @import 'font-awesome';
 
-/*@media (min-width: 980px) {
+/*
+bootstrap override 
+@media (min-width: 980px) {
 	body {
 		padding-top: 60px;
 	}
@@ -29,14 +31,6 @@
 }
 */
 
-a:hover {
-	text-decoration: blink;
-}
-
-.align-center {
-	text-align: center;
-}
-
 //
 //	Design	
 //
@@ -62,6 +56,9 @@ a {
 	&:visited {
 		text-decoration: none;
 	}
+	&:hover {
+		text-decoration: blink;
+	}
 }
 
 .container {
@@ -84,22 +81,42 @@ header {
 	background-color: #E3F2FC;
 	border-bottom: 1px solid $dark-blue;
 	width: 100%;
-	display: table;
+	/*display: table;*/
 	padding-bottom: 35px;
 }
 
-.row {
+header:after, header:before {
 	display: table;
+	line-height: 0;
+	content: "";
+}
+
+header:after {
+	clear: both;
+}
+
+.row:after, .row:before {
+	display: table;
+	line-height: 0;
+	content: "";
+}
+.row:after {
+	clear: both; 
+}
+
+.allCol {
+	width: 100%;
 }
 
 .main-logo {
-	background: url("logo.png");
 	width: 425px;
 	height: 105px;
-	position: relative;
+	margin: 20px 0 0 35px;
+	/*position: relative;
 	top: 20px;
 	left: 35px;
-	cursor: pointer;
+	background: url("logo.png");
+	cursor: pointer;*/
 }
 
 #left-aside {
@@ -184,6 +201,10 @@ button, a.button {
 	font-family: $default-thai-font;
 	&:hover{
 		background-color: #FFC4D9;
+		border-bottom: 1px solid #9F3D65;
+		position: relative;
+		top: 1px;
+		margin-bottom: 1px;
 	}
 	&.btn-search {
 		font-size: 38px;
@@ -430,12 +451,29 @@ footer {
 
 // To display the error under the textbox without having to move the content below
 .controls {
-position: relative;
+	position: relative;
 }
 
 .help-block {
-margin: 0;
-padding: 0;
-position: absolute;
-bottom: -8px;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	bottom: -8px;
+}
+
+// To display the Loading icon in the username textbox
+.signup-form {
+	position: relative;
+}
+
+.loading-icon, .yes-icon, .no-icon{
+	height: 30px;
+	width: 30px;
+	position: absolute;
+	top: 78px;
+	right: 50px;
+}
+
+.align-center {
+	text-align: center;
 }
