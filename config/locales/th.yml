@@ -90,6 +90,8 @@ th:
         phone: เบอร์โทรศัพท์
         email: อีเมล์
 
+  district: อำเภอ
+
   date:
     abbr_day_names:
     - อา

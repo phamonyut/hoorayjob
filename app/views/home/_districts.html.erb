@@ -1,0 +1,11 @@
+<% field_id = "#{name}_district_id" %>
+<% field_name = "#{name}[district_id]" %>
+
+<div class="control-group select optional">
+	<label class="select optional control-label" for="<%= field_id %>">
+		<%= t :district %>
+	</label>
+	<div class="controls">
+		<%= select_tag field_id, options_from_collection_for_select(@districts, "id", "name"), name: field_name, include_blank: true %>
+	</div>
+</div>

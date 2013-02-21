@@ -1,5 +1,5 @@
 class EmployerPost < ActiveRecord::Base
-  attr_accessible :district, :job_id, :max_age, :max_salary, :min_age, :min_salary, :province, :sex_id, :status, :user_id, :year_of_experience, :desc , :title, :phone, :email
+  attr_accessible :district, :job_id, :max_age, :max_salary, :min_age, :min_salary, :province, :sex_id, :status, :user_id, :year_of_experience, :desc , :title, :phone, :email, :district_id, :province_id
 
   belongs_to :user
   belongs_to :job
