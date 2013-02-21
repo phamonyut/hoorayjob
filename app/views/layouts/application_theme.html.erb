@@ -6,33 +6,6 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= yield(:head) %>
-  <script type="text/javascript">
-  (function() {
-  	var allJobTypeCheckbox;
-  	$(document).ready( function() {
-  		allJobTypeCheckbox  = $(this).find('.options input');
-		allJobTypeCheckbox.each( checkboxChange );
-	});	
-
-	function checkboxChange() {
-		var jobTypeCheckBox = $(this);
-		jobTypeCheckBox.on('change', function() {
-			switch( jobTypeCheckBox.attr('id') ) {
-				case 'post-all' :
-					if( jobTypeCheckBox.prop('checked')) {
-						allJobTypeCheckbox.each( function() { 
-							$(this).prop('checked', true );
-						});	
-					}					
-				default : 
-					if( !jobTypeCheckBox.prop('checked') ){
-						allJobTypeCheckbox.first().prop('checked', false );
-					}
-			}	
-		});
-	}
-  })();
-  </script>
 </head>
 <body>
 

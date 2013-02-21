@@ -1,12 +1,33 @@
 <% content_for :head do %>
 	<script type="text/javascript">
+		var allJobTypeCheckbox;
 		$(document).ready(function() {
 		  $('div.demo-show:eq(0)> div').hide();  
 		  $('div.demo-show:eq(0)> h4').click(function() {
 		    $(this).next().slideToggle('fast');
 		  });
+	  		allJobTypeCheckbox  = $(this).find('.options input');
+			allJobTypeCheckbox.each( checkboxChange );
 		});
 		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+		function checkboxChange() {
+			var jobTypeCheckBox = $(this);
+			jobTypeCheckBox.on('change', function() {
+				switch( jobTypeCheckBox.attr('id') ) {
+					case 'post-all' :
+						if( jobTypeCheckBox.prop('checked')) {
+							allJobTypeCheckbox.each( function() { 
+								$(this).prop('checked', true );
+							});	
+						}					
+					default : 
+						if( !jobTypeCheckBox.prop('checked') ){
+							allJobTypeCheckbox.first().prop('checked', false );
+						}
+				}	
+			});
+		}
 	</script>
 <% end %>
 
