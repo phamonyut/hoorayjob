@@ -48,6 +48,9 @@ th:
   apply_for: ประกาศหางาน
   want_to: ต้องการงาน
 
+  checking_username: กำลังตรวจสอบชื่อเพื่อเข้าระบบ...
+  username_valid: ชื่อเพื่อเข้าระบบใช้ได้
+
   simple_form:
     labels:
       user:

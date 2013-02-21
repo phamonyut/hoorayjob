@@ -48,6 +48,9 @@ en:
   apply_for: Apply for
   want_to: Want to
 
+  checking_username: Checking username...
+  username_valid: Username is valid
+
   simple_form:
     labels:
       user:
