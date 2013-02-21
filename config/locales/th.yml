@@ -50,6 +50,7 @@ th:
 
   checking_username: กำลังตรวจสอบชื่อเพื่อเข้าระบบ...
   username_valid: ชื่อเพื่อเข้าระบบใช้ได้
+  invalid_username_character: ชื่อเพื่อเข้าระบบห้ามมีตัวอักษรพิเศษ
 
   simple_form:
     labels:

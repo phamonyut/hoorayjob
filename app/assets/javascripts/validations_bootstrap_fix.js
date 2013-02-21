@@ -67,49 +67,68 @@ function usernameFocusoutHandler()
     // Remember the new latest name
     usernameFocusoutHandler.latestUsername = username;
 
-    // Show the loading icon and progress text
-    $('#yes-icon').addClass("hide");
-    $('#no-icon').addClass("hide");
-    $('#loading-icon').removeClass("hide");
-    $('#user_username_message').removeClass("hide valid").text(I18n.t("checking_username"));
+    if (validateUsernameOnClient(username))
+    {
+      // Show the loading icon and progress text
+      $('#yes-icon').addClass("hide");
+      $('#no-icon').addClass("hide");
+      $('#loading-icon').removeClass("hide");
+      $('#user_username_message').removeClass("hide valid").addClass("checking").text(I18n.t("checking_username"));
 
-    $.ajax({
-      url: "isUsernameValid",
-      data: 'username=' + username,
-      statusCode: {
-        // Valid
-        200: function(data) {
-          // Ensure that the value in the textbox is the same as the one we sent to validate
-          if( $('#user_username')[0].value == username)
-          {
-            $('#yes-icon').removeClass("hide");
-            $('#user_username_message').addClass("valid").text(I18n.t("username_valid"));
-          }
-        },
-        // Invalid
-        203: function(data) {
-          if( $('#user_username')[0].value == username)
-          {
-            $('#no-icon').removeClass("hide");
-            $('#user_username_message').text(I18n.t(data.error_message));
-          }
-        },
-        // Blank
-        204: function(data) {
-          // Ensure that the value in the textbox is still blank
-          if( $('#user_username')[0].value == "")
-          {
-            $('#user_username_message').text(I18n.t("errors.messages.blank"));
+      $.ajax({
+        url: "isUsernameValid",
+        data: 'username=' + username,
+        statusCode: {
+          // Valid
+          200: function(data) {
+            // Ensure that the value in the textbox is the same as the one we sent to validate
+            if( $('#user_username')[0].value == username)
+            {
+              $('#yes-icon').removeClass("hide");
+              $('#user_username_message').addClass("valid").text(I18n.t("username_valid"));
+            }
+          },
+          // Invalid
+          203: function(data) {
+            if( $('#user_username')[0].value == username)
+            {
+              $('#no-icon').removeClass("hide");
+              $('#user_username_message').text(I18n.t(data.error_message));
+            }
+          },
+          // Blank
+          204: function(data) {
+            // Ensure that the value in the textbox is still blank
+            if( $('#user_username')[0].value == "")
+            {
+              $('#user_username_message').text(I18n.t("errors.messages.blank"));
+            }
           }
         }
-      }
-    }).always(validateUsernameCallback);
+      }).always(validateUsernameCallback);
+    }
   }
 }
 
 function validateUsernameCallback()
 {
   $('#loading-icon').addClass("hide");
+  $('#user_username_message').removeClass("checking");
+}
+
+function validateUsernameOnClient(username)
+{
+  // ^ represents start of the string
+  // $ represents end of the string
+  if(!username.match(/^[a-zA-Z0-9_]{1,12}$/))
+  {
+     $('#user_username_message').text(I18n.t("invalid_username_character")).removeClass("hide");
+    return false;
+  }
+  else
+  {
+    return true;
+  }
 }
 
 function usernameChangeHandler()
@@ -118,6 +137,7 @@ function usernameChangeHandler()
   $('#no-icon').addClass("hide");
   $('#loading-icon').addClass("hide");
   $('#user_username_message').addClass("hide")
+  validateUsernameOnClient($('#user_username')[0].value);
 }
 
 // window.ClientSideValidations.callbacks.element.before = function(element, eventData)

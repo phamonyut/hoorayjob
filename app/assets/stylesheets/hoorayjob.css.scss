@@ -630,6 +630,12 @@ footer {
 			display: none;
 		}
 	}
+	&.checking {
+		color: black;
+		&:before{
+			display: none;
+		}
+	}
 
 	&:before {
 		display: inline-block;

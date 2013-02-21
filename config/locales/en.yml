@@ -50,6 +50,7 @@ en:
 
   checking_username: Checking username...
   username_valid: Username is valid
+  invalid_username_character: Invalid character(s) in the username
 
   simple_form:
     labels:
