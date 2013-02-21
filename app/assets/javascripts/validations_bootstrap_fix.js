@@ -50,40 +50,76 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
   }
 };
 
-window.ClientSideValidations.callbacks.element.before = function(element, eventData)
+$(function ()
 {
-  if(element.context.id == "user_username")
+  $('#user_username').focusout(function()
   {
-    $('.yes-icon').addClass("hide");
-    $('.no-icon').addClass("hide");
-    $('.loading-icon').removeClass("hide");
-  } 
-}
+    $('#yes-icon').addClass("hide");
+    $('#no-icon').addClass("hide");
+    $('#loading-icon').removeClass("hide");
+    $('#user_username_message').text("Checking username...");
 
-window.ClientSideValidations.callbacks.element.after = function(element, eventData)
-{
-  if(element.context.id == "user_username")
-  {
-    $('.loading-icon').addClass("hide");
-  }
-}
+    $.ajax({
+      url: "isUsernameValid",
+      data: 'username=' + $('#user_username')[0].value,
+      statusCode: {
+        // Valid
+        200: function() {
+          $('#yes-icon').removeClass("hide");
+          $('#user_username_message').text("Username valid");
+        },
+        // Invalid
+        203: function(data) {
+          $('#no-icon').removeClass("hide");
+          $('#user_username_message').text(data);
+        },
+        // Blank
+        204: function(data) {
+          $('#user_username_message').text("Can't be blank");
+        }
+      }
+    }).always(validateUsernameCallback);
+  })
+});
 
-window.ClientSideValidations.callbacks.element.fail = function(element, message, callback)
+function validateUsernameCallback()
 {
-  if(element.context.id == "user_username" && element.context.value != "")
-  {
-    $('.yes-icon').addClass("hide");
-    $('.no-icon').removeClass("hide");
-  }
-  callback();
+  $('#loading-icon').addClass("hide");
 }
+// window.ClientSideValidations.callbacks.element.before = function(element, eventData)
+// {
+//   if(element.context.id == "user_username")
+//   {
+//     $('#yes-icon').addClass("hide");
+//     $('#no-icon').addClass("hide");
+//     $('#loading-icon').removeClass("hide");
+//   } 
+// }
 
-window.ClientSideValidations.callbacks.element.pass = function(element, callback)
-{
-  if(element.context.id == "user_username")
-  {
-    $('.no-icon').addClass("hide");
-    $('.yes-icon').removeClass("hide");
-  } 
-  callback();
-}
+// window.ClientSideValidations.callbacks.element.after = function(element, eventData)
+// {
+//   if(element.context.id == "user_username")
+//   {
+//     $('#loading-icon').addClass("hide");
+//   }
+// }
+
+// window.ClientSideValidations.callbacks.element.fail = function(element, message, callback)
+// {
+//   if(element.context.id == "user_username" && element.context.value != "")
+//   {
+//     $('#yes-icon').addClass("hide");
+//     $('#no-icon').removeClass("hide");
+//   }
+//   callback();
+// }
+
+// window.ClientSideValidations.callbacks.element.pass = function(element, callback)
+// {
+//   if(element.context.id == "user_username")
+//   {
+//     $('#no-icon').addClass("hide");
+//     $('#yes-icon').removeClass("hide");
+//   } 
+//   callback();
+// }

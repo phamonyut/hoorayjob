@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 		respond_to do |format| 
 			if @user.save
 				session[:user_id] = @user.id
-				format.html {redirect_to hello_path, notice: t(:user_created_success)}
+				format.html {redirect_to root_path, notice: t(:user_created_success)}
 			else
 				format.html {render root_path}
 				format.json {render json: @user.errors, status: :unprocessable_entity }
@@ -44,6 +44,18 @@ class UsersController < ApplicationController
 		session.delete(:user_id)
 		respond_to do |format|
 			format.html { redirect_to root_path, notice: t(:signout_success) }
+		end
+	end
+
+	def isUsernameValid
+		respond_to do |format|
+			if params[:username].blank?
+				format.html { render nothing: true, status: :no_content }
+			elsif	User.find_by_username(params[:username])
+				format.html { render text: "Username is already used", status: :non_authoritative_information }
+			else
+				format.html { render nothing: true }
+			end
 		end
 	end
 

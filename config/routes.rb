@@ -10,6 +10,7 @@ Hoorayjob::Application.routes.draw do
   get "/post3" => "home#post3"
 
   match "/theme" => "home#theme"
+  match "/isUsernameValid" => "users#isUsernameValid"
 
   resources :employee_posts
   resources :employer_posts
