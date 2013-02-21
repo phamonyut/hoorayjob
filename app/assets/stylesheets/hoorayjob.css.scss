@@ -2,7 +2,9 @@
 //@import "bootstrap-responsive";
 @import 'font-awesome';
 
-/*@media (min-width: 980px) {
+/*
+bootstrap override 
+@media (min-width: 980px) {
 	body {
 		padding-top: 60px;
 	}
@@ -28,10 +30,6 @@
 	height: 17px;
 }
 */
-
-// a:hover {
-// 	text-decoration: blink;
-// }
 
 //
 //	Design	
@@ -61,6 +59,9 @@ a {
 	&:visited {
 		text-decoration: none;
 	}
+	&:hover {
+		text-decoration: blink;
+	}
 }
 
 .container {
@@ -81,35 +82,56 @@ a {
 
 header {
 	background-color: #E3F2FC;
-	/*height: 500px;*/
 	border-bottom: 1px solid $dark-blue;
-	position: relative;
-	width: 1020px;
+	width: 100%;
+	/*display: table;*/
+	padding-bottom: 35px;
+}
+
+header:after, header:before {
+	display: table;
+	line-height: 0;
+	content: "";
+}
+
+header:after {
+	clear: both;
+}
+
+.row:after, .row:before {
+	display: table;
+	line-height: 0;
+	content: "";
+}
+.row:after {
+	clear: both; 
+}
+
+.allCol {
+	width: 100%;
 }
 
 .main-logo {
-	background: url("logo.png");
 	width: 425px;
 	height: 105px;
-	position: relative;
+	margin: 20px 0 0 35px;
+	/*position: relative;
 	top: 20px;
 	left: 35px;
-	cursor: pointer;
+	background: url("logo.png");
+	cursor: pointer;*/
 }
 
 #left-aside {
 	width: 555px;
 	height: 100%;
-	/*float: left;*/
-	display: inline-block;
+	float: left;
 }
 
 #right-aside {
 	height: 100%;
 	width: 445px;
-	/*float: right;*/
-	display: inline-block;
-	vertical-align: top;
+	float: right;
 }
 
 h1 {
@@ -182,6 +204,10 @@ button, a.button {
 	font-family: $default-thai-font;
 	&:hover{
 		background-color: #FFC4D9;
+		border-bottom: 1px solid #9F3D65;
+		position: relative;
+		top: 1px;
+		margin-bottom: 1px;
 	}
 	&.btn-search {
 		font-size: 38px;
@@ -214,13 +240,12 @@ button, a.button {
 #registration {
 	clear: both;
 	margin-top: 35px;
-	margin-bottom: 35px;
 	input {
 		width: 390px;
 		font-size: 30px;
 		height: 38px;
 		padding-left: 12px;
-		margin: 6px 0px;
+		margin: 10px 0px;
 	}
 	button {
 		margin-top: 14px;
@@ -533,4 +558,35 @@ footer {
 	margin-top: 20px;
 }
 
+.hide {
+  display: none;
+}
 
+// To display the error under the textbox without having to move the content below
+.controls {
+	position: relative;
+}
+
+.help-block {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	bottom: -8px;
+}
+
+// To display the Loading icon in the username textbox
+.signup-form {
+	position: relative;
+}
+
+#loading-icon, #yes-icon, #no-icon{
+	height: 30px;
+	width: 30px;
+	position: absolute;
+	top: 78px;
+	right: 50px;
+}
+
+.align-center {
+	text-align: center;
+}

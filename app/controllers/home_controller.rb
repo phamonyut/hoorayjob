@@ -1,6 +1,7 @@
+# encoding: utf-8
 class HomeController < ApplicationController
 
-	before_filter :signed_in_user, only: [:hello, :post]
+	before_filter :signed_in_user, only: [:hello, :post, :post2, :post3]
 	layout :design_layout
 
 	def design_layout
@@ -14,12 +15,12 @@ class HomeController < ApplicationController
 
 	def theme
 		@user = User.new
-		respond_to do |format|
-			format.html 
-		end
 	end
 
 	def index
+		unless user_signed_in?
+			@user = User.new
+		end
 		@employee_posts = EmployeePost.all
 		@employer_posts = EmployerPost.all
 		@posts = @employee_posts + @employer_posts
@@ -30,12 +31,19 @@ class HomeController < ApplicationController
 	end
 
 	def post
+		province = Province.find_by_name("กรุงเทพมหานคร")
+		@districts = province.districts
+
 		@employee_post = EmployeePost.new
-		@employee_post.tel = current_user.phone
+		@employee_post.district = province.districts.first
+		@employee_post.province = province
+		@employee_post.phone = current_user.phone
 		@employee_post.email = current_user.email
 
 		@employer_post = EmployerPost.new
-		@employer_post.tel = current_user.phone
+		@employer_post.district = province.districts.first
+		@employer_post.province = province
+		@employer_post.phone = current_user.phone
 		@employer_post.email = current_user.email
 		
 		respond_to do |format|
@@ -46,17 +54,11 @@ class HomeController < ApplicationController
 	def post2
 		@employee_post = EmployeePost.new
 		@employer_post = EmployerPost.new
-		respond_to do |format|
-			format.html 
-		end
 	end
 
 	def post3
 		@employee_post = EmployeePost.new
 		@employer_post = EmployerPost.new
-		respond_to do |format|
-			format.html 
-		end
 	end
 
 	private

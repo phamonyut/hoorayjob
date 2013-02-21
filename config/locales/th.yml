@@ -5,14 +5,14 @@ th:
   en_lang: english
   th_lang: ภาษาไทย
 
-  welcome: ยินดีต้อนรับ
+  welcome: ยินดีต้อนรับ คุณ
   marketing_word: หางานที่ตรงใจใน 5 นาที
   title_marketing_word: วิธีใหม่ในการค้นหางานที่น่าสนใจ
   tryit: ลองเลย ฟรี!
   search: ค้นเลย
   username: ชื่อเข้าระบบ
   password: รหัสผ่าน
-  signin: เข้าระบบ
+  signin: เข้าสู่ระบบ
   signup: ลงทะเบียน
   signout: ออกจากระบบ
   not_member: ยังไม่เป็นสมาชิก ?
@@ -73,7 +73,7 @@ th:
         year_of_experience: ประสบการณ์ทำงาน
         district: อำเภอ
         province: จังหวัด
-        tel: เบอร์โทรศัพท์
+        phone: เบอร์โทรศัพท์
         email: อีเมล์
       employer_post:
         title: หัวข้อ
@@ -87,7 +87,7 @@ th:
         max_age: อายุมากที่สุด
         district: อำเภอ
         province: จังหวัด
-        tel: เบอร์โทรศัพท์
+        phone: เบอร์โทรศัพท์
         email: อีเมล์
 
   date:

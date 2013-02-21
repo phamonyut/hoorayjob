@@ -8,9 +8,9 @@
 	<%= f.input :min_salary, as: :string %>
 	<%= f.input :max_salary, as: :string %>
 	<%= f.input :year_of_experience, as: :string %>
-	<%= f.input :district %>
-	<%= f.input :province %>
-	<%= f.input :tel %>
+	<%= f.association :district, collection: @districts %>
+	<%= f.association :province %>
+	<%= f.input :phone %>
 	<%= f.input :email %>
 
 	<!-- upload picture -->
@@ -30,9 +30,9 @@
 	<%= f.association :sex, as: :radio_buttons, item_wrapper_class: 'inline', label_method: lambda { |el| t "#{el.name}"}%>
 	<%= f.input :min_age, as: :string %>
 	<%= f.input :max_age, as: :string %>
-	<%= f.input :district %>
-	<%= f.input :province %>
-	<%= f.input :tel %>
+	<%= f.association :district %>
+	<%= f.association :province %>
+	<%= f.input :phone %>
 	<%= f.input :email %>
 
 	<!-- upload picture -->
