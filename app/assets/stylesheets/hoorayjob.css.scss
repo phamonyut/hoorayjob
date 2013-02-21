@@ -592,3 +592,28 @@ footer {
 .align-center {
 	text-align: center;
 }
+
+// Form
+form.form-horizontal .control-group:after, form.form-horizontal .control-group:before {
+	display: table;
+	line-height: 0;
+	content: "";
+}
+
+.form-horizontal .control-group {
+	margin-bottom: 20px;
+}
+
+.form-horizontal .control-label {
+	font-size: 25px;
+	font-weight: bold;
+	color: $pink-highlight;
+	float: left;
+	width: 160px;
+	text-align: right;
+}
+
+.form-horizontal .controls {
+	margin-left: 180px;
+	margin-top: 5px;
+}

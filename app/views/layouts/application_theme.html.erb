@@ -32,7 +32,7 @@
 						<div id="registration">
 							<h1>สมัครสมาชิก</h1>
 
-							<%= simple_form_for(@user, html: {class: 'form-horizontal signup-form'}, :validate => true, :url=>url_for(:controller=>'users', :action=>'create')) do |f| %>
+							<%= simple_form_for(@user, html: {class: 'signup-form'}, :validate => true, :url=>url_for(:controller=>'users', :action=>'create')) do |f| %>
 
 								<%= f.input :first_name, label: false, placeholder: "ชื่อ นามสกุล" %>
 								<div class="controls">
