@@ -94,6 +94,8 @@ en:
         phone: Phone
         email: Email
 
+  district: District
+
   date:
     abbr_day_names:
     - Sun

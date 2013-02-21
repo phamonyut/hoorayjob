@@ -6,6 +6,7 @@ Hoorayjob::Application.routes.draw do
   match "/signin" => "users#signin"
   match "/signout" => "users#signout"
   match "/jobpost" => "home#post"
+  match "/update_district_select/:name/:id" => "home#update_district_select"
   get "/post2" => "home#post2"
   get "/post3" => "home#post3"
 

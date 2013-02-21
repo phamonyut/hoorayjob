@@ -35,13 +35,11 @@ class HomeController < ApplicationController
 		@districts = province.districts
 
 		@employee_post = EmployeePost.new
-		@employee_post.district = province.districts.first
 		@employee_post.province = province
 		@employee_post.phone = current_user.phone
 		@employee_post.email = current_user.email
 
 		@employer_post = EmployerPost.new
-		@employer_post.district = province.districts.first
 		@employer_post.province = province
 		@employer_post.phone = current_user.phone
 		@employer_post.email = current_user.email
@@ -49,6 +47,11 @@ class HomeController < ApplicationController
 		respond_to do |format|
 			format.html 
 		end
+	end
+
+	def update_district_select
+		@districts = District.where(province_id: params[:id])
+		render partial: "districts", locals: { name: params[:name] }
 	end
 
 	def post2
