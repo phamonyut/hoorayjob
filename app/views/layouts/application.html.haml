@@ -29,7 +29,7 @@
 								- if user_signed_in?
 									.user-signed-in
 										%h4 #{t :welcome} #{current_user.first_name} #{current_user.last_name}
-										%a.button.btn-user-profile{href: "#"} ข้อมูลส่วนตัว
+										%a.button.btn-user-profile{href: "#"} #{t :profile}
 										%a.button.btn-sign-out{href: "#{signout_path}"} #{t :signout}
 								- else
 									= form_tag("/signin", :method=>"post") do 
@@ -43,11 +43,12 @@
 
 							- unless user_signed_in?
 								#registration
-									%h1 สมัครสมาชิก
+									%h1  #{t :registration}
 									= simple_form_for(@user, html: {class: 'signup-form'}, validate: true, url: url_for(:controller=>'users', :action=>'create')) do |f| 
-										= f.input :first_name, label: false, placeholder: "ชื่อ นามสกุล" 
 										.controls
-											%input#user_username{name: 'user[username]', placeholder: 'ชื่อเพื่อเข้าระบบ (ภาษาอังกฤษ)', size: "50", type: "text", maxlength:"12"}
+											%input#user_firstname{name: 'user[firstname]', placeholder: I18n.t(:fullname), size: "50", type: "text", maxlength:"25"}
+										.controls
+											%input#user_username{name: 'user[username]', placeholder: I18n.t(:username_english_only), size: "50", type: "text", maxlength:"12"}
 											#user_username_message.help-block{class:"hide"}
 										= image_tag("LoadingIcons/Loading.gif", alt: "Loading", id: "loading-icon", class: "hide") 
 										= image_tag("LoadingIcons/Yes.png", alt: "Valid", id: "yes-icon", class: "hide") 
@@ -55,7 +56,7 @@
 										= f.input :password, label: false, placeholder: "รหัสผ่าน" 
 										= f.input :password_confirmation, label: false, placeholder: "ยืนยันรหัสผ่านอีกครั้ง" 
 										.form-actions
-											%button.btn-highlight{name: "commit", type: "submit"} ยืนยันการสมัคร
+											%button.btn-highlight{name: "commit", type: "submit"} #{t :register}
 
 					= yield(:header)
 						
@@ -64,7 +65,7 @@
 				%footer
 					.contact-info
 						%span
-						%span ติดต่อเรา HOORAYjob.com
+						%span #{t :contact_us} HOORAYjob.com
 						%br           
-						%span อีเมล์: hooray@email.com โทร: 080-123-4567
+						%span #{t :email}: hooray@email.com #{t :tel}: 080-123-4567
 					.footer-logo
