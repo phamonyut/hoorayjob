@@ -2,7 +2,117 @@ $(function ()
 {
   $('#user_username').focusout(usernameFocusoutHandler)
                      .bind('input', usernameChangeHandler);
+  $('#user_password').focusout(passwordFocusoutHandler)
+                      .bind('input', passwordChangeHandler);
+  $('#user_password_confirmation').focusout(passwordFocusoutHandler)
+                                  .bind('input', passwordChangeHandler);
+  $('#new_user').submit(signupHandler);
 });
+
+function isEmpty(obj)
+{
+  return _.isNull(obj) || _.isUndefined(obj) || _.isEmpty(obj)
+}
+
+function signupHandler() 
+{
+  isPasswordValid = passwordSubmitHandler();
+  return isPasswordValid;
+}
+
+function passwordSubmitHandler()
+{
+  var valid = true;
+  var msg;
+  var password = $('#user_password').val();
+  var passwordConfirmation = $('#user_password_confirmation').val();
+
+  clearPasswordMsg();
+  valid = passwordFocusoutHandler();
+  if (valid) {
+    if (isEmpty(password)) 
+    {
+      valid = false;
+      msg = 'password cannot be blank';
+      passwordMsgHandler(valid, msg);
+    }
+    if (isEmpty(passwordConfirmation)) 
+    {
+      valid = false;
+      msg = 'password confirmation cannot be blank';
+      passwordConfirmationMsgHandler(valid, msg);
+    }
+    else if ((!isEmpty(password) && !isEmpty(passwordConfirmation)) && password.trim().length == 0) 
+    {
+      valid = false;
+      msg = "all characters of password cannot be space";
+      passwordMsgHandler(valid, msg);
+    }
+  }
+  return valid;
+}
+
+function passwordFocusoutHandler() 
+{
+  var valid = true;
+  var msg;
+  var password = $('#user_password').val();
+  var passwordConfirmation = $('#user_password_confirmation').val();
+
+  clearPasswordMsg();
+  if (!isEmpty(password) && password.length < 6) 
+  {
+    valid = false;
+    msg = 'password should be more than or equals 6 characters';
+    passwordMsgHandler(valid, msg);
+  }
+  else if (isEmpty(password) && !isEmpty(passwordConfirmation))
+  {
+    valid = false;
+    msg = 'password cannot be blank';
+    passwordMsgHandler(valid, msg);
+  }
+  // else if (!isEmpty(password) && isEmpty(passwordConfirmation))
+  // {
+  //   valid = false;
+  //   msg = 'password confirmation cannot be blank';
+  //   passwordConfirmationMsgHandler(valid, msg);
+  // }
+  else if (!isEmpty(password) && !isEmpty(passwordConfirmation) && password != passwordConfirmation)
+  {
+    valid = false;
+    msg = 'password and password confirmation should be same';
+    passwordConfirmationMsgHandler(valid, msg);
+  }
+
+  return valid;
+}
+
+function passwordChangeHandler() 
+{
+  clearPasswordMsg();
+}
+
+function clearPasswordMsg() 
+{
+  $('#user_password').removeClass('error');
+  $('#user_password_confirmation').removeClass('error');
+  $('#user_password_message').addClass("hide");
+  $('#user_password_confirmation_message').addClass("hide");
+
+}
+
+function passwordMsgHandler(valid, msg) {
+  $('#user_password').addClass('error');
+  $('#user_password_message').removeClass("hide");
+  $('#user_password_message').text(msg);
+}
+
+function passwordConfirmationMsgHandler(valid, msg) {
+  $('#user_password_confirmation').addClass('error');
+  $('#user_password_confirmation_message').removeClass("hide");
+  $('#user_password_confirmation_message').text(msg);
+}
 
 function usernameFocusoutHandler()
 {

@@ -52,9 +52,11 @@
 										= image_tag("LoadingIcons/Loading.gif", alt: "Loading", id: "loading-icon", class: "hide") 
 										= image_tag("LoadingIcons/Yes.png", alt: "Valid", id: "yes-icon", class: "hide") 
 										= image_tag("LoadingIcons/No.png", alt: "Invalid", id: "no-icon", class: "hide") 
-										= f.input :password, label: false, placeholder: "รหัสผ่าน" 
 										.controls
-											%input#user_password_confirmation{name: 'user[password_confirmation]', placeholder: 'ยืนยันรหัสผ่านอีกครั้ง'}
+											%input#user_password{name: 'user[password]', placeholder: 'รหัสผ่าน', type: 'password'}
+											#user_password_message.help-block.hide
+										.controls
+											%input#user_password_confirmation{name: 'user[password_confirmation]', placeholder: 'ยืนยันรหัสผ่านอีกครั้ง', type: 'password'}
 											#user_password_confirmation_message.help-block.hide
 										
 										.form-actions
