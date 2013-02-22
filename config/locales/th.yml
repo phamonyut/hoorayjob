@@ -56,6 +56,11 @@ th:
   checking_username: กำลังตรวจสอบชื่อเพื่อเข้าระบบ...
   username_valid: ชื่อผู้ใช้ใช้ได้
   invalid_username_character: ชื่อผู้ใช้ห้ามมีตัวอักษรพิเศษ
+  password_blank: รหัสผ่านต้องไม่เว้นว่างเอาไว้
+  password_confirmation_blank: ยืนยันรหัสผ่านต้องไม่เว้นว่างเอาไว้
+  password_all_spaces: รหัสผ่านห้ามเป็นช่องว่างทั้งหมด
+  password_greater_than_or_equal_6_char: รหัสผ่านต้องมากกว่าอย่างน้อย 6 ตัวอักษร
+  password_and_password_confirmation_not_same: ยืนยันรหัสผ่านไม่ตรงกับรหัสผ่าน
 
   contact_us: ติดต่อเรา
   email: อีเมล์

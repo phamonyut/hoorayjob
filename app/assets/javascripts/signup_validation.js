@@ -33,19 +33,19 @@ function passwordSubmitHandler()
     if (isEmpty(password)) 
     {
       valid = false;
-      msg = 'password cannot be blank';
+      msg = I18n.t("password_blank");
       passwordMsgHandler(valid, msg);
     }
     if (isEmpty(passwordConfirmation)) 
     {
       valid = false;
-      msg = 'password confirmation cannot be blank';
+      msg = I18n.t("password_confirmation_blank");
       passwordConfirmationMsgHandler(valid, msg);
     }
     else if ((!isEmpty(password) && !isEmpty(passwordConfirmation)) && password.trim().length == 0) 
     {
       valid = false;
-      msg = "all characters of password cannot be space";
+      msg = I18n.t("password_all_spaces");
       passwordMsgHandler(valid, msg);
     }
   }
@@ -63,25 +63,19 @@ function passwordFocusoutHandler()
   if (!isEmpty(password) && password.length < 6) 
   {
     valid = false;
-    msg = 'password should be more than or equals 6 characters';
+    msg = I18n.t("password_greater_than_or_equal_6_char");
     passwordMsgHandler(valid, msg);
   }
   else if (isEmpty(password) && !isEmpty(passwordConfirmation))
   {
     valid = false;
-    msg = 'password cannot be blank';
+    msg = I18n.t("password_blank");
     passwordMsgHandler(valid, msg);
   }
-  // else if (!isEmpty(password) && isEmpty(passwordConfirmation))
-  // {
-  //   valid = false;
-  //   msg = 'password confirmation cannot be blank';
-  //   passwordConfirmationMsgHandler(valid, msg);
-  // }
   else if (!isEmpty(password) && !isEmpty(passwordConfirmation) && password != passwordConfirmation)
   {
     valid = false;
-    msg = 'password and password confirmation should be same';
+    msg = I18n.t("password_and_password_confirmation_not_same");
     passwordConfirmationMsgHandler(valid, msg);
   }
 
