@@ -12,8 +12,7 @@
 //
 //= require jquery.min
 //= require jquery_ujs
-//= require bootstrap
-//= require bootstrap-datepicker
+//= require underscore-min
 //= require rails.validations
 //= require i18n
 //= require i18n/translations

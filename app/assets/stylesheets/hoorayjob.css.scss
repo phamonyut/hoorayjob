@@ -251,6 +251,10 @@ input {
 	&::-moz-placeholder { 
 			color: $input-placeholder-color;
 	}
+	&.error {
+		border: 2px solid red;
+		outline-color: red;
+	}
 }
 
 button, a.button {

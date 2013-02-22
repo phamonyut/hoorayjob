@@ -10,7 +10,11 @@ th:
   title_marketing_word: วิธีใหม่ในการค้นหางานที่น่าสนใจ
   tryit: ลองเลย ฟรี!
   search: ค้นเลย
-  username: ชื่อเข้าระบบ
+  registration: สมัครสมาชิก
+  register: ยืนยันการสมัคร
+  fullname: ชื่อ นามสกุล
+  username: ชื่อผู้ใช้
+  username_english_only: ชื่อผู้ใช้ (ภาษาอังกฤษ)
   password: รหัสผ่าน
   signin: เข้าสู่ระบบ
   signup: ลงทะเบียน
@@ -18,6 +22,7 @@ th:
   not_member: ยังไม่เป็นสมาชิก ?
   hooray: ฮูเล่ย์
   back_to_home_page: กลับหน้าหลัก
+  profile: ข้อมูลส่วนตัว
   edit_profile: แก้ไขข้อมูลส่วนตัว
   all_posts: ประกาศทั้งหมด
   employer_posts: ประกาศหาคน
@@ -48,16 +53,26 @@ th:
   apply_for: ประกาศหางาน
   want_to: ต้องการงาน
 
+  fullname_blank: ชื่อ สกุล ต้องไม่เว้นว่างเอาไว้
   checking_username: กำลังตรวจสอบชื่อเพื่อเข้าระบบ...
-  username_valid: ชื่อเพื่อเข้าระบบใช้ได้
-  invalid_username_character: ชื่อเพื่อเข้าระบบห้ามมีตัวอักษรพิเศษ
+  username_valid: ชื่อผู้ใช้ใช้ได้
+  invalid_username_character: ชื่อผู้ใช้ห้ามมีตัวอักษรพิเศษ
+  password_blank: รหัสผ่านต้องไม่เว้นว่างเอาไว้
+  password_confirmation_blank: ยืนยันรหัสผ่านต้องไม่เว้นว่างเอาไว้
+  password_all_spaces: รหัสผ่านห้ามเป็นช่องว่างทั้งหมด
+  password_greater_than_or_equal_6_char: รหัสผ่านต้องมากกว่าอย่างน้อย 6 ตัวอักษร
+  password_and_password_confirmation_not_same: ยืนยันรหัสผ่านไม่ตรงกับรหัสผ่าน
+
+  contact_us: ติดต่อเรา
+  email: อีเมล์
+  tel: โทร
 
   simple_form:
     labels:
       user:
         first_name: ชื่อ
         last_name: นามสกุล
-        username: ชื่อเข้าระบบ
+        username: ชื่อผู้ใช้
         password: รหัสผ่าน
         password_confirmation: ยืนยันรหัสผ่าน
         email: อีเมล์
