@@ -60,7 +60,7 @@ a {
 		text-decoration: none;
 	}
 	&:hover {
-		text-decoration: blink;
+		text-decoration: none;
 	}
 }
 
@@ -90,6 +90,7 @@ header {
 	width: 100%;
 	/*display: table;*/
 	padding-bottom: 20px;
+	position: relative;
 }
 
 header:after, header:before {
@@ -109,6 +110,52 @@ header:after {
 }
 .row:after {
 	clear: both; 
+}
+
+.fb-like, .fb-icon, .twitter-icon {
+	background: url("social-icons.png");
+	display: inline-block;
+}
+
+.fb-like {
+	width: 70px;
+	height: 30px;
+	background-position-y: 30px;
+	background-position: 0 30px;
+	&:hover {
+		background-position-x: 70px;
+		background-position-y: 30px;
+		background-position: 70px 30px;
+	}
+}
+
+.fb-icon, .twitter-icon {
+	width: 40px;
+	height: 35px;
+}
+
+.fb-icon:hover {
+	background-position-x: -40px;
+	background-position: -40px 0px;
+}
+
+.twitter-icon:hover {
+	background-position: -40px -35px;
+	background-position-x: -40px;
+}
+
+.twitter-icon {
+	background-position: 0px -35px;
+	background-position-y: -35px;
+}
+
+.social-media {
+	position: absolute;
+	right: 10px;
+	bottom: -7px;
+	.fb-like {
+		margin-bottom: 5px;
+	}
 }
 
 .main-logo {
@@ -294,7 +341,7 @@ button, a.button {
 	margin-top: 20px;
 	input {
 		width: 390px;
-		font-size: 30px;
+		font-size: 25px;
 		height: 38px;
 		padding-left: 12px;
 		margin: 10px 0px;
@@ -438,11 +485,21 @@ input[type="checkbox"] {
 	text-decoration: none;
 }
 
+#post-contents {
+	padding-top: 10px;
+}
+
 .post-post {
-	margin-top: 25px;
+	margin-top: 10px;
 	padding-left: 40px;
-	padding-right: 45px;
-	margin-bottom: 35px;
+	padding-right: 40px;
+
+	&:after {
+		content: '.';
+		display: block;
+		visibility: hidden;
+		clear: both;
+	}
 
 	&.employee {
 		.post-contact {
@@ -473,6 +530,7 @@ input[type="checkbox"] {
 
 		.post-text {
 			margin-right: 10%;
+			float: right;
 		}
 
 		.speech-bubble {
@@ -486,8 +544,8 @@ input[type="checkbox"] {
 
 .post-text {
 	border: 1px solid #F3F3F3;
-	padding-top: 5px;
-	padding-bottom: 10px;
+	padding-top: 3px;
+	padding-bottom: 8px;
 	padding-left: 20px;
 	padding-right: 20px;
  	-webkit-border-radius: 15px;
@@ -500,8 +558,9 @@ input[type="checkbox"] {
 	background: linear-gradient(to bottom, white 0%,#F6F6F6 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 );
 	position: relative;
-	margin-left: 10%;
-	max-width: 78%;
+	float: left;
+	margin-left: 15px;
+	max-width: 75%;
 	top: 10px;
 }
 
@@ -524,6 +583,11 @@ input[type="checkbox"] {
 .post-icon.employee-woman {
 	background-position-x: -60px;
 	background-position: -60px 0;
+}
+
+.post-icon.employee-unisex {
+	background-position-x: -120px;
+	background-position: -120px 0;
 }
 
 .post-icon {
