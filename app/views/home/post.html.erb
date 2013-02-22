@@ -7,7 +7,7 @@
 
 		function handleProvinceChange(event) {
 			var name = event.data;
-			var province_id = $("select#" + name + "_province_id :selected").val();
+			var province_id = $("#" + name + "_province_id :selected").val();
 			if (province_id == "") province_id = "0";
 			$.get("/update_district_select/" + name + "/" + province_id, function(data) {
 					$("#" + name + "_district").html(data);
