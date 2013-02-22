@@ -40,7 +40,7 @@
 							- unless user_signed_in?
 								#registration
 									%h1 สมัครสมาชิก
-									= simple_form_for(@user, html: {class: 'signup-form'}, validate: true, url: url_for(:controller=>'users', :action=>'create')) do |f| 
+									= simple_form_for(@user, html: {class: 'signup-form'}, validate: false, url: url_for(:controller=>'users', :action=>'create')) do |f| 
 										= f.input :first_name, label: false, placeholder: "ชื่อ นามสกุล" 
 										.controls
 											%input#user_username{name: 'user[username]', placeholder: 'ชื่อเพื่อเข้าระบบ (ภาษาอังกฤษ)', size: "50", type: "text", maxlength:"12"}
@@ -49,7 +49,10 @@
 										= image_tag("LoadingIcons/Yes.png", alt: "Valid", id: "yes-icon", class: "hide") 
 										= image_tag("LoadingIcons/No.png", alt: "Invalid", id: "no-icon", class: "hide") 
 										= f.input :password, label: false, placeholder: "รหัสผ่าน" 
-										= f.input :password_confirmation, label: false, placeholder: "ยืนยันรหัสผ่านอีกครั้ง" 
+										.controls
+											%input#user_password_confirmation{name: 'user[password_confirmation]', placeholder: 'ยืนยันรหัสผ่านอีกครั้ง'}
+											#user_password_confirmation_message.help-block.hide
+										
 										.form-actions
 											%button.btn-highlight{name: "commit", type: "submit"} ยืนยันการสมัคร
 
