@@ -15,6 +15,6 @@
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require rails.validations
-//= require_tree
 //= require i18n
 //= require i18n/translations
+//= require_tree .
