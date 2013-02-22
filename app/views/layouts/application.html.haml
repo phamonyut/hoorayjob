@@ -17,6 +17,7 @@
 		= yield(:noncontainer)
 		- if user_signed_in?
 			- container_class = "signed-in"
+		
 		.container{class: "#{container_class}"}
 			.content
 				%header
@@ -56,7 +57,10 @@
 										= f.input :password_confirmation, label: false, placeholder: "ยืนยันรหัสผ่านอีกครั้ง" 
 										.form-actions
 											%button.btn-highlight{name: "commit", type: "submit"} ยืนยันการสมัคร
-
+					.social-media
+						%a.fb-like{href:"#"}
+						%a.fb-icon{href:"#"}
+						%a.twitter-icon{href:"#"}
 					= yield(:header)
 						
 				= yield
