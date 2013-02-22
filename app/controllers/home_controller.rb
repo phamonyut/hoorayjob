@@ -35,11 +35,13 @@ class HomeController < ApplicationController
 		@districts = province.districts
 
 		@employee_post = EmployeePost.new
+		@employee_post.pay_period = "monthly"
 		@employee_post.province = province
 		@employee_post.phone = current_user.phone
 		@employee_post.email = current_user.email
 
 		@employer_post = EmployerPost.new
+		@employer_post.pay_period = "monthly"
 		@employer_post.province = province
 		@employer_post.phone = current_user.phone
 		@employer_post.email = current_user.email

@@ -23,7 +23,8 @@
 
 	<%= f.input :title %>
 	<%= f.input :desc %>
-	<%= f.association :job, label_method: lambda { |el| t "#{el.job_name}"} %>
+	<%= f.association :job, label_method: lambda { |el| t "#{el.job_name}" } %>
+	<%= f.input :pay_period, as: :radio_buttons, collection: ["daily", "weekly", "monthly"], label_method: lambda { |el| t "#{el}" } %>
 	<%= f.input :min_salary, as: :string %>
 	<%= f.input :max_salary, as: :string %>
 	<%= f.input :year_of_experience, as: :string %>
@@ -44,11 +45,12 @@
 
 	<%= f.input :title %>
 	<%= f.input :desc %>
-	<%= f.association :job, label_method: lambda { |el| t "#{el.job_name}"} %>
+	<%= f.association :job, label_method: lambda { |el| t "#{el.job_name}" } %>
+	<%= f.input :pay_period, as: :radio_buttons, collection: ["daily", "weekly", "monthly"], label_method: lambda { |el| t "#{el}" } %>
 	<%= f.input :min_salary, as: :string %>
 	<%= f.input :max_salary, as: :string %>
 	<%= f.input :year_of_experience, as: :string %>
-	<%= f.association :sex, as: :radio_buttons, item_wrapper_class: 'inline', label_method: lambda { |el| t "#{el.name}"}%>
+	<%= f.association :sex, as: :radio_buttons, item_wrapper_class: 'inline', label_method: lambda { |el| t "#{el.name}" } %>
 	<%= f.input :min_age, as: :string %>
 	<%= f.input :max_age, as: :string %>
 	<div id="employer_post_district">
