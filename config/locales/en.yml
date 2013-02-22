@@ -10,7 +10,11 @@ en:
   title_marketing_word: the sexy way to discover & subscribe job
   tryit: Try it free!
   search: Search
+  registration: Registration
+  register: Register
+  fullname: First name & Last name
   username: Username
+  username_english_only: Username (English)
   password: Password
   signin: Sign in
   signup: Sign up
@@ -18,6 +22,7 @@ en:
   not_member: Not a member yet ?
   hooray: Hooray
   back_to_home_page: Back to home page
+  profile: Profile
   edit_profile: Edit Profile
   all_posts: All Posts
   employer_posts: Employer Posts
@@ -51,6 +56,10 @@ en:
   checking_username: Checking username...
   username_valid: Username is valid
   invalid_username_character: Invalid character(s) in the username
+
+  contact_us: Contact
+  email: E-mail
+  tel: Tel
 
   simple_form:
     labels:
