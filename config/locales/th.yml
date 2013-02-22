@@ -53,6 +53,7 @@ th:
   apply_for: ประกาศหางาน
   want_to: ต้องการงาน
 
+  fullname_blank: ชื่อ สกุล ต้องไม่เว้นว่างเอาไว้
   checking_username: กำลังตรวจสอบชื่อเพื่อเข้าระบบ...
   username_valid: ชื่อผู้ใช้ใช้ได้
   invalid_username_character: ชื่อผู้ใช้ห้ามมีตัวอักษรพิเศษ

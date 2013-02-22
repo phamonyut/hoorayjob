@@ -46,7 +46,8 @@
 									%h1  #{t :registration}
 									= simple_form_for(@user, html: {class: 'signup-form'}, validate: false, url: url_for(:controller=>'users', :action=>'create')) do |f| 
 										.controls
-											%input#user_firstname{name: 'user[firstname]', placeholder: I18n.t(:fullname), size: "50", type: "text", maxlength:"25"}
+											%input#user_first_name{name: 'user[first_name]', placeholder: I18n.t(:fullname), size: "50", type: "text", maxlength:"25"}
+											#user_first_name_message.help-block.hide
 										.controls
 											%input#user_username{name: 'user[username]', placeholder: I18n.t(:username_english_only), size: "50", type: "text", maxlength:"12"}
 											#user_username_message.help-block{class:"hide"}
