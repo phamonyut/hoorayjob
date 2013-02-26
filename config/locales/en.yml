@@ -42,6 +42,9 @@ en:
   baby-sitter: Baby-Sitter
   nurse: Nurse
   driver: Driver
+  daily: Daily
+  weekly: Weekly
+  monthly: Monthly
 
   posting: Posting
   employee_posted_success: Successfully Posted.
@@ -87,6 +90,7 @@ en:
         title: Title
         desc: Description
         job: Job
+        pay_period: Pay Period
         min_salary: Minimum Salary
         max_salary: Maximum Salary
         year_of_experience: Years of Experience
@@ -98,6 +102,7 @@ en:
         title: Title
         desc: Description
         job: Job
+        pay_period: Pay Period
         min_salary: Minimum Salary
         max_salary: Maximum Salary
         year_of_experience: Years of Experience

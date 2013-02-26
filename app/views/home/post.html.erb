@@ -7,7 +7,7 @@
 
 		function handleProvinceChange(event) {
 			var name = event.data;
-			var province_id = $("select#" + name + "_province_id :selected").val();
+			var province_id = $("#" + name + "_province_id :selected").val();
 			if (province_id == "") province_id = "0";
 			$.get("/update_district_select/" + name + "/" + province_id, function(data) {
 					$("#" + name + "_district").html(data);
@@ -23,7 +23,8 @@
 
 	<%= f.input :title %>
 	<%= f.input :desc %>
-	<%= f.association :job, label_method: lambda { |el| t "#{el.job_name}"} %>
+	<%= f.association :job, label_method: lambda { |el| t "#{el.job_name}" } %>
+	<%= f.input :pay_period, as: :radio_buttons, collection: ["daily", "weekly", "monthly"], label_method: lambda { |el| t "#{el}" } %>
 	<%= f.input :min_salary, as: :string %>
 	<%= f.input :max_salary, as: :string %>
 	<%= f.input :year_of_experience, as: :string %>
@@ -44,11 +45,12 @@
 
 	<%= f.input :title %>
 	<%= f.input :desc %>
-	<%= f.association :job, label_method: lambda { |el| t "#{el.job_name}"} %>
+	<%= f.association :job, label_method: lambda { |el| t "#{el.job_name}" } %>
+	<%= f.input :pay_period, as: :radio_buttons, collection: ["daily", "weekly", "monthly"], label_method: lambda { |el| t "#{el}" } %>
 	<%= f.input :min_salary, as: :string %>
 	<%= f.input :max_salary, as: :string %>
 	<%= f.input :year_of_experience, as: :string %>
-	<%= f.association :sex, as: :radio_buttons, item_wrapper_class: 'inline', label_method: lambda { |el| t "#{el.name}"}%>
+	<%= f.association :sex, as: :radio_buttons, item_wrapper_class: 'inline', label_method: lambda { |el| t "#{el.name}" } %>
 	<%= f.input :min_age, as: :string %>
 	<%= f.input :max_age, as: :string %>
 	<div id="employer_post_district">
