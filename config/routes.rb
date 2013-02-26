@@ -12,6 +12,8 @@ Hoorayjob::Application.routes.draw do
   match "/theme" => "home#theme"
   match "/isUsernameValid" => "users#isUsernameValid"
 
+  match "/updateSearch" => "home#filter"
+  
   resources :employee_posts
   resources :employer_posts
 

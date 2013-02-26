@@ -8,6 +8,7 @@
 		  });
 	  		allJobTypeCheckbox  = $(this).find('.options input');
 			allJobTypeCheckbox.each( checkboxChange );
+			addFilterSearch();
 		});
 		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 
@@ -45,32 +46,32 @@
 	<h2>เลือกประเภทงาน</h2>
 	<div class="options">
 		<div>
-			<input id="post-all" type="checkbox">
+			<input id="post-all" data-jobname="all" type="checkbox">
 			<label for="post-all"></label>
 			<label for="post-all">ทั้งหมด</label>
 			<!-- <span class="small">ทั้งหมด</span> -->
 		</div>
 		<div>
-			<input id="post-maid" type="checkbox">
+			<input id="post-maid" data-jobname="housekeeper" type="checkbox">
 			<label for="post-maid"></label>
 			<label for="post-maid">แม่บ้าน/พ่อบ้าน</label>
 		</div>
 		<div>
-			<input id="post-helper" type="checkbox">
+			<input id="post-helper" data-jobname="baby-sitter,nurse" type="checkbox">
 			<label for="post-helper"></label>
 			<label for="post-helper">พี่เลี้ยงเด็ก-คนชรา</label>
 		</div>
 		<div>
-			<input id="post-shop" type="checkbox">
+			<input id="post-shop" data-jobname="shophelper" type="checkbox">
 			<label for="post-shop"></label>
 			<label for="post-shop">พนักงานประจำร้าน</label>
 		</div>
 		<div>
-			<input id="post-else" type="checkbox">
+			<input id="post-else" data-jobname="others" type="checkbox">
 			<label for="post-else"></label>
 			<label for="post-else">อื่นๆ</label>
 		</div>
-		<button class="btn-search">ค้นหา</button>
+		<button class="btn-search" id="filterSearch">ค้นหา</button>
 	</div>
 </div>
 <div id="post-container"><!--  style="height: 525px;"> -->
@@ -86,7 +87,6 @@
 		</div>
 	</div>
 	<div id="post-contents">
-
 		<div class="post-post">
 			<div class="post-contact">
 				<i class="post-icon money"></i>

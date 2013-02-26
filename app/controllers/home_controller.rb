@@ -27,6 +27,42 @@ class HomeController < ApplicationController
 		@posts.sort_by! { |e| e.updated_at }.reverse!
 	end
 
+	def filter
+		searchType = params[:searchType]
+		unSelectedType = params[:unSelected]
+		selectOthers = searchType.match(/\bothers\b/) != nil
+		isAllCase = searchType.blank? || 
+				searchType == "all" || 
+				( selectOthers && 
+					unSelectedType.blank? )
+
+		if isAllCase
+			@employer_posts = EmployerPost.all
+			@employee_posts = EmployeePost.all
+			puts ">>>>> select all >>>>> "
+		else
+			if selectOthers
+				condition_sql = "'" + unSelectedType.split(",").join("','") + "'"
+				@employer_posts = EmployerPost.other_type( condition_sql )
+				@employee_posts = EmployerPost.other_type( condition_sql )
+				puts ">>>>>  unselect length >>>>   #{@employer_posts.length}"
+			else
+				condition_sql = "'" + searchType.split(",").join("','") + "'"
+				@employer_posts = EmployerPost.selected_type( condition_sql )
+				@employee_posts = EmployerPost.selected_type( condition_sql )
+				puts ">>>>>  select length >>>>   #{@employer_posts.length}"
+			end
+		end
+
+		respond_to do |format|
+			if params[:searchType].blank?
+				format.html { render nothing: true }
+			else
+				format.html { render nothing: true }
+			end
+		end
+	end
+
 	def hello
 	end
 
