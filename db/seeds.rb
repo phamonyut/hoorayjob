@@ -23,6 +23,7 @@ housekeeper = Job.create(job_name: 'housekeeper')
 babySitter  = Job.create(job_name: 'baby-sitter')
 nurse       = Job.create(job_name: 'nurse')
 driver      = Job.create(job_name: 'driver')
+shophelper  = Job.create(job_name: 'shophelper')
 
 p1  = Province.new(name: 'กระบี่');
 p2  = Province.new(name: 'กรุงเทพมหานคร');
