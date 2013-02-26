@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 				session[:user_id] = user.id
 				format.html { redirect_to root_path, notice: t(:signin_success) }
 			else
-				format.html  { redirect_to root_path, flash: {error: t(:signin_fail)} }
+				format.html  { redirect_to root_path, flash: {logonError: t(:signin_fail)} }
 			end
 		end
 	end
