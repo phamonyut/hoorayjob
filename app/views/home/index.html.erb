@@ -47,7 +47,7 @@
 <% if user_signed_in? %>
 	<% content_for :header do %>
 		<div class="align-center">
-			<button class="btn-post">ประกาศหาคน / หางาน</button>	
+			<%= link_to "ประกาศหาคน / หางาน", jobpost_path, class: "button btn-post" %>
 		</div>
 	<% end %>
 <% end %>
