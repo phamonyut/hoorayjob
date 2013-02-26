@@ -58,6 +58,7 @@ en:
 
   fullname_blank: Fullname cannot be blank
   checking_username: Checking username...
+  username_blank: Username cannot be blank
   username_valid: Username is valid
   invalid_username_character: Invalid character(s) in the username
   password_blank: Password cannot be blank

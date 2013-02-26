@@ -58,6 +58,7 @@ th:
 
   fullname_blank: ชื่อ สกุล ต้องไม่เว้นว่างเอาไว้
   checking_username: กำลังตรวจสอบชื่อเพื่อเข้าระบบ...
+  username_blank: ชื่อผู้ใช้ ต้องไม่เว้นว่างเอาไว้
   username_valid: ชื่อผู้ใช้ใช้ได้
   invalid_username_character: ชื่อผู้ใช้ห้ามมีตัวอักษรพิเศษ
   password_blank: รหัสผ่านต้องไม่เว้นว่างเอาไว้

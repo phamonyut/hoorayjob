@@ -18,7 +18,7 @@ function isEmpty(obj)
 function signupHandler() 
 {
   isFullnameValid = fullnameSubmitHandler();
-  isUsernameValid = false;// usernameSubmitHandler();//validateUsernameOnClient($('#user_username').val());
+  isUsernameValid = usernameSubmitHandler();// usernameSubmitHandler();//validateUsernameOnClient($('#user_username').val());
   isPasswordValid = passwordSubmitHandler();
   return isFullnameValid && isUsernameValid && isPasswordValid;
 }
@@ -33,7 +33,7 @@ function fullnameSubmitHandler()
   if (isEmpty(fullname)) {
     valid = false;
     msg = I18n.t("fullname_blank");
-    fullnameMsgHandler(valid, msg);
+    fullnameMsgHandler(msg);
   }
   return valid;
 }
@@ -45,10 +45,13 @@ function usernameSubmitHandler()
   var username = $('#user_username').val();
 
   clearUsernameMsg();
-  if (isEmpty(username)) {
-    valid = false;
-    msg = I18n.t("username_blank");
-    usernameMsgHandler(valid, msg);
+  valid = usernameFocusoutHandler();
+  if (valid) {
+    if (isEmpty(username)) {
+      valid = false;
+      msg = I18n.t("username_blank");
+      usernameMsgHandler("fail", msg);
+    }
   }
   return valid;
 }
@@ -67,19 +70,19 @@ function passwordSubmitHandler()
     {
       valid = false;
       msg = I18n.t("password_blank");
-      passwordMsgHandler(valid, msg);
+      passwordMsgHandler(msg);
     }
     if (isEmpty(passwordConfirmation)) 
     {
       valid = false;
       msg = I18n.t("password_confirmation_blank");
-      passwordConfirmationMsgHandler(valid, msg);
+      passwordConfirmationMsgHandler(msg);
     }
     else if ((!isEmpty(password) && !isEmpty(passwordConfirmation)) && password.trim().length == 0) 
     {
       valid = false;
       msg = I18n.t("password_all_spaces");
-      passwordMsgHandler(valid, msg);
+      passwordMsgHandler(msg);
     }
   }
   return valid;
@@ -97,19 +100,19 @@ function passwordFocusoutHandler()
   {
     valid = false;
     msg = I18n.t("password_greater_than_or_equal_6_char");
-    passwordMsgHandler(valid, msg);
+    passwordMsgHandler(msg);
   }
   else if (isEmpty(password) && !isEmpty(passwordConfirmation))
   {
     valid = false;
     msg = I18n.t("password_blank");
-    passwordMsgHandler(valid, msg);
+    passwordMsgHandler(msg);
   }
   else if (!isEmpty(password) && !isEmpty(passwordConfirmation) && password != passwordConfirmation)
   {
     valid = false;
     msg = I18n.t("password_and_password_confirmation_not_same");
-    passwordConfirmationMsgHandler(valid, msg);
+    passwordConfirmationMsgHandler(msg);
   }
 
   return valid;
@@ -123,6 +126,11 @@ function passwordChangeHandler()
 function fullnameChangeHandler()
 {
   clearFullnameMsg();
+}
+
+function usernameChangeHandler()
+{
+  clearUsernameMsg();
 }
 
 function clearFullnameMsg()
@@ -156,11 +164,26 @@ function fullnameMsgHandler(msg)
   $('#user_first_name_message').text(msg);
 }
 
-function usernameMsgHandler(msg)
+function usernameMsgHandler(status, msg)
 {
-  $('#user_username').addClass('error');
-  $('#user_username_message').removeClass('hide');
-  $('#user_username_message').text(msg);
+  if (status == "success") {
+    $('#loading-icon').addClass("hide");
+    $('#user_username').removeClass('error');
+    $('#yes-icon').removeClass("hide");
+    $('#user_username_message').removeClass("checking hide").addClass("valid").text(I18n.t("username_valid"));
+  }
+  else if (status == "fail") {
+    $('#loading-icon').addClass("hide");
+    $('#user_username').addClass('error');
+    $('#user_username_message').removeClass("valid checking hide").text(msg);
+  }
+  else if (status == "waiting") {
+    $('#user_username').removeClass('error');
+    $('#yes-icon').addClass("hide");
+    $('#no-icon').addClass("hide");
+    $('#loading-icon').removeClass("hide");
+    $('#user_username_message').removeClass("valid hide valid").addClass("checking").text(msg);
+  }
 }
 
 function passwordMsgHandler(msg) 
@@ -177,25 +200,30 @@ function passwordConfirmationMsgHandler(msg)
   $('#user_password_confirmation_message').text(msg);
 }
 
-function usernameFocusoutHandler()
+function usernameFocusoutHandler(isAsync)
 {
+  var valid = true;
   var username = $('#user_username')[0].value;
 
-  // validate if and only if the content has been changed
-  if((typeof usernameFocusoutHandler.latestUsername == 'undefined') ||
-     (usernameFocusoutHandler.latestUsername != username))
-  {
-    // Remember the new latest name
-    usernameFocusoutHandler.latestUsername = username;
+  clearUsernameMsg();
 
-    if (validateUsernameOnClient(username))
+  if (!isEmpty(username))
+  {
+    // ^ represents start of the string
+    // $ represents end of the string
+    if(!username.match(/^[a-zA-Z0-9_]{1,12}$/))
     {
+      valid = false;
+      usernameMsgHandler('fail', I18n.t("invalid_username_character"));
+    }
+    // validate if and only if the content has been changed
+    else if((_.isUndefined(usernameFocusoutHandler.latestUsername) || usernameFocusoutHandler.latestUsername != username))
+    {
+      // Remember the new latest name 
+      usernameFocusoutHandler.latestUsername = username;
+      
       // Show the loading icon and progress text
-      $('#user_username').removeClass('error');
-      $('#yes-icon').addClass("hide");
-      $('#no-icon').addClass("hide");
-      $('#loading-icon').removeClass("hide");
-      $('#user_username_message').removeClass("hide valid").addClass("checking").text(I18n.t("checking_username"));
+      usernameMsgHandler('waiting', I18n.t("checking_username"));
 
       $.ajax({
         url: "isUsernameValid",
@@ -206,18 +234,19 @@ function usernameFocusoutHandler()
             // Ensure that the value in the textbox is the same as the one we sent to validate
             if( $('#user_username')[0].value == username)
             {
-              $('#user_username').removeClass('error');
-              $('#yes-icon').removeClass("hide");
-              $('#user_username_message').addClass("valid").text(I18n.t("username_valid"));
+              usernameFocusoutHandler.lastedValid = valid;
+              usernameFocusoutHandler.lastedMsg   = I18n.t("username_valid");
+              usernameMsgHandler('success', usernameFocusoutHandler.lastedMsg);
             }
           },
           // Invalid
           203: function(data) {
             if( $('#user_username')[0].value == username)
             {
-              $('#user_username').addClass('error');
-              $('#no-icon').removeClass("hide");
-              $('#user_username_message').text(I18n.t(data.error_message));
+              valid = false;
+              usernameFocusoutHandler.lastedValid = valid;
+              usernameFocusoutHandler.lastedMsg   = I18n.t(data.error_message);
+              usernameMsgHandler('fail', usernameFocusoutHandler.lastedMsg);
             }
           },
           // Blank
@@ -225,52 +254,51 @@ function usernameFocusoutHandler()
             // Ensure that the value in the textbox is still blank
             if( $('#user_username')[0].value == "")
             {
-              $('#user_username').addClass('error');
-              $('#user_username_message').text(I18n.t("errors.messages.blank"));
+              valid = false;
+              usernameFocusoutHandler.lastedValid = valid;
+              usernameFocusoutHandler.lastedMsg   = I18n.t("errors.messages.blank");
+              usernameMsgHandler('fail', usernameFocusoutHandler.lastedMsg);
             }
           }
         }
-      }).always(validateUsernameCallback);
+      })
+    }
+    else
+    {
+      valid = usernameFocusoutHandler.lastedValid;
+      usernameMsgHandler(valid == true ? "success" : "fail", usernameFocusoutHandler.lastedMsg);
     }
   }
+  return valid;
 }
 
-function validateUsernameCallback()
-{
-  $('#user_username').removeClass('error');
-  $('#loading-icon').addClass("hide");
-  $('#user_username_message').removeClass("checking");
-}
+// function validateUsernameCallback()
+// {
+//   $('#user_username').removeClass('error');
+//   $('#loading-icon').addClass("hide");
+//   $('#user_username_message').removeClass("checking");
+// }
 
-function validateUsernameOnClient(username)
-{
-  if(username == "")
-  {
-    return false;
-  }
-  // ^ represents start of the string
-  // $ represents end of the string
-  if(!username.match(/^[a-zA-Z0-9_]{1,12}$/))
-  {
-     $('#user_username').addClass('error');
-     $('#user_username_message').text(I18n.t("invalid_username_character")).removeClass("hide valid");
-    return false;
-  }
-  else
-  {
-    return true;
-  }
-}
+// function validateUsernameOnClient(username)
+// {
+//   if(username == "")
+//   {
+//     return false;
+//   }
+//   // ^ represents start of the string
+//   // $ represents end of the string
+//   if(!username.match(/^[a-zA-Z0-9_]{1,12}$/))
+//   {
+//      $('#user_username').addClass('error');
+//      $('#user_username_message').text(I18n.t("invalid_username_character")).removeClass("hide valid");
+//     return false;
+//   }
+//   else
+//   {
+//     return true;
+//   }
+// }
 
-function usernameChangeHandler()
-{
-  $('#yes-icon').addClass("hide");
-  $('#no-icon').addClass("hide");
-  $('#loading-icon').addClass("hide");
-  $('#user_username_message').addClass("hide")
-  $('#user_username').removeClass('error');
-  validateUsernameOnClient($('#user_username')[0].value);
-}
 
 // window.ClientSideValidations.callbacks.element.before = function(element, eventData)
 // {
