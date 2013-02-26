@@ -18,8 +18,8 @@ function isEmpty(obj)
 function signupHandler() 
 {
   isFullnameValid = fullnameSubmitHandler();
+  isUsernameValid = false;// usernameSubmitHandler();//validateUsernameOnClient($('#user_username').val());
   isPasswordValid = passwordSubmitHandler();
-  isUsernameValid = validateUsernameOnClient($('#user_username').val());
   return isFullnameValid && isUsernameValid && isPasswordValid;
 }
 
@@ -34,6 +34,21 @@ function fullnameSubmitHandler()
     valid = false;
     msg = I18n.t("fullname_blank");
     fullnameMsgHandler(valid, msg);
+  }
+  return valid;
+}
+
+function usernameSubmitHandler() 
+{
+  var valid = true;
+  var msg;
+  var username = $('#user_username').val();
+
+  clearUsernameMsg();
+  if (isEmpty(username)) {
+    valid = false;
+    msg = I18n.t("username_blank");
+    usernameMsgHandler(valid, msg);
   }
   return valid;
 }
@@ -116,6 +131,15 @@ function clearFullnameMsg()
   $('#user_first_name_message').addClass('hide');
 }
 
+function clearUsernameMsg() 
+{
+  $('#yes-icon').addClass("hide");
+  $('#no-icon').addClass("hide");
+  $('#loading-icon').addClass("hide");
+  $('#user_username_message').addClass("hide")
+  $('#user_username').removeClass('error');
+}
+
 function clearPasswordMsg() 
 {
   $('#user_password').removeClass('error');
@@ -125,21 +149,28 @@ function clearPasswordMsg()
 
 }
 
-function fullnameMsgHandler(valid, msg) 
+function fullnameMsgHandler(msg) 
 {
   $('#user_first_name').addClass('error');
   $('#user_first_name_message').removeClass('hide');
   $('#user_first_name_message').text(msg);
 }
 
-function passwordMsgHandler(valid, msg) 
+function usernameMsgHandler(msg)
+{
+  $('#user_username').addClass('error');
+  $('#user_username_message').removeClass('hide');
+  $('#user_username_message').text(msg);
+}
+
+function passwordMsgHandler(msg) 
 {
   $('#user_password').addClass('error');
   $('#user_password_message').removeClass("hide");
   $('#user_password_message').text(msg);
 }
 
-function passwordConfirmationMsgHandler(valid, msg) 
+function passwordConfirmationMsgHandler(msg) 
 {
   $('#user_password_confirmation').addClass('error');
   $('#user_password_confirmation_message').removeClass("hide");
