@@ -64,7 +64,7 @@ en:
   password_blank: Password cannot be blank
   password_confirmation_blank: Password confirmation cannot be blank
   password_all_spaces: All characters of password cannot be space
-  password_greater_than_or_equal_6_char: Password must be greater than or equal to 6 characters
+  password_greater_than_or_equal_6_char: Password must be at least 6 characters
   password_and_password_confirmation_not_same: Password doesn't match confirmation
 
   contact_us: Contact

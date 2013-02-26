@@ -41,6 +41,19 @@
 			});
 		}
 
+		function filterPost(type) {
+			if (type == 'employee') {
+				$('.employer').hide();
+				$('.employee').show();
+			} else if (type == 'employer') {
+				$('.employee').hide();
+				$('.employer').show();
+			} else {
+				$('.employee').show();
+				$('.employer').show();
+			}
+		}
+
 	</script>
 <% end %>
 
@@ -88,10 +101,10 @@
 	<div id="post-category">
 		<div id="post-category-group">
 			<div id="category-selection" class="all"></div>
-			<a id="category-left" class="active" href="#">แสดงประกาศทั้งหมด</a>
-			<a id="category-right" href="#">เฉพาะคนที่กำลังหางาน</a>
+			<a id="category-left" class="active" href="#" onclick="filterPost('all')">แสดงประกาศทั้งหมด</a>
+			<a id="category-right" href="#" onclick="filterPost('employee')">เฉพาะคนที่กำลังหางาน</a>
 			<center>
-				<a id="category-center" href="#">เฉพาะงานจากนายจ้าง</a>
+				<a id="category-center" href="#" onclick="filterPost('employer')">เฉพาะงานจากนายจ้าง</a>
 			</center>
 			<div id="category-selection-bar" class="all"></div>
 		</div>
@@ -134,7 +147,7 @@
 				</div>
 			<!-- employer post -->
 			<% else %>
-				<div class="post-post">
+				<div class="post-post employer">
 					<div class="post-contact">
 						<i class="post-icon money"></i>
 						<div class="post-contact-info">
