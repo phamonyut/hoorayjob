@@ -41,6 +41,7 @@
 											%h3 #{t :password}
 											%input{type: "password", name: "password"}
 										%button #{t :signin}
+									.signin-msg #{flash[:logonError]}
 
 							- unless user_signed_in?
 								#registration

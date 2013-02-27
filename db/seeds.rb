@@ -23,6 +23,7 @@ housekeeper = Job.create(job_name: 'housekeeper')
 babySitter  = Job.create(job_name: 'baby-sitter')
 nurse       = Job.create(job_name: 'nurse')
 driver      = Job.create(job_name: 'driver')
+shophelper  = Job.create(job_name: 'shophelper')
 
 p1  = Province.new(name: 'กระบี่');
 p2  = Province.new(name: 'กรุงเทพมหานคร');
@@ -1108,4 +1109,5 @@ p76.save;
 p77.save;
 
 user = User.create(first_name: 'user', last_name: 'none', username: 'user', password: 'password', password_confirmation: 'password', email: 'user@hoorayjob.com', citizen_id: '1234567890123', sex: male, address: '404', user_type: individual, phone: '123456789')
-housekeeperPost = EmployeePost.create(user: user, job: housekeeper, status: 'open', phone: '123456789', email: 'user@hoorayjob.com', title: 'I want to do hourse keeper job', desc: 'please contact me.', province: p2, district: p2.districts.first)
+housekeeperPost = EmployeePost.create(user: user, job: housekeeper, status: 'open', phone: '123456789', email: 'user@hoorayjob.com', title: 'กำลังหางานแม่บ้าน', desc: 'please contact me.', province: p2, district: p2.districts.first, pay_period: 'monthly')
+findHouseKeeper = EmployerPost.create(user: user, job: housekeeper, status: 'open', phone: '123456789', email: 'user@hoorayjob.com', title: 'กำลังหาคนทำงานบ้าน', desc: 'please contact me.', province: p2, district: p2.districts.first, pay_period: 'monthly', min_salary: 10000, max_salary: 25000, min_age: 17, max_age: 20, sex: female, year_of_experience: 2)
