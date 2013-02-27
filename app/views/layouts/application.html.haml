@@ -66,14 +66,12 @@
 										.form-actions
 											%button.btn-highlight{name: "commit", type: "submit"} #{t :register}
 					.social-media
-						%a.fb-like{href:"#"}
-						%a.fb-icon{href:"#"}
-						%a.twitter-icon{href:"#"}
-						
+						%iframe{src: "//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fhoorayjob&send=false&layout=box_count&width=50&show_faces=false&font&colorscheme=light&action=like&height=68", scrolling: "no", frameborder: "0", style: "border:none; overflow:hidden; width:50px; height:68px;", allowTransparency: "true"}
+						%a.fb-icon{href:"http://www.facebook.com/hoorayjob", target: "_blank", title: "facebook.com/hoorayjob"}
+						%a.twitter-icon{href:"http://www.twitter.com/hoorayjob", target: "_blank", title: "twitter.com/hoorayjob"}
 					= yield(:header)
 						
 				= yield
-
 				%footer
 					.contact-info
 						%span
