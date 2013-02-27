@@ -60,7 +60,7 @@ a {
 		text-decoration: none;
 	}
 	&:hover {
-		text-decoration: blink;
+		text-decoration: none;
 	}
 }
 
@@ -72,7 +72,7 @@ a {
 }
 
 .container.signed-in {
-	height: 180px;
+	height: 205px;
 }
 
 .content {
@@ -90,6 +90,7 @@ header {
 	width: 100%;
 	/*display: table;*/
 	padding-bottom: 20px;
+	position: relative;
 }
 
 header:after, header:before {
@@ -111,8 +112,50 @@ header:after {
 	clear: both; 
 }
 
-.allCol {
-	width: 100%;
+.fb-like, .fb-icon, .twitter-icon {
+	background: url("social-icons.png");
+	display: inline-block;
+}
+
+.fb-like {
+	width: 70px;
+	height: 30px;
+	background-position-y: 30px;
+	background-position: 0 30px;
+	&:hover {
+		background-position-x: 70px;
+		background-position-y: 30px;
+		background-position: 70px 30px;
+	}
+}
+
+.fb-icon, .twitter-icon {
+	width: 40px;
+	height: 35px;
+}
+
+.fb-icon:hover {
+	background-position-x: -40px;
+	background-position: -40px 0px;
+}
+
+.twitter-icon:hover {
+	background-position: -40px -35px;
+	background-position-x: -40px;
+}
+
+.twitter-icon {
+	background-position: 0px -35px;
+	background-position-y: -35px;
+}
+
+.social-media {
+	position: absolute;
+	right: 10px;
+	bottom: -7px;
+	.fb-like {
+		margin-bottom: 5px;
+	}
 }
 
 .main-logo {
@@ -158,6 +201,12 @@ h3 {
 	margin: 0;
 }
 
+h4 {
+	font-size: 20px;
+	color: #F06;
+	margin: 0;
+}
+
 #login {
 	margin-top: 20px;
 
@@ -175,6 +224,12 @@ h3 {
 	button {
 		margin-left: 4px;
 		margin-top: 25px;
+	}
+
+	.user-signed-in {
+		position: relative;
+		right: 30px;
+		text-align: right;
 	}
 }
 
@@ -195,6 +250,10 @@ input {
 	}
 	&::-moz-placeholder { 
 			color: $input-placeholder-color;
+	}
+	&.error {
+		border: 2px solid red;
+		outline-color: red;
 	}
 }
 
@@ -242,6 +301,39 @@ button, a.button {
 			background-color: #FF8CBA;
 		}
 	}
+	&.btn-user-profile {
+		font-size: 24px;
+		margin-top: 0 !important;
+	}
+	&.btn-sign-out {
+		font-size: 24px;	
+		background-color: #EFD0DA;
+		margin-top: 0 !important;
+	}
+	&.btn-post {
+		font-size: 45px;
+		padding: 0px 20px;
+		background-color: $pink-highlight;
+		border: 2px solid #B9014B;
+		border-radius: 15px;
+		padding-bottom: 5px;
+		position:	relative;
+		&:hover  {
+			top: 0;
+			margin-bottom: 0;
+			box-shadow: 0px 5px 15px #70A6C0;
+		}
+
+		&:after {
+			background: url("pencil.png");
+			width: 125px;
+			height: 110px;
+			display: inline-block;
+			content: ' ';
+			position: absolute;
+			right: -80px;
+		}
+	}
 }
 
 #registration {
@@ -249,7 +341,7 @@ button, a.button {
 	margin-top: 20px;
 	input {
 		width: 390px;
-		font-size: 30px;
+		font-size: 25px;
 		height: 38px;
 		padding-left: 12px;
 		margin: 10px 0px;
@@ -393,11 +485,21 @@ input[type="checkbox"] {
 	text-decoration: none;
 }
 
+#post-contents {
+	padding-top: 10px;
+}
+
 .post-post {
-	margin-top: 25px;
+	margin-top: 10px;
 	padding-left: 40px;
-	padding-right: 45px;
-	margin-bottom: 35px;
+	padding-right: 40px;
+
+	&:after {
+		content: '.';
+		display: block;
+		visibility: hidden;
+		clear: both;
+	}
 
 	&.employee {
 		.post-contact {
@@ -428,6 +530,7 @@ input[type="checkbox"] {
 
 		.post-text {
 			margin-right: 10%;
+			float: right;
 		}
 
 		.speech-bubble {
@@ -441,8 +544,8 @@ input[type="checkbox"] {
 
 .post-text {
 	border: 1px solid #F3F3F3;
-	padding-top: 5px;
-	padding-bottom: 10px;
+	padding-top: 3px;
+	padding-bottom: 8px;
 	padding-left: 20px;
 	padding-right: 20px;
  	-webkit-border-radius: 15px;
@@ -455,8 +558,9 @@ input[type="checkbox"] {
 	background: linear-gradient(to bottom, white 0%,#F6F6F6 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 );
 	position: relative;
-	margin-left: 10%;
-	max-width: 78%;
+	float: left;
+	margin-left: 15px;
+	max-width: 75%;
 	top: 10px;
 }
 
@@ -479,6 +583,11 @@ input[type="checkbox"] {
 .post-icon.employee-woman {
 	background-position-x: -60px;
 	background-position: -60px 0;
+}
+
+.post-icon.employee-unisex {
+	background-position-x: -120px;
+	background-position: -120px 0;
 }
 
 .post-icon {
@@ -583,6 +692,18 @@ footer {
 	font-size: 14px;
 	color: #CA0606;
 	font-weight: bold;
+	&.valid {
+		color: #009600;
+		&:before{
+			display: none;
+		}
+	}
+	&.checking {
+		color: black;
+		&:before{
+			display: none;
+		}
+	}
 
 	&:before {
 		display: inline-block;

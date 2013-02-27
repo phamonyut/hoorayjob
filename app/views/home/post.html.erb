@@ -1,14 +1,36 @@
+<% content_for :head do %>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#employee_post_province_id").change("employee_post", handleProvinceChange);
+			$("#employer_post_province_id").change("employer_post",handleProvinceChange);
+		});
+
+		function handleProvinceChange(event) {
+			var name = event.data;
+			var province_id = $("#" + name + "_province_id :selected").val();
+			if (province_id == "") province_id = "0";
+			$.get("/update_district_select/" + name + "/" + province_id, function(data) {
+					$("#" + name + "_district").html(data);
+			});
+			return false;
+		}
+	</script>
+<% end %>
+
 <h1><%=t :posting %></h1>
 
 <%= simple_form_for(@employee_post, html: {class: 'form-horizontal'}, :validate => true, :url=>url_for(:controller=>'employee_posts', :action=>'create')) do |f| %>
 
 	<%= f.input :title %>
 	<%= f.input :desc %>
-	<%= f.association :job, label_method: lambda { |el| t "#{el.job_name}"} %>
+	<%= f.association :job, label_method: lambda { |el| t "#{el.job_name}" } %>
+	<%= f.input :pay_period, as: :radio_buttons, collection: ["daily", "weekly", "monthly"], label_method: lambda { |el| t "#{el}" } %>
 	<%= f.input :min_salary, as: :string %>
 	<%= f.input :max_salary, as: :string %>
 	<%= f.input :year_of_experience, as: :string %>
-	<%= f.association :district, collection: @districts %>
+	<div id="employee_post_district">
+		<%= render partial: "districts", locals: { name: "employee_post" } %>
+	</div>
 	<%= f.association :province %>
 	<%= f.input :phone %>
 	<%= f.input :email %>
@@ -19,18 +41,21 @@
 		<%= f.button :submit, class: 'btn btn-primary' %>
 	</div>
 <% end %>
-<%= simple_form_for(@employer_post, html: {class: 'form-horizontal'}, :validate => true,  :url=>url_for(:controller=>'employer_posts', :action=>'create')) do |f| %>
+<%= simple_form_for(@employer_post, html: {class: 'form-horizontal'}, :validate => true, :url=>url_for(:controller=>'employer_posts', :action=>'create')) do |f| %>
 
 	<%= f.input :title %>
 	<%= f.input :desc %>
-	<%= f.association :job, label_method: lambda { |el| t "#{el.job_name}"} %>
+	<%= f.association :job, label_method: lambda { |el| t "#{el.job_name}" } %>
+	<%= f.input :pay_period, as: :radio_buttons, collection: ["daily", "weekly", "monthly"], label_method: lambda { |el| t "#{el}" } %>
 	<%= f.input :min_salary, as: :string %>
 	<%= f.input :max_salary, as: :string %>
 	<%= f.input :year_of_experience, as: :string %>
-	<%= f.association :sex, as: :radio_buttons, item_wrapper_class: 'inline', label_method: lambda { |el| t "#{el.name}"}%>
+	<%= f.association :sex, as: :radio_buttons, item_wrapper_class: 'inline', label_method: lambda { |el| t "#{el.name}" } %>
 	<%= f.input :min_age, as: :string %>
 	<%= f.input :max_age, as: :string %>
-	<%= f.association :district %>
+	<div id="employer_post_district">
+		<%= render partial: "districts", locals: { name: "employer_post" } %>
+	</div>
 	<%= f.association :province %>
 	<%= f.input :phone %>
 	<%= f.input :email %>

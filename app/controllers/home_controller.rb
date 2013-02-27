@@ -39,28 +39,23 @@ class HomeController < ApplicationController
 		if isAllCase
 			@employer_posts = EmployerPost.all
 			@employee_posts = EmployeePost.all
-			puts ">>>>> select all >>>>> "
 		else
 			if selectOthers
 				condition_sql = "'" + unSelectedType.split(",").join("','") + "'"
 				@employer_posts = EmployerPost.other_type( condition_sql )
-				@employee_posts = EmployerPost.other_type( condition_sql )
-				puts ">>>>>  unselect length >>>>   #{@employer_posts.length}"
+				@employee_posts = EmployeePost.other_type( condition_sql )
 			else
 				condition_sql = "'" + searchType.split(",").join("','") + "'"
 				@employer_posts = EmployerPost.selected_type( condition_sql )
-				@employee_posts = EmployerPost.selected_type( condition_sql )
-				puts ">>>>>  select length >>>>   #{@employer_posts.length}"
+				@employee_posts = EmployeePost.selected_type( condition_sql )
 			end
 		end
 
-		respond_to do |format|
-			if params[:searchType].blank?
-				format.html { render nothing: true }
-			else
-				format.html { render nothing: true }
-			end
-		end
+		@posts = @employee_posts + @employer_posts
+
+		# render(:update) do |page|
+		# 	page.replace_html 'post-contents', :partial => 'post_item', :object => @posts 
+		# end
 	end
 
 	def hello
@@ -71,13 +66,13 @@ class HomeController < ApplicationController
 		@districts = province.districts
 
 		@employee_post = EmployeePost.new
-		@employee_post.district = province.districts.first
+		@employee_post.pay_period = "monthly"
 		@employee_post.province = province
 		@employee_post.phone = current_user.phone
 		@employee_post.email = current_user.email
 
 		@employer_post = EmployerPost.new
-		@employer_post.district = province.districts.first
+		@employer_post.pay_period = "monthly"
 		@employer_post.province = province
 		@employer_post.phone = current_user.phone
 		@employer_post.email = current_user.email
@@ -85,6 +80,11 @@ class HomeController < ApplicationController
 		respond_to do |format|
 			format.html 
 		end
+	end
+
+	def update_district_select
+		@districts = District.where(province_id: params[:id])
+		render partial: "districts", locals: { name: params[:name] }
 	end
 
 	def post2

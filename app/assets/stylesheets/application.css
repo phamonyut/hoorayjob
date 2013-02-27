@@ -10,7 +10,6 @@
  *
  *= require jquery.ui.all
  *= require hoorayjob.css
- *= require bootstrap-datepicker
- *= require_self
+  *= require_self
  *= require_tree .
  */

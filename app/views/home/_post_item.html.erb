@@ -1,0 +1,71 @@
+<%= ยังไม่มีงาน if @posts.empty? %>
+<% @posts.each do |post| %>
+	<!-- employee post -->
+	<% if post.instance_of?(EmployeePost) %>
+		<div class="post-post employee">
+			<div class="post-contact">
+				<i class="post-icon employee-man"></i>
+				<div class="post-contact-info">
+					<span class="post-contact-name">คุณ <%= post.user.first_name %> <%= post.user.last_name %> </span>
+					<% unless post.user.phone.nil?  %>
+						<span class="post-contact-tel"><i class="phone"></i><%= post.user.phone %></span>
+					<% end %>
+				</div>
+				<div class="post-money-area">
+					<div class="wage"></div>
+					<div class="detail"><%= post.job.job_name %></div>
+				</div>
+			</div>
+			<div class="post-text">
+				<div class="speech-bubble"></div>
+				<a href="#" class="post-title">
+					<%= post.title %> ย่าน<%= post.district.name %> จังหวัด<%= post.province.name %> 
+					<% unless post.min_salary.nil? %>
+						ต้องการรายได้ <%= post.min_salary %> <%= "- #{post.max_salary}" if post.max_salary %> บาทต่อ<%= post.pay_period %>
+					<% end %>
+					<% if post.year_of_experience.nil? %>
+						ยังไม่มีประสบการณ์
+					<% else %>
+						มีประสบการณ์ <%= post.year_of_experience %> ปี
+					<% end %>
+				</a>
+				<div class="post-date"><%= time_ago_in_words(post.created_at) %></div>
+			</div>
+		</div>
+	<!-- employer post -->
+	<% else %>
+		<div class="post-post">
+			<div class="post-contact">
+				<i class="post-icon money"></i>
+				<div class="post-contact-info">
+					<span class="post-contact-name">คุณ <%= post.user.first_name %> <%= post.user.last_name %> </span>
+					<span class="post-contact-tel"><i class="phone"></i><%= post.user.phone %></span>
+				</div>
+				<div class="post-money-area">
+					<div class="wage"><%= post.max_salary %></div>
+					<div class="detail"> <%= post.pay_period %> </div>
+				</div>
+			</div>
+			<div class="post-text">
+				<div class="speech-bubble"></div>
+				<a href="#" class="post-title">
+					<%= post.title %> หาพนักงาน <%= post.job.job_name %> ย่าน<%= post.district.name %> จังหวัด<%= post.province.name %> 
+					<% unless post.min_salary.nil? %>
+						รายได้ <%= post.min_salary %> <%= "- #{post.max_salary}" if post.max_salary %> บาทต่อ<%= post.pay_period %>
+					<% end %>
+					<% if post.year_of_experience.nil? %>
+						ไม่จำเป็นต้องมีประสบการณ์
+					<% else %>
+						มีประสบการณ์ <%= post.year_of_experience %> ปี
+					<% end %>
+					<% if post.sex.nil? %>
+						ไม่ระบุเพศ
+					<% else %>
+						ต้องการเฉพาะ	 <%= post.sex.name %> เท่านั้น
+					<% end %>
+				</a>
+				<div class="post-date"><%= time_ago_in_words(post.created_at) %></div>
+			</div>
+		</div>
+	<% end %>
+<% end %>

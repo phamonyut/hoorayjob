@@ -9,6 +9,8 @@
 	  		allJobTypeCheckbox  = $(this).find('.options input');
 			allJobTypeCheckbox.each( checkboxChange );
 			addFilterSearch();
+			// Set Click handling on post bubble as same as clicking its link
+			setPostClickHandling();
 		});
 		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 
@@ -29,15 +31,23 @@
 				}	
 			});
 		}
+
+		function setPostClickHandling() {
+			$("div.post-text").click( function() {
+				var link = $(this).children("a.post-title");
+				if(link && link.length > 0) {
+					link[0].click();
+				}
+			});
+		}
+
 	</script>
 <% end %>
 
 <% if user_signed_in? %>
 	<% content_for :header do %>
-		<div class="row">
-			<div class="allCol align-center">
-				<button> ประกาศหาคน / งาน </button>	
-			</div>
+		<div class="align-center">
+			<%= link_to "ประกาศหาคน / หางาน", jobpost_path, class: "button btn-post" %>
 		</div>
 	<% end %>
 <% end %>
@@ -86,7 +96,13 @@
 			<div id="category-selection-bar" class="all"></div>
 		</div>
 	</div>
+
 	<div id="post-contents">
+		<%= render :partial => "post_item", :object => @posts %>
+	</div>
+
+	<!-- <div id="post-contents">
+
 		<div class="post-post">
 			<div class="post-contact">
 				<i class="post-icon money"></i>
@@ -101,8 +117,7 @@
 			</div>
 			<div class="post-text">
 					<div class="speech-bubble"></div>
-					<a href="#" class="post-title">หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์ ต้องการเฉพาะผู้หญิงเท่านั้น หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์</a>
-					
+					<a href="#" class="post-title" onclick="console.log('a')">หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์ ต้องการเฉพาะผู้หญิงเท่านั้น หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์</a>
 			<div class="post-date">2 วันที่แล้ว</div></div>
 		</div>
 
@@ -120,7 +135,7 @@
 			</div>
 			<div class="post-text">
 					<div class="speech-bubble"></div>
-					<a href="#" class="post-title">หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์ ต้องการเฉพาะผู้หญิงเท่านั้น หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์</a>
+					<a href="#" class="post-title" onclick="console.log('b')">หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์ ต้องการเฉพาะผู้หญิงเท่านั้น หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์</a>
 					
 			<div class="post-date">2 วันที่แล้ว</div></div>
 		</div>
@@ -139,12 +154,29 @@
 			</div>
 			<div class="post-text">
 					<div class="speech-bubble"></div>
-					<a href="#" class="post-title">หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์ ต้องการเฉพาะผู้หญิงเท่านั้น หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์</a>
+					<a href="#" class="post-title">หาพนักงานทำความสะอาดบ้าน</a>
 					
 			<div class="post-date">2 วันที่แล้ว</div></div>
 		</div>
 
-
+		<div class="post-post employee">
+			<div class="post-contact">
+				<i class="post-icon employee-unisex"></i>
+				<div class="post-contact-info">
+					<span class="post-contact-name">คุณ เก่ง ชัยชาญ</span>
+					<span class="post-contact-tel"><i class="phone"></i>080-123-4567</span>
+				</div>
+				<div class="post-money-area">
+					<div class="wage"></div>
+					<div class="detail">แม่บ้าน</div>
+				</div>
+			</div>
+			<div class="post-text">
+					<div class="speech-bubble"></div>
+					<a href="#" class="post-title">หาพนักงานทำความสะอาดบ้าน หาพนักงานทำความสะอาดบ้าน หาพนักงานทำความสะอาดบ้าน</a>
+					
+			<div class="post-date">2 วันที่แล้ว</div></div>
+		</div>
 
 		<div class="post-post">
 			<div class="post-contact">
@@ -160,14 +192,11 @@
 			</div>
 			<div class="post-text">
 					<div class="speech-bubble"></div>
-					<a href="#" class="post-title">หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์ ต้องการเฉพาะผู้หญิงเท่านั้น หาพนักงานทำความสะอาดบ้าน ย่านสุขุมวิท ต้องการไปกลับ รายได้ดี ไม่จำเป็นต้องมีประสบการณ์</a>
+					<a href="#" class="post-title">หาพนักงานทำความสะอาดบ้าน</a>
 					
 			<div class="post-date">2 วันที่แล้ว</div></div>
 		</div>
-
-
-
-	</div>
+	</div> -->
 
 
 </div>

@@ -7,12 +7,17 @@
 		/[if IE]
 			%link{href: "/stylesheets/ie-hoorayjob.css", media: "screen", rel: "stylesheet", type: "text/css"}
 		= csrf_meta_tags 
+		:javascript
+			I18n.defaultLocale = "#{I18n.default_locale}"
+			I18n.locale = "#{I18n.locale}"
+		
 		= yield(:head) 
 
 	%body
 		= yield(:noncontainer)
 		- if user_signed_in?
 			- container_class = "signed-in"
+		
 		.container{class: "#{container_class}"}
 			.content
 				%header
@@ -23,10 +28,10 @@
 						#right-aside
 							#login
 								- if user_signed_in?
-									.align-center
-										%h3 #{t :welcome} #{current_user.first_name} #{current_user.last_name}
-										%a.button{href: "#"} ข้อมูลส่วนตัว
-										%a.button{href: "#{signout_path}"} #{t :signout}
+									.user-signed-in
+										%h4 #{t :welcome} #{current_user.first_name} #{current_user.last_name}
+										%a.button.btn-user-profile{href: "#"} #{t :profile}
+										%a.button.btn-sign-out{href: "#{signout_path}"} #{t :signout}
 								- else
 									= form_tag("/signin", :method=>"post") do 
 										.username
@@ -39,20 +44,31 @@
 
 							- unless user_signed_in?
 								#registration
-									%h1 สมัครสมาชิก
-									= simple_form_for(@user, html: {class: 'signup-form'}, validate: true, url: url_for(:controller=>'users', :action=>'create')) do |f| 
-										= f.input :first_name, label: false, placeholder: "ชื่อ นามสกุล" 
+									%h1  #{t :registration}
+									= simple_form_for(@user, html: {class: 'signup-form'}, validate: false, url: url_for(:controller=>'users', :action=>'create')) do |f| 
 										.controls
-											%input#user_username{name: 'user[username]', placeholder: 'ชื่อเพื่อเข้าระบบ (ภาษาอังกฤษ)', size: "50", type: "text"}
-											#user_username_message.help-block
+											%input#user_first_name{name: 'user[first_name]', placeholder: I18n.t(:fullname), size: "50", type: "text", maxlength:"25"}
+											#user_first_name_message.help-block.hide
+										.controls
+											%input#user_username{name: 'user[username]', placeholder: I18n.t(:username_english_only), size: "50", type: "text", maxlength:"12"}
+											#user_username_message.help-block{class:"hide"}
 										= image_tag("LoadingIcons/Loading.gif", alt: "Loading", id: "loading-icon", class: "hide") 
 										= image_tag("LoadingIcons/Yes.png", alt: "Valid", id: "yes-icon", class: "hide") 
 										= image_tag("LoadingIcons/No.png", alt: "Invalid", id: "no-icon", class: "hide") 
-										= f.input :password, label: false, placeholder: "รหัสผ่าน" 
-										= f.input :password_confirmation, label: false, placeholder: "ยืนยันรหัสผ่านอีกครั้ง" 
+										.controls
+											%input#user_password{name: 'user[password]', placeholder: 'รหัสผ่าน', type: 'password'}
+											#user_password_message.help-block.hide
+										.controls
+											%input#user_password_confirmation{name: 'user[password_confirmation]', placeholder: 'ยืนยันรหัสผ่านอีกครั้ง', type: 'password'}
+											#user_password_confirmation_message.help-block.hide
+										
 										.form-actions
-											%button.btn-highlight{name: "commit", type: "submit"} ยืนยันการสมัคร
-
+											%button.btn-highlight{name: "commit", type: "submit"} #{t :register}
+					.social-media
+						%a.fb-like{href:"#"}
+						%a.fb-icon{href:"#"}
+						%a.twitter-icon{href:"#"}
+						
 					= yield(:header)
 						
 				= yield
@@ -60,7 +76,7 @@
 				%footer
 					.contact-info
 						%span
-						%span ติดต่อเรา HOORAYjob.com
+						%span #{t :contact_us} HOORAYjob.com
 						%br           
-						%span อีเมล์: hooray@email.com โทร: 080-123-4567
+						%span #{t :email}: hooray@email.com #{t :tel}: 080-123-4567
 					.footer-logo

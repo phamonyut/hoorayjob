@@ -10,7 +10,11 @@ en:
   title_marketing_word: the sexy way to discover & subscribe job
   tryit: Try it free!
   search: Search
+  registration: Registration
+  register: Register
+  fullname: First name & Last name
   username: Username
+  username_english_only: Username (English)
   password: Password
   signin: Sign in
   signup: Sign up
@@ -18,6 +22,7 @@ en:
   not_member: Not a member yet ?
   hooray: Hooray
   back_to_home_page: Back to home page
+  profile: Profile
   edit_profile: Edit Profile
   all_posts: All Posts
   employer_posts: Employer Posts
@@ -37,6 +42,9 @@ en:
   baby-sitter: Baby-Sitter
   nurse: Nurse
   driver: Driver
+  daily: Daily
+  weekly: Weekly
+  monthly: Monthly
 
   posting: Posting
   employee_posted_success: Successfully Posted.
@@ -48,8 +56,20 @@ en:
   apply_for: Apply for
   want_to: Want to
 
+  fullname_blank: Fullname cannot be blank
   checking_username: Checking username...
+  username_blank: Username cannot be blank
   username_valid: Username is valid
+  invalid_username_character: Invalid character(s) in the username
+  password_blank: Password cannot be blank
+  password_confirmation_blank: Password confirmation cannot be blank
+  password_all_spaces: All characters of password cannot be space
+  password_greater_than_or_equal_6_char: Password must be greater than or equal to 6 characters
+  password_and_password_confirmation_not_same: Password doesn't match confirmation
+
+  contact_us: Contact
+  email: E-mail
+  tel: Tel
 
   simple_form:
     labels:
@@ -71,6 +91,7 @@ en:
         title: Title
         desc: Description
         job: Job
+        pay_period: Pay Period
         min_salary: Minimum Salary
         max_salary: Maximum Salary
         year_of_experience: Years of Experience
@@ -82,6 +103,7 @@ en:
         title: Title
         desc: Description
         job: Job
+        pay_period: Pay Period
         min_salary: Minimum Salary
         max_salary: Maximum Salary
         year_of_experience: Years of Experience
@@ -92,6 +114,8 @@ en:
         province: Province
         phone: Phone
         email: Email
+
+  district: District
 
   date:
     abbr_day_names:
