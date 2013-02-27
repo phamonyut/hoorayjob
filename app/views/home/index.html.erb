@@ -101,10 +101,10 @@
 	<div id="post-category">
 		<div id="post-category-group">
 			<div id="category-selection" class="all"></div>
-			<a id="category-left" class="active" href="#" onclick="filterPost('all')">แสดงประกาศทั้งหมด</a>
-			<a id="category-right" href="#" onclick="filterPost('employee')">เฉพาะคนที่กำลังหางาน</a>
+			<a id="category-left" class="active" href="#" data-category="all" onclick="filterPost('all')">แสดงประกาศทั้งหมด</a>
+			<a id="category-right" href="#" data-category="employee" onclick="filterPost('employee')">เฉพาะคนที่กำลังหางาน</a>
 			<center>
-				<a id="category-center" href="#" onclick="filterPost('employer')">เฉพาะงานจากนายจ้าง</a>
+				<a id="category-center" href="#" data-category="employer" onclick="filterPost('employer')">เฉพาะงานจากนายจ้าง</a>
 			</center>
 			<div id="category-selection-bar" class="all"></div>
 		</div>

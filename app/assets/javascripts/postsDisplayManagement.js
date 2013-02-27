@@ -61,12 +61,9 @@ function addFilterSearch(){
 }
 
 function finishFiltered(){
-
+	filterPost(  $('#post-category-group a.active').data('category') );
 }
 
 function renderPartialPosts( data ) {
-	// alert(data);
 	$("#post-contents").html(data);
-	// $('#post-contents').html('<%= render :partial => "post_item", :object => @posts %>');
-	// $(“#post-contents”).html(“<%= escape_javascript render( :partial => "post_item", :locals => { :posts => data } ) %>”);
 }
