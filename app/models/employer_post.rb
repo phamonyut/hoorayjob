@@ -41,32 +41,4 @@ class EmployerPost < ActiveRecord::Base
   def postCategory
     "#{self.class.name}"
   end
-
-  def self.selected_type( types )
-    if( types and !types.blank? )
-      self.connection.execute(
-                        sanitize_sql([
-                          "select * 
-                           from employer_posts e, jobs j 
-                           where e.job_id = j.id
-                           and j.job_name in( " + types + ")" ]))
-    else
-      puts "****** NOT have types"
-      self.all
-    end
-  end
-  
-
-  def self.other_type( exclude_types )
-    if( exclude_types and !exclude_types.blank? )
-      self.connection.execute(
-                        sanitize_sql([
-                          "select * 
-                           from employer_posts e, jobs j 
-                           where e.job_id = j.id
-                           and j.job_name not in( " + exclude_types + ")" ]))
-    else
-      self.all 
-    end
-  end
 end

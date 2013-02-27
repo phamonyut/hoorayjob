@@ -54,6 +54,7 @@ function addFilterSearch(){
 	    $.ajax({
 	      url: "updateSearch",
 	      data: { searchType: selectedType, unSelected: unSelectedType },
+	      success: renderPartialPosts
 	    }).always(finishFiltered);
 
 	});
@@ -61,4 +62,11 @@ function addFilterSearch(){
 
 function finishFiltered(){
 
+}
+
+function renderPartialPosts( data ) {
+	// alert(data);
+	$("#post-contents").html(data);
+	// $('#post-contents').html('<%= render :partial => "post_item", :object => @posts %>');
+	// $(“#post-contents”).html(“<%= escape_javascript render( :partial => "post_item", :locals => { :posts => data } ) %>”);
 }

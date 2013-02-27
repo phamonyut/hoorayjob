@@ -41,21 +41,20 @@ class HomeController < ApplicationController
 			@employee_posts = EmployeePost.all
 		else
 			if selectOthers
-				condition_sql = "'" + unSelectedType.split(",").join("','") + "'"
-				@employer_posts = EmployerPost.other_type( condition_sql )
-				@employee_posts = EmployeePost.other_type( condition_sql )
+				temp = unSelectedType.split(",")
+				condition_sql = Job.all.map(&:job_name).reject{ |e| temp.include? e }
+				@employer_posts = EmployerPost.joins(:job).where( 'jobs.job_name' => condition_sql ).all
+				@employee_posts = EmployeePost.joins(:job).where( 'jobs.job_name' => condition_sql ).all
 			else
-				condition_sql = "'" + searchType.split(",").join("','") + "'"
-				@employer_posts = EmployerPost.selected_type( condition_sql )
-				@employee_posts = EmployeePost.selected_type( condition_sql )
+				condition_sql = searchType.split(",")
+				@employer_posts = EmployerPost.joins(:job).where( 'jobs.job_name' => condition_sql ).all
+				@employee_posts = EmployeePost.joins(:job).where( 'jobs.job_name' => condition_sql ).all
 			end
 		end
 
 		@posts = @employee_posts + @employer_posts
 
-		# render(:update) do |page|
-		# 	page.replace_html 'post-contents', :partial => 'post_item', :object => @posts 
-		# end
+		render :partial => "post_item", :layout => false, :locals => {:posts => @posts}
 	end
 
 	def hello
